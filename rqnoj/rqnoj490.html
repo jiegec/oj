@@ -1,0 +1,342 @@
+<!doctype HTML>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="keywords" content="OJ,OI,ACM,信息学,题库,比赛,测试数据,RQNOJ" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <title>[NOI1995]石子合并 - 题库 - RQNOJ</title>
+  <link type="text/css" rel="stylesheet" href="/static/css/styles.css">
+  <link href="//static.rqnoj.cn/css/font-awesome.min.css" rel="stylesheet">
+  <script src="//static.rqnoj.cn/js/jquery-1.9.1.min.js"></script>
+  <script src="//static.rqnoj.cn/js/jquery.scrollTo.min.js"></script>
+  <script src="//static.rqnoj.cn/js/jquery.localScroll.min.js"></script>
+  <script src="/static/js/global.js"></script>
+  <script src="//static.rqnoj.cn/js/lazyload-min.js"></script>
+  <script src="/static/js/views.js"></script>
+  <script src="//static.rqnoj.cn/js/jquery.placeholder.min.js"></script>
+  <script src="/static/js/functions.js"></script>
+  <script src="/static/js/user.js"></script>
+</head>
+<body>
+  <div id="up" class="hide"><i class="fa fa-arrow-up"></i></div>
+  <div id="msg">
+    <div class="title"></div>
+    <div class="msg"></div>
+    <div class="link"><a href="#">点这里查看</a></div>
+  </div>
+  </div>
+  <div id="nav">
+    <ul>
+      <li id="logo">
+        <a href="/" id="logo-img"><img src="//static.rqnoj.cn/images/logo.png"></a>
+              </li>
+      <li class="tab current"><a href="/problem">题库</a></li>
+      <li class="tab"><a href="/contest">比赛</a></li>
+      <li class="tab"><a href="/wenba">问吧</a></li>
+      <li class="tab"><a href="/discussion">讨论</a></li>
+      <li class="tab"><a href="/status">统计</a></li>
+      <li>
+        <div id="search-box">
+          <input type="text" id="search"><span id="search-icon"></span>
+        </div>
+      </li>
+      <li id="user">
+        <div class="info">
+          <div class="main"></div>
+          <div class="sub"></div>
+        </div>
+        <div class="img">
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="wrap">
+<script>
+var simple_tags = [{"tag_id":"11","tag_name":"\u52a8\u6001\u89c4\u5212","parent":"2"}];
+var more_tags = [{"parent_id":"2","parent_name":"\u7c7b\u578b","child":[{"tag_id":"11","tag_name":"\u52a8\u6001\u89c4\u5212"}]},{"parent_id":"3","parent_name":"\u6765\u6e90","child":[{"tag_id":"511","tag_name":"NOI1995"}]}];
+var problem_level = [{"count":"1","level":"3"},{"count":"5","level":"5"}];
+var quality_chart = [0,0,16.6,0,83.3].reverse();
+var problem_state = {"code":0,"msg":"\u8bf7\u5148\u767b\u5f55"};
+var problem_detail = {"vid":"489","problem_id":"489","vpid":"490","voj_id":"1","ac_count":"1337","submit_count":"4263","virtual_problem_type":"1","publish_uid":"9413","time_publish":"2013-10-24 18:27:02","title":"[NOI1995]\u77f3\u5b50\u5408\u5e76","title_in_eng":null,"description":"    \u5728\u4e00\u4e2a\u56ed\u5f62\u64cd\u573a\u7684\u56db\u5468\u6446\u653eN\u5806\u77f3\u5b50,\u73b0\u8981\u5c06\u77f3\u5b50\u6709\u6b21\u5e8f\u5730\u5408\u5e76\u6210\u4e00\u5806.\u89c4\u5b9a\u6bcf\u6b21\u53ea\u80fd\u9009\u76f8\u90bb\u76842\u5806\u5408\u5e76\u6210\u65b0\u7684\u4e00\u5806\uff0c\u5e76\u5c06\u65b0\u7684\u4e00\u5806\u7684\u77f3\u5b50\u6570\uff0c\u8bb0\u4e3a\u8be5\u6b21\u5408\u5e76\u7684\u5f97\u5206\u3002\n    \u8bd5\u8bbe\u8ba1\u51fa1\u4e2a\u7b97\u6cd5,\u8ba1\u7b97\u51fa\u5c06N\u5806\u77f3\u5b50\u5408\u5e76\u62101\u5806\u7684\u6700\u5c0f\u5f97\u5206\u548c\u6700\u5927\u5f97\u5206.","input_format":"    \u6570\u636e\u7684\u7b2c1\u884c\u8bd5\u6b63\u6574\u6570N,1\u2264N\u2264100,\u8868\u793a\u6709N\u5806\u77f3\u5b50.\u7b2c2\u884c\u6709N\u4e2a\u6570,\u5206\u522b\u8868\u793a\u6bcf\u5806\u77f3\u5b50\u7684\u4e2a\u6570.","output_format":"    \u8f93\u51fa\u51712\u884c,\u7b2c1\u884c\u4e3a\u6700\u5c0f\u5f97\u5206,\u7b2c2\u884c\u4e3a\u6700\u5927\u5f97\u5206.","sample":[{"input":"4\n4 4 5 9","output":"43\n54"}],"hint":null,"data_point":"10","quality":"9","maxlen":"0"};
+var user_level    = {"code":0,"msg":"\u7528\u6237\u672a\u767b\u5f55\n"};
+var user_code     = {"code":0,"msg":"\u767b\u5f55\u540e\u624d\u53ef\u4ee5\u67e5\u770b\u4fdd\u5b58\u7684\u4ee3\u7801\u54e6!"};
+var voj_id = 1;
+var vpid = 490;
+var pid = 489;
+var login_state = false;
+var discuss_lastid = 8620;
+</script>
+<div id="problem-detail" class="section">
+  <div id="problem-title" class="bar">
+    <span class="title">
+      PID490 / [NOI1995]石子合并      </span>
+    <span class="title" style="cursor:pointer" id="do_problem_fav">☆</span>
+    <ul>
+      <li><a href="#problem-submit">提交你的代码</a></li>
+      <li><a href="#problem-detail-talk">查看讨论和题解</a></li>
+    </ul>
+  </div>
+  <!-- <div id="contest-info-bar-before" class="sub-bar">
+  CID10001 / RQNOJ 新版上线庆功赛 剩余时间为    
+  <span class="clock">2小时59分</span>
+  <div class="select right">
+  <span class="selected">A</span>
+  <span>B</span>
+  <span>C</span>
+  <span>D</span>
+  </div>
+  <div class="clear"></div>
+  </div> -->
+  <div id="problem-detail-info" class="sub-bar">
+    <div class="status dropdown-menu">
+      <img class="icon" src="/static/images/blank.png">
+      <div class="before"></div>
+      <div class="after">
+        <div class="my-status">
+          <div class="subtitle">
+            我的状态
+          </div>
+          <div class="ac">
+          </div>
+          <div class="time">
+          </div>
+          <div class="timecost">
+          </div>
+          <div class="ramcost">
+          </div>
+        </div>
+        <div class="extra-bar">
+          查看最后一次评测记录
+          <div class="button-s">
+            <img src="/static/img/36_lightgrey_circle_status.png">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="score dropdown-menu">
+      <img class="icon" src="/static/images/static.png">
+      <div class="before"></div>
+      <div class="after">
+        <div class="subtitle">题目评价</div>
+        <div class="em">
+          <div class="left">质量</div>
+          <div class="right" id="score-dropdown-after-quality"></div>
+          <div class="clear"></div>
+        </div>
+        <div class="left">
+          <div>★★★★★</div>
+          <div>★★★★☆</div>
+          <div>★★★☆☆</div>
+          <div>★★☆☆☆</div>
+          <div>★☆☆☆☆</div>
+        </div>
+        <div class="left chart" style="width:100px; overflow:hidden;"></div>
+        <div class="clear"></div>
+        <!--
+        <div class="em">
+        <div class="left">热度</div>
+        <div class="right">3.9</div>
+        <div class="clear"></div>
+        </div>
+        -->
+        <!-- <div class="extra-bar">
+        先通过才能评分哟～
+        <div class="button-s">
+        <img src="img/36_lightgrey_circle_rateswitch.png">
+        </div>
+        </div> -->
+        <div class="extra-bar">
+          <div class="stars" star=4>
+            <!-- ☆ -->
+            <div class="star" nth=1>★</div>
+            <div class="star" nth=2>★</div>
+            <div class="star" nth=3>★</div>
+            <div class="star" nth=4>★</div>
+            <div class="star" nth=5>★</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="acinfo dropdown-menu">
+      <img class="icon" src="/static/images/button-check.png">
+      <div class="before">通过人数 1337 / 4263</div>
+      <div class="after">
+        <div class="subtitle">通过统计</div>
+        <div class="left leftsource">
+        </div>
+        <div class="left chart"></div>
+        <div class="clear"></div>
+        <div class="em">
+          <div class="left">
+            最短耗时
+          </div>
+          <div class="right" id="mintime">
+            0ms          </div>
+          <div class="clear"></div>
+        </div>
+        <div class="em">
+          <div class="left">
+            最小内存
+          </div>
+          <div class="right" id="minmem">
+            0KB          </div>
+          <div class="clear"></div>
+        </div>
+      </div>
+    </div>
+    <div class="tags dropdown-menu">
+      <img class="icon" src="/static/images/tag.png">
+      <div class="before"></div>
+      <div class="after">
+        <div class="subtitle">题目标签</div>
+        <div class="moretag">
+        </div>
+        <!--
+        <div class="extra-bar">
+        先通过才能添加标签哦~
+        <div class="button-s">
+        <img src="/static/img/36_lightgrey_circle_add.png">
+        </div>
+        </div>
+        -->
+      </div>
+    </div>
+  </div>
+  <div class="content">
+    <div class="item">
+      <span class="item-title">题目描述</span>
+      <p>    在一个园形操场的四周摆放N堆石子,现要将石子有次序地合并成一堆.规定每次只能选相邻的2堆合并成新的一堆，并将新的一堆的石子数，记为该次合并的得分。</p><p>    试设计出1个算法,计算出将N堆石子合并成1堆的最小得分和最大得分.</p>
+    </div>
+    <div class="item">
+      <span class="item-title">输入格式</span>
+      <p>    数据的第1行试正整数N,1≤N≤100,表示有N堆石子.第2行有N个数,分别表示每堆石子的个数.</p>
+    </div>
+    <div class="item">
+      <span class="item-title">输出格式</span>
+      <p>    输出共2行,第1行为最小得分,第2行为最大得分.</p>
+    </div>
+        <div class="item left">
+      <span class="item-title">样例输入</span>
+      <textarea>4
+4 4 5 9</textarea>
+    </div>
+    <div class="item right">
+      <span class="item-title">样例输出</span>
+      <textarea>43
+54</textarea>
+    </div>
+        <div class="clear"></div>
+  </div>
+</div>
+<div id="problem-detail">
+  <a href="http://focus.topschool.org/201403oi/" target="_blank">
+    <div style="background: url(/static/ads/problem_tb.jpg) no-repeat left center; width: 900px; height: 100px"></div>
+  </a>
+</div>
+<div id="problem-submit" class="section">
+  <div id="problem-submit-bar" class="sub-bar">
+    <span class="title">提交题目</span>
+    <span id="language"><img class="icon" src="/static/images/language.png"><strong class="now">
+Error [ 更改语言 ]     </strong> Language</span>
+    <div id="pro-detail-submit-done" class="button-l right">
+      <img src="/static/img/48_grey_circle__0001_Shape-1-copy-18.png">
+    </div>
+    <div id="pro-detail-submit-save" class="button-l right">
+      <img src="/static/img/48_grey_circle__0019_Shape-1-copy-40.png">
+    </div>
+  </div>
+  <div id="language-bar">
+    <span class="c_cpp" data-lang="c">C</span>
+    <span class="c_cpp" data-lang="cpp">C++</span>
+    <span class="java" data-lang="java">Java</span>
+    <span class="pascal" data-lang="pascal">Pascal</span>
+    <span class="python" data-lang="python">Python2</span>
+  </div>
+  <div id="editor" class="scroll-pane">
+    <div class="editor-login">
+      <div class="editor-notice">
+        拥有 RQNOJ 账号，您可以：
+        <ul>
+          <li>查看海量题库，并提交您的代码</li>
+          <li>参加比赛，证明实力</li>
+          <li>与大家讨论，解答疑问，分享心得</li>
+        </ul>
+        <button class="editor-button" onclick="location.href='/member/register'">注册</button>
+      </div>
+      <div class="editor-form">
+        <form id="editor-login" method="post" action="javascript:">
+          已有账号？
+          <input class="editor-input" type="text" name="username" placeholder="用户名" />
+          <input class="editor-input" type="password" name="password" placeholder="密码" />
+          <input id="safecode" class="safecode" type="text" name="safecode" placeholder="验证码" />
+          <div id="safecode-info"></div>
+          <button class="editor-button">登录</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section" id="problem-detail-talk">
+  <div class="sub-bar">
+    <span class="title">
+      相关讨论
+    </span>
+    <div class="button-l right" id="problem-detail-talk-add-button">
+      <img src="/static/img/48_grey_circle__0008_Shape-1-copy-48.png">
+    </div>
+  </div>
+  <ul>
+    <li><a href="/discussion/12928">[ 讨论 ] c++ </a> 8月前&nbsp;/&nbsp;0&nbsp;回复&nbsp;/&nbsp0&nbsp;顶</li><li><a href="/discussion/8620">[ 讨论 ] 为什么90分 </a> 1年前&nbsp;/&nbsp;2&nbsp;回复&nbsp;/&nbsp0&nbsp;顶</li><li><a href="/discussion/11163">[ 讨论 ] 实在不知道为什么错了……WA30分 </a> 1年前&nbsp;/&nbsp;0&nbsp;回复&nbsp;/&nbsp0&nbsp;顶</li><li><a href="/discussion/11011">[ 讨论 ] 我真惆怅了 </a> 2年前&nbsp;/&nbsp;0&nbsp;回复&nbsp;/&nbsp0&nbsp;顶</li><li><a href="/discussion/10899">[ 讨论 ] NOI 1995 石子归并与四边形不等式问题求大神 </a> 2年前&nbsp;/&nbsp;0&nbsp;回复&nbsp;/&nbsp0&nbsp;顶</li>  </ul>
+  <div id="problem-detail-talk-more" class="more">
+      查看更多讨论
+  </div>
+</div>
+
+<div class="section" id="problem-detail-talk-add">
+  <div class="sub-bar">
+    <span class="title">
+        发布新讨论
+    </span>
+    <span id="problem-talk-add-type">
+      <img class="icon" src="/static/img/48_grey_circle__0020_Shape-1-copy-40.png">
+      <strong>讨论</strong>
+    </span>
+    <div class="button-l right" id="problem-detail-talk-add-submit">
+      <img src="/static/img/48_grey_circle__0001_Shape-1-copy-18.png">
+    </div>
+    <div class="button-l right" id="problem-detail-talk-add-close">
+      <img src="/static/img/48_grey_circle__0006_Shape-1-copy-48.png">
+    </div>
+  </div>
+  <textarea id="problem-talk-add-title" placeholder="标题"></textarea>
+  <textarea id="problem-talk-add-content" placeholder="添加新讨论"></textarea>
+</div>
+
+<script src="/static/js/pro-detail.js"></script>
+<pre id="footer">
+  <a href="/help">快速帮助</a> | <a href="/status/monitor">运行状态</a> | <a href="/feedback">反馈举报</a> | <a href="/about">关于我们</a> | <a href="/legal">免责声明</a> | <a href="#">浙ICP备11060257号</a>
+
+    Processed in 0.0645	Second(s)
+    Copyright (C) RQNOJ 2007-2014. All Rights Reserved.
+</pre>
+<script>
+	var uid = 0;
+</script>
+<!-- Piwik -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(["trackPageView"]);
+  _paq.push(["enableLinkTracking"]);
+
+  (function() {
+    var u=(("https:" == document.location.protocol) ? "https" : "http") + "://analysis.rqnoj.cn/";
+    _paq.push(["setTrackerUrl", u+"piwik.php"]);
+    _paq.push(["setSiteId", "1"]);
+    var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+    g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Piwik Code -->
+  </div><!-- #wrap end -->
+</body>

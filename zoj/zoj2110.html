@@ -1,0 +1,240 @@
+
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+    <head>
+        <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
+        <META HTTP-EQUIV="EXPIRES" CONTENT="0">
+
+        <title>ZOJ :: Problems :: Show Problem</title>
+        <link rel="stylesheet" href="/onlinejudge/style/zoj.css" type="text/css">
+        <script language="javascript" src="/onlinejudge/js/zoj.js"></script>
+    </head>
+
+    <body id="page" >
+        <div id="container">
+            <div id="header">
+<img src="/onlinejudge/image/banner.jpg" width="770"/></div>
+            <div id="loginbar">
+                
+
+
+
+                <div class="welcome_msg">Welcome to ZOJ</div>
+                <div class="login_info">
+                    
+                        <a href="/onlinejudge/login.do">Login</a> 
+                        
+                        | <a href="/onlinejudge/register.do">Register</a>
+                                            	
+                    
+                    
+                </div>
+
+            </div>
+            <div id="minibar">
+                
+
+
+
+
+
+
+
+
+                <div id="menus">
+                <a  href="/onlinejudge/">Home</a>
+                
+                | <a  href="/onlinejudge/showContests.do">Contests</a>
+                
+                
+                | <a class="selected" href="/onlinejudge/showProblemsets.do">Problems</a>
+                
+                | <a  href="/forum/">Forum</a> 
+                
+                
+                
+                
+                | <a href="/donation/">Donation</a>
+                </div>
+
+
+            </div>
+            <table id="main">
+                <tr>
+                <td width="169" height="100%" style="vertical-align:top">
+                    <table id="leftnav" cellspacing="1" height="100%">
+                       
+
+
+
+
+                <tr><td class="nav_header">
+                    <img src="/onlinejudge/image/arrow_sub2.gif"><div><a href="/onlinejudge/showProblemsets.do">Problem Sets</a></div></img>
+                </td></tr>
+                
+                
+                    
+                
+                <tr><td class="item">
+                    <a href="/onlinejudge/problemsetInfo.do?contestId=1">Information</a>
+                </td></tr>
+                <tr><td class="item">
+                    <a href="/onlinejudge/showProblems.do?contestId=1">Select Problem</a>
+                </td></tr>
+                <!--
+                <tr><td class="item">
+                    <a href="/onlinejudge/searchProblem.do?contestId=1">Search Problem</a>
+                </td></tr>
+                -->
+                <tr><td class="item">
+                    <a href="/onlinejudge/showRuns.do?contestId=1">Runs</a>
+                </td></tr>
+                <tr><td class="item">
+                    <a href="/onlinejudge/showRankList.do?contestId=1&from=0&order=AC">Ranklist</a>
+                </td></tr>
+                <!--
+                <tr><td class="item">
+                    <a href="/onlinejudge/clarification.do?contestId=1">Clarification</a>
+                </td></tr>
+                -->
+                
+                   
+                
+                
+
+                <tr><td class="icpc_logo"><img src="/onlinejudge/image/cpc_acm.jpg"/></td></tr>
+
+                    </table>
+                </td>
+                <td id="content" style="vertical-align:top">
+                    
+
+
+
+
+
+
+
+
+
+        
+        
+        <div id="content_title">ZOJ Problem Set - 2110</div>
+        <div id="content_body">
+            <center><span class="bigProblemTitle">Tempter of the Bone</span></center>
+            <hr>
+            <center>
+                <font color="green">Time Limit: </font> 2 Seconds
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <font color="green">Memory Limit: </font> 65536 KB
+                
+            </center>
+            <hr>
+            <p>The doggie found a bone in an ancient maze, which fascinated him a lot. However, 
+  when he picked it up, the maze began to shake, and the doggie could feel the 
+  ground sinking. He realized that the bone was a trap, and he tried desperately 
+  to get out of this maze.<br>
+  <br>
+  The maze was a rectangle with sizes N by M. There was a door in the maze. At 
+  the beginning, the door was closed and it would open at the T-th second for 
+  a short period of time (less than 1 second). Therefore the doggie had to arrive 
+  at the door on exactly the T-th second. In every second, he could move one block 
+  to one of the upper, lower, left and right neighboring blocks. Once he entered 
+  a block, the ground of this block would start to sink and disappear in the next 
+  second. He could not stay at one block for more than one second, nor could he 
+  move into a visited block. Can the poor doggie survive? Please help him.</p>
+<p><br>
+  <b>Input</b><br>
+  <br>
+  The input consists of multiple test cases. The first line of each test case 
+  contains three integers N, M, and T (1 &lt; N, M &lt; 7; 0 &lt; T &lt; 50), 
+  which denote the sizes of the maze and the time at which the door will open, 
+  respectively. The next N lines give the maze layout, with each line containing 
+  M characters. A character is one of the following:<br>
+  <br>
+  'X': a block of wall, which the doggie cannot enter; <br>
+  'S': the start point of the doggie; <br>
+  'D': the Door; or<br>
+  '.': an empty block.<br>
+  <br>
+  The input is terminated with three 0's. This test case is not to be processed.</p>
+<p><br>
+  <b>Output</b><br>
+  <br>
+  For each test case, print in one line &quot;YES&quot; if the doggie can survive, 
+  or &quot;NO&quot; otherwise.</p>
+<p><br>
+  <b>Sample Input</b><br>
+  <br>
+  4 4 5<br>
+  S.X.<br>
+  ..X.<br>
+  ..XD<br>
+  ....<br>
+  3 4 5<br>
+  S.X.<br>
+  ..X.<br>
+  ...D<br>
+  0 0 0</p>
+<p><b><br>
+  Sample Output</b><br>
+  <br>
+  NO<br>
+  YES</p>
+<p><b><br>
+</b>
+</p>
+
+            <hr>
+            
+                Author: <strong>ZHANG, Zheng</strong><br>
+            
+            
+                Source: <strong>Zhejiang Provincial Programming Contest 2004</strong><br>
+            
+            
+            <center>
+                <a href="/onlinejudge/submit.do?problemId=1110"><font color="blue">Submit</font></a>
+                
+                &nbsp;&nbsp;
+                <a href="/onlinejudge/showProblemStatus.do?problemId=1110"><font color="blue">Status</font></a>
+                
+                
+            </center>
+        </div>
+        
+
+
+                </td>
+                </tr>
+            </table>
+            <div id="footer">
+                
+	<hr>
+	<p>Copyright @ 2001-2014, Zhejiang University ACM/ICPC Team, All rights reserved.</p>
+	
+
+            </div>
+        </div>
+    </body>
+</html>
+
+

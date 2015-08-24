@@ -1,0 +1,239 @@
+
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+    <head>
+        <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
+        <META HTTP-EQUIV="EXPIRES" CONTENT="0">
+
+        <title>ZOJ :: Problems :: Show Problem</title>
+        <link rel="stylesheet" href="/onlinejudge/style/zoj.css" type="text/css">
+        <script language="javascript" src="/onlinejudge/js/zoj.js"></script>
+    </head>
+
+    <body id="page" >
+        <div id="container">
+            <div id="header">
+<img src="/onlinejudge/image/banner.jpg" width="770"/></div>
+            <div id="loginbar">
+                
+
+
+
+                <div class="welcome_msg">Welcome to ZOJ</div>
+                <div class="login_info">
+                    
+                        <a href="/onlinejudge/login.do">Login</a> 
+                        
+                        | <a href="/onlinejudge/register.do">Register</a>
+                                            	
+                    
+                    
+                </div>
+
+            </div>
+            <div id="minibar">
+                
+
+
+
+
+
+
+
+
+                <div id="menus">
+                <a  href="/onlinejudge/">Home</a>
+                
+                | <a  href="/onlinejudge/showContests.do">Contests</a>
+                
+                
+                | <a class="selected" href="/onlinejudge/showProblemsets.do">Problems</a>
+                
+                | <a  href="/forum/">Forum</a> 
+                
+                
+                
+                
+                | <a href="/donation/">Donation</a>
+                </div>
+
+
+            </div>
+            <table id="main">
+                <tr>
+                <td width="169" height="100%" style="vertical-align:top">
+                    <table id="leftnav" cellspacing="1" height="100%">
+                       
+
+
+
+
+                <tr><td class="nav_header">
+                    <img src="/onlinejudge/image/arrow_sub2.gif"><div><a href="/onlinejudge/showProblemsets.do">Problem Sets</a></div></img>
+                </td></tr>
+                
+                
+                    
+                
+                <tr><td class="item">
+                    <a href="/onlinejudge/problemsetInfo.do?contestId=1">Information</a>
+                </td></tr>
+                <tr><td class="item">
+                    <a href="/onlinejudge/showProblems.do?contestId=1">Select Problem</a>
+                </td></tr>
+                <!--
+                <tr><td class="item">
+                    <a href="/onlinejudge/searchProblem.do?contestId=1">Search Problem</a>
+                </td></tr>
+                -->
+                <tr><td class="item">
+                    <a href="/onlinejudge/showRuns.do?contestId=1">Runs</a>
+                </td></tr>
+                <tr><td class="item">
+                    <a href="/onlinejudge/showRankList.do?contestId=1&from=0&order=AC">Ranklist</a>
+                </td></tr>
+                <!--
+                <tr><td class="item">
+                    <a href="/onlinejudge/clarification.do?contestId=1">Clarification</a>
+                </td></tr>
+                -->
+                
+                   
+                
+                
+
+                <tr><td class="icpc_logo"><img src="/onlinejudge/image/cpc_acm.jpg"/></td></tr>
+
+                    </table>
+                </td>
+                <td id="content" style="vertical-align:top">
+                    
+
+
+
+
+
+
+
+
+
+        
+        
+        <div id="content_title">ZOJ Problem Set - 2156</div>
+        <div id="content_body">
+            <center><span class="bigProblemTitle">Charlie&#39;s Change</span></center>
+            <hr>
+            <center>
+                <font color="green">Time Limit: </font> 2 Seconds
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <font color="green">Memory Limit: </font> 65536 KB
+                
+            </center>
+            <hr>
+            <P>
+Charlie is a driver of Advanced Cargo Movement, Ltd. Charlie drives a lot and
+so he often buys coffee at coffee vending machines at motorests. Charlie
+hates change. That is basically the setup of your next task.
+
+<P>
+Your program will be given numbers and types of coins Charlie has and
+the coffee price. The coffee vending machines
+accept coins of values 1, 5, 10, and 25 cents.
+The program should output which coins Charlie has to use paying
+the coffee so that he uses as many coins as possible.
+Because Charlie really does not want any change
+back he wants to pay the price exactly.
+
+<P>
+<h3>Input Specification</h3>
+Each line of the input contains five integer numbers separated by a&nbsp;single
+space describing one situation to solve.
+The first integer on the line <VAR>P</VAR>,
+1 <img alt="<=" src="showImage.do?name=0000%2F2156%2Fle.gif">  
+<VAR>P</VAR> <img alt="<=" src="showImage.do?name=0000%2F2156%2Fle.gif">  10&nbsp;000, is the coffee price in cents. Next four integers,
+<VAR>C</VAR><SUB>1</SUB>, <VAR>C</VAR><SUB>2</SUB>, <VAR>C</VAR><SUB>3</SUB>, <VAR>C</VAR><SUB>4</SUB>, 0 
+<img alt="<=" src="showImage.do?name=0000%2F2156%2Fle.gif">  <VAR>C</VAR><SUB><VAR>i</VAR></SUB> 
+<img alt="<=" src="showImage.do?name=0000%2F2156%2Fle.gif">  10&nbsp;000, are the numbers of cents,
+nickels (5 cents), dimes (10 cents), and quarters (25 cents) in
+Charlie's valet.
+The last line of the input contains five zeros and no output should be
+generated for it.
+
+<P>
+<h3>Output Specification</h3>
+For each situation, your program should output one line containing
+the string "<tt>Throw in T1 cents, T2 nickels,
+T3 dimes, and T4 quarters.</tt>", where <VAR>T</VAR><SUB>1</SUB>, <VAR>T</VAR><SUB>2</SUB>, <VAR>T</VAR><SUB>3</SUB>, <VAR>T</VAR><SUB>4</SUB> are the numbers
+of coins of appropriate values Charlie should use to pay the coffee
+while using as many coins as possible.
+In the case Charlie does not possess enough change to pay the price
+of the coffee exactly,
+your program should output "<tt>Charlie cannot buy coffee.</tt>".
+
+<P>
+<h3>Sample Input</h3>
+<PRE>
+12 5 3 1 2
+16 0 0 0 1
+0 0 0 0 0
+</PRE>
+<P>
+<h3>Sample Output</h3>
+<PRE>
+Throw in 2 cents, 2 nickels, 0 dimes, and 0 quarters.
+Charlie cannot buy coffee.
+</PRE>
+
+<P>
+
+            <hr>
+            
+            
+                Source: <strong>Czech Technical University Open 2003</strong><br>
+            
+            
+            <center>
+                <a href="/onlinejudge/submit.do?problemId=1156"><font color="blue">Submit</font></a>
+                
+                &nbsp;&nbsp;
+                <a href="/onlinejudge/showProblemStatus.do?problemId=1156"><font color="blue">Status</font></a>
+                
+                
+            </center>
+        </div>
+        
+
+
+                </td>
+                </tr>
+            </table>
+            <div id="footer">
+                
+	<hr>
+	<p>Copyright @ 2001-2014, Zhejiang University ACM/ICPC Team, All rights reserved.</p>
+	
+
+            </div>
+        </div>
+    </body>
+</html>
+
+

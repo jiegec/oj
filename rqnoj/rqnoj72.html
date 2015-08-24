@@ -1,0 +1,344 @@
+<!doctype HTML>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="keywords" content="OJ,OI,ACM,信息学,题库,比赛,测试数据,RQNOJ" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <title>拔河比赛 - 题库 - RQNOJ</title>
+  <link type="text/css" rel="stylesheet" href="/static/css/styles.css">
+  <link href="//static.rqnoj.cn/css/font-awesome.min.css" rel="stylesheet">
+  <script src="//static.rqnoj.cn/js/jquery-1.9.1.min.js"></script>
+  <script src="//static.rqnoj.cn/js/jquery.scrollTo.min.js"></script>
+  <script src="//static.rqnoj.cn/js/jquery.localScroll.min.js"></script>
+  <script src="/static/js/global.js"></script>
+  <script src="//static.rqnoj.cn/js/lazyload-min.js"></script>
+  <script src="/static/js/views.js"></script>
+  <script src="//static.rqnoj.cn/js/jquery.placeholder.min.js"></script>
+  <script src="/static/js/functions.js"></script>
+  <script src="/static/js/user.js"></script>
+</head>
+<body>
+  <div id="up" class="hide"><i class="fa fa-arrow-up"></i></div>
+  <div id="msg">
+    <div class="title"></div>
+    <div class="msg"></div>
+    <div class="link"><a href="#">点这里查看</a></div>
+  </div>
+  </div>
+  <div id="nav">
+    <ul>
+      <li id="logo">
+        <a href="/" id="logo-img"><img src="//static.rqnoj.cn/images/logo.png"></a>
+              </li>
+      <li class="tab current"><a href="/problem">题库</a></li>
+      <li class="tab"><a href="/contest">比赛</a></li>
+      <li class="tab"><a href="/wenba">问吧</a></li>
+      <li class="tab"><a href="/discussion">讨论</a></li>
+      <li class="tab"><a href="/status">统计</a></li>
+      <li>
+        <div id="search-box">
+          <input type="text" id="search"><span id="search-icon"></span>
+        </div>
+      </li>
+      <li id="user">
+        <div class="info">
+          <div class="main"></div>
+          <div class="sub"></div>
+        </div>
+        <div class="img">
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="wrap">
+<script>
+var simple_tags = [{"tag_id":"11","tag_name":"\u52a8\u6001\u89c4\u5212","parent":"2"}];
+var more_tags = [{"parent_id":"2","parent_name":"\u7c7b\u578b","child":[{"tag_id":"11","tag_name":"\u52a8\u6001\u89c4\u5212"}]}];
+var problem_level = [{"count":"1","level":"3"},{"count":"1","level":"4"},{"count":"2","level":"5"}];
+var quality_chart = [0,0,25,25,50].reverse();
+var problem_state = {"code":0,"msg":"\u8bf7\u5148\u767b\u5f55"};
+var problem_detail = {"vid":"71","problem_id":"71","vpid":"72","voj_id":"1","ac_count":"2405","submit_count":"5563","virtual_problem_type":"1","publish_uid":"67","time_publish":"2013-10-24 18:16:34","title":"\u62d4\u6cb3\u6bd4\u8d5b","title_in_eng":null,"description":"superwyh\u7684\u5b66\u6821\u8981\u4e3e\u884c\u62d4\u6cb3\u6bd4\u8d5b\uff0c\u4e3a\u4e86\u5728\u8d5b\u524d\u953b\u70bc\u5927\u5bb6\uff0c\u8001\u5e08\u51b3\u5b9a\u628a\u73ed\u91cc\u6240\u6709\u4eba\u5206\u4e3a\u4e24\u62e8\uff0c\u8fdb\u884c\u62d4\u6cb3\u56e0\u4e3a\u4e3a\u953b\u70bc\u6240\u4ee5\u4e3a\u4e86\u907f\u514d\u5176\u4e2d\u4e00\u65b9\u7684\u5b9e\u529b\u8fc7\u5f3a\u8001\u5e08\u51b3\u5b9a\u4ee5\u4f53\u91cd\u6765\u5212\u5206\u961f\u4f0d\uff0c\u5c3d\n\n\u91cf\u4fdd\u6301\u4e24\u4e2a\u961f\u4f0d\u7684\u4f53\u91cd\u5dee\u6700\u5c11\uff0c\u56e0\u4e3a\u8001\u5e08\u5bf9\u7ed3\u679c\u6ca1\u5174\u8da3\uff0c\u6240\u4ee5\u53ea\u544a\u8bc9\u8001\u5e08\u6700\u5c0f\u7684\u4f53\u91cd\u5dee\u662f\u591a\u5c11\u5c31\u884c\u4e86\u3002\u8fd9\u4e2a\u53d7\u82e6\u53d7\u7d2f\u7684\u4efb\u52a1\u5c31\u4ea4\u7ed9superwyh\u4e86\uff0c\u56e0\u4e3a\u8fd9\u4e24\u5929superwyh\u7684\u540e\u80cc\u95f4\u8c0dsjh\n\n\u95f9\u809a\u5b50\u4e86\uff0c\u6240\u4ee5\u53ea\u597dsuperwyh\u4eb2\u81ea\u53bb\u8c03\u67e5\u6bcf\u4e2a\u4eba\u7684\u4f53\u91cd\uff0c\u4f46\u662f\u4ec5\u4ec5\u77e5\u9053\u4f53\u91cd\u4f9d\u7136\u96be\u4ee5\u786e\u5b9a\u5230\u5e95\u5982\u4f55\u5206\u914d\u961f\u4f0d\uff0c\u8bf7\u5404\u4f4doier\u5e2e\u52a9superwyh\u51fa\u51fa\u4e3b\u610f\u3002","input_format":"\u7b2c\u4e00\u884c\u4e3a\u4eba\u6570(1<=n<=100)\uff0c\u4ece\u7b2c\u4e8c\u884c\u5f00\u59cb\u662f\u6bcf\u4e2a\u4eba\u7684\u4f53\u91cd(0<=m<=100)\u3002","output_format":"\u6700\u5c0f\u4f53\u91cd\u5dee\u3002","sample":[{"input":"4\n10\n23\n41\n12","output":"4"}],"hint":null,"data_point":"10","quality":"9","maxlen":"0"};
+var user_level    = {"code":0,"msg":"\u7528\u6237\u672a\u767b\u5f55\n"};
+var user_code     = {"code":0,"msg":"\u767b\u5f55\u540e\u624d\u53ef\u4ee5\u67e5\u770b\u4fdd\u5b58\u7684\u4ee3\u7801\u54e6!"};
+var voj_id = 1;
+var vpid = 72;
+var pid = 71;
+var login_state = false;
+var discuss_lastid = 1227;
+</script>
+<div id="problem-detail" class="section">
+  <div id="problem-title" class="bar">
+    <span class="title">
+      PID72 / 拔河比赛      </span>
+    <span class="title" style="cursor:pointer" id="do_problem_fav">☆</span>
+    <ul>
+      <li><a href="#problem-submit">提交你的代码</a></li>
+      <li><a href="#problem-detail-talk">查看讨论和题解</a></li>
+    </ul>
+  </div>
+  <!-- <div id="contest-info-bar-before" class="sub-bar">
+  CID10001 / RQNOJ 新版上线庆功赛 剩余时间为    
+  <span class="clock">2小时59分</span>
+  <div class="select right">
+  <span class="selected">A</span>
+  <span>B</span>
+  <span>C</span>
+  <span>D</span>
+  </div>
+  <div class="clear"></div>
+  </div> -->
+  <div id="problem-detail-info" class="sub-bar">
+    <div class="status dropdown-menu">
+      <img class="icon" src="/static/images/blank.png">
+      <div class="before"></div>
+      <div class="after">
+        <div class="my-status">
+          <div class="subtitle">
+            我的状态
+          </div>
+          <div class="ac">
+          </div>
+          <div class="time">
+          </div>
+          <div class="timecost">
+          </div>
+          <div class="ramcost">
+          </div>
+        </div>
+        <div class="extra-bar">
+          查看最后一次评测记录
+          <div class="button-s">
+            <img src="/static/img/36_lightgrey_circle_status.png">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="score dropdown-menu">
+      <img class="icon" src="/static/images/static.png">
+      <div class="before"></div>
+      <div class="after">
+        <div class="subtitle">题目评价</div>
+        <div class="em">
+          <div class="left">质量</div>
+          <div class="right" id="score-dropdown-after-quality"></div>
+          <div class="clear"></div>
+        </div>
+        <div class="left">
+          <div>★★★★★</div>
+          <div>★★★★☆</div>
+          <div>★★★☆☆</div>
+          <div>★★☆☆☆</div>
+          <div>★☆☆☆☆</div>
+        </div>
+        <div class="left chart" style="width:100px; overflow:hidden;"></div>
+        <div class="clear"></div>
+        <!--
+        <div class="em">
+        <div class="left">热度</div>
+        <div class="right">3.9</div>
+        <div class="clear"></div>
+        </div>
+        -->
+        <!-- <div class="extra-bar">
+        先通过才能评分哟～
+        <div class="button-s">
+        <img src="img/36_lightgrey_circle_rateswitch.png">
+        </div>
+        </div> -->
+        <div class="extra-bar">
+          <div class="stars" star=4>
+            <!-- ☆ -->
+            <div class="star" nth=1>★</div>
+            <div class="star" nth=2>★</div>
+            <div class="star" nth=3>★</div>
+            <div class="star" nth=4>★</div>
+            <div class="star" nth=5>★</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="acinfo dropdown-menu">
+      <img class="icon" src="/static/images/button-check.png">
+      <div class="before">通过人数 2405 / 5563</div>
+      <div class="after">
+        <div class="subtitle">通过统计</div>
+        <div class="left leftsource">
+        </div>
+        <div class="left chart"></div>
+        <div class="clear"></div>
+        <div class="em">
+          <div class="left">
+            最短耗时
+          </div>
+          <div class="right" id="mintime">
+            0ms          </div>
+          <div class="clear"></div>
+        </div>
+        <div class="em">
+          <div class="left">
+            最小内存
+          </div>
+          <div class="right" id="minmem">
+            0KB          </div>
+          <div class="clear"></div>
+        </div>
+      </div>
+    </div>
+    <div class="tags dropdown-menu">
+      <img class="icon" src="/static/images/tag.png">
+      <div class="before"></div>
+      <div class="after">
+        <div class="subtitle">题目标签</div>
+        <div class="moretag">
+        </div>
+        <!--
+        <div class="extra-bar">
+        先通过才能添加标签哦~
+        <div class="button-s">
+        <img src="/static/img/36_lightgrey_circle_add.png">
+        </div>
+        </div>
+        -->
+      </div>
+    </div>
+  </div>
+  <div class="content">
+    <div class="item">
+      <span class="item-title">题目描述</span>
+      <p>superwyh的学校要举行拔河比赛，为了在赛前锻炼大家，老师决定把班里所有人分为两拨，进行拔河因为为锻炼所以为了避免其中一方的实力过强老师决定以体重来划分队伍，尽</p><p></p><p>量保持两个队伍的体重差最少，因为老师对结果没兴趣，所以只告诉老师最小的体重差是多少就行了。这个受苦受累的任务就交给superwyh了，因为这两天superwyh的后背间谍sjh</p><p></p><p>闹肚子了，所以只好superwyh亲自去调查每个人的体重，但是仅仅知道体重依然难以确定到底如何分配队伍，请各位oier帮助superwyh出出主意。</p>
+    </div>
+    <div class="item">
+      <span class="item-title">输入格式</span>
+      <p>第一行为人数(1&lt;=n&lt;=100)，从第二行开始是每个人的体重(0&lt;=m&lt;=100)。</p>
+    </div>
+    <div class="item">
+      <span class="item-title">输出格式</span>
+      <p>最小体重差。</p>
+    </div>
+        <div class="item left">
+      <span class="item-title">样例输入</span>
+      <textarea>4
+10
+23
+41
+12</textarea>
+    </div>
+    <div class="item right">
+      <span class="item-title">样例输出</span>
+      <textarea>4</textarea>
+    </div>
+        <div class="clear"></div>
+  </div>
+</div>
+<div id="problem-detail">
+  <a href="http://focus.topschool.org/201403oi/" target="_blank">
+    <div style="background: url(/static/ads/problem_tb.jpg) no-repeat left center; width: 900px; height: 100px"></div>
+  </a>
+</div>
+<div id="problem-submit" class="section">
+  <div id="problem-submit-bar" class="sub-bar">
+    <span class="title">提交题目</span>
+    <span id="language"><img class="icon" src="/static/images/language.png"><strong class="now">
+Error [ 更改语言 ]     </strong> Language</span>
+    <div id="pro-detail-submit-done" class="button-l right">
+      <img src="/static/img/48_grey_circle__0001_Shape-1-copy-18.png">
+    </div>
+    <div id="pro-detail-submit-save" class="button-l right">
+      <img src="/static/img/48_grey_circle__0019_Shape-1-copy-40.png">
+    </div>
+  </div>
+  <div id="language-bar">
+    <span class="c_cpp" data-lang="c">C</span>
+    <span class="c_cpp" data-lang="cpp">C++</span>
+    <span class="java" data-lang="java">Java</span>
+    <span class="pascal" data-lang="pascal">Pascal</span>
+    <span class="python" data-lang="python">Python2</span>
+  </div>
+  <div id="editor" class="scroll-pane">
+    <div class="editor-login">
+      <div class="editor-notice">
+        拥有 RQNOJ 账号，您可以：
+        <ul>
+          <li>查看海量题库，并提交您的代码</li>
+          <li>参加比赛，证明实力</li>
+          <li>与大家讨论，解答疑问，分享心得</li>
+        </ul>
+        <button class="editor-button" onclick="location.href='/member/register'">注册</button>
+      </div>
+      <div class="editor-form">
+        <form id="editor-login" method="post" action="javascript:">
+          已有账号？
+          <input class="editor-input" type="text" name="username" placeholder="用户名" />
+          <input class="editor-input" type="password" name="password" placeholder="密码" />
+          <input id="safecode" class="safecode" type="text" name="safecode" placeholder="验证码" />
+          <div id="safecode-info"></div>
+          <button class="editor-button">登录</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section" id="problem-detail-talk">
+  <div class="sub-bar">
+    <span class="title">
+      相关讨论
+    </span>
+    <div class="button-l right" id="problem-detail-talk-add-button">
+      <img src="/static/img/48_grey_circle__0008_Shape-1-copy-48.png">
+    </div>
+  </div>
+  <ul>
+    <li><a href="/discussion/13250">[ 讨论 ] eee数据暴弱 </a> 2月前&nbsp;/&nbsp;3&nbsp;回复&nbsp;/&nbsp2&nbsp;顶</li><li><a href="/discussion/13234">[ 讨论 ] ACACAC </a> 3月前&nbsp;/&nbsp;1&nbsp;回复&nbsp;/&nbsp0&nbsp;顶</li><li><a href="/discussion/13174">[ 讨论 ] 背包问题啊 </a> 4月前&nbsp;/&nbsp;0&nbsp;回复&nbsp;/&nbsp0&nbsp;顶</li><li><a href="/discussion/1227">[ 讨论 ] 哈哈哈哈哈哈 </a> 8月前&nbsp;/&nbsp;8&nbsp;回复&nbsp;/&nbsp0&nbsp;顶</li><li><a href="/discussion/11878">[ 讨论 ] 60分~~~~~????????????? </a> 11月前&nbsp;/&nbsp;1&nbsp;回复&nbsp;/&nbsp0&nbsp;顶</li>  </ul>
+  <div id="problem-detail-talk-more" class="more">
+      查看更多讨论
+  </div>
+</div>
+
+<div class="section" id="problem-detail-talk-add">
+  <div class="sub-bar">
+    <span class="title">
+        发布新讨论
+    </span>
+    <span id="problem-talk-add-type">
+      <img class="icon" src="/static/img/48_grey_circle__0020_Shape-1-copy-40.png">
+      <strong>讨论</strong>
+    </span>
+    <div class="button-l right" id="problem-detail-talk-add-submit">
+      <img src="/static/img/48_grey_circle__0001_Shape-1-copy-18.png">
+    </div>
+    <div class="button-l right" id="problem-detail-talk-add-close">
+      <img src="/static/img/48_grey_circle__0006_Shape-1-copy-48.png">
+    </div>
+  </div>
+  <textarea id="problem-talk-add-title" placeholder="标题"></textarea>
+  <textarea id="problem-talk-add-content" placeholder="添加新讨论"></textarea>
+</div>
+
+<script src="/static/js/pro-detail.js"></script>
+<pre id="footer">
+  <a href="/help">快速帮助</a> | <a href="/status/monitor">运行状态</a> | <a href="/feedback">反馈举报</a> | <a href="/about">关于我们</a> | <a href="/legal">免责声明</a> | <a href="#">浙ICP备11060257号</a>
+
+    Processed in 0.0714	Second(s)
+    Copyright (C) RQNOJ 2007-2014. All Rights Reserved.
+</pre>
+<script>
+	var uid = 0;
+</script>
+<!-- Piwik -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(["trackPageView"]);
+  _paq.push(["enableLinkTracking"]);
+
+  (function() {
+    var u=(("https:" == document.location.protocol) ? "https" : "http") + "://analysis.rqnoj.cn/";
+    _paq.push(["setTrackerUrl", u+"piwik.php"]);
+    _paq.push(["setSiteId", "1"]);
+    var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+    g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Piwik Code -->
+  </div><!-- #wrap end -->
+</body>

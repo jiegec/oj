@@ -1,0 +1,265 @@
+
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+    <head>
+        <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
+        <META HTTP-EQUIV="EXPIRES" CONTENT="0">
+
+        <title>ZOJ :: Problems :: Show Problem</title>
+        <link rel="stylesheet" href="/onlinejudge/style/zoj.css" type="text/css">
+        <script language="javascript" src="/onlinejudge/js/zoj.js"></script>
+    </head>
+
+    <body id="page" >
+        <div id="container">
+            <div id="header">
+<img src="/onlinejudge/image/banner.jpg" width="770"/></div>
+            <div id="loginbar">
+                
+
+
+
+                <div class="welcome_msg">Welcome to ZOJ</div>
+                <div class="login_info">
+                    
+                        <a href="/onlinejudge/login.do">Login</a> 
+                        
+                        | <a href="/onlinejudge/register.do">Register</a>
+                                            	
+                    
+                    
+                </div>
+
+            </div>
+            <div id="minibar">
+                
+
+
+
+
+
+
+
+
+                <div id="menus">
+                <a  href="/onlinejudge/">Home</a>
+                
+                | <a  href="/onlinejudge/showContests.do">Contests</a>
+                
+                
+                | <a class="selected" href="/onlinejudge/showProblemsets.do">Problems</a>
+                
+                | <a  href="/forum/">Forum</a> 
+                
+                
+                
+                
+                | <a href="/donation/">Donation</a>
+                </div>
+
+
+            </div>
+            <table id="main">
+                <tr>
+                <td width="169" height="100%" style="vertical-align:top">
+                    <table id="leftnav" cellspacing="1" height="100%">
+                       
+
+
+
+
+                <tr><td class="nav_header">
+                    <img src="/onlinejudge/image/arrow_sub2.gif"><div><a href="/onlinejudge/showProblemsets.do">Problem Sets</a></div></img>
+                </td></tr>
+                
+                
+                    
+                
+                <tr><td class="item">
+                    <a href="/onlinejudge/problemsetInfo.do?contestId=1">Information</a>
+                </td></tr>
+                <tr><td class="item">
+                    <a href="/onlinejudge/showProblems.do?contestId=1">Select Problem</a>
+                </td></tr>
+                <!--
+                <tr><td class="item">
+                    <a href="/onlinejudge/searchProblem.do?contestId=1">Search Problem</a>
+                </td></tr>
+                -->
+                <tr><td class="item">
+                    <a href="/onlinejudge/showRuns.do?contestId=1">Runs</a>
+                </td></tr>
+                <tr><td class="item">
+                    <a href="/onlinejudge/showRankList.do?contestId=1&from=0&order=AC">Ranklist</a>
+                </td></tr>
+                <!--
+                <tr><td class="item">
+                    <a href="/onlinejudge/clarification.do?contestId=1">Clarification</a>
+                </td></tr>
+                -->
+                
+                   
+                
+                
+
+                <tr><td class="icpc_logo"><img src="/onlinejudge/image/cpc_acm.jpg"/></td></tr>
+
+                    </table>
+                </td>
+                <td id="content" style="vertical-align:top">
+                    
+
+
+
+
+
+
+
+
+
+        
+        
+        <div id="content_title">ZOJ Problem Set - 2165</div>
+        <div id="content_body">
+            <center><span class="bigProblemTitle">Red and Black</span></center>
+            <hr>
+            <center>
+                <font color="green">Time Limit: </font> 2 Seconds
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <font color="green">Memory Limit: </font> 65536 KB
+                
+            </center>
+            <hr>
+            <p>There is a rectangular room, covered with square tiles. Each tile is
+colored either red or black. A man is standing on a black tile.
+From a tile, he can move to one of four adjacent tiles. But he can't 
+move on red tiles, he can move only on black tiles.</p>
+
+<p>Write a program to count the number of black tiles which he can reach 
+by repeating the moves described above. </p>
+
+<p><br>
+  <b>Input</b></p>
+<P>The input consists of multiple data sets.
+ A data set starts with a line containing two positive integers <I>W</I> and <I>H</I>;
+ <I>W</I> and <I>H</I> are the numbers of tiles in the <I>x</I>-
+ and <I>y</I>- directions, respectively. <I>W</I> and <I>H</I> are 
+not more than 20.</P>
+
+<P>  There are <I>H</I> more lines in the data set, each of which
+includes <I>W</I> characters. Each character represents the color of a
+tile as follows.</P>
+
+<ul>
+<li>'.' - a black tile
+<li>'#' - a red tile
+<li>'@' - a man on a black tile(appears exactly once in a data set)
+</ul>
+
+<p><br>
+  <b>Output</b></p>
+<P>
+  For each data set, your program 
+should output a line which contains the number of 
+tiles he can reach from the initial tile (including itself).
+</P>
+<p><br>
+  <b>Sample Input</b></p>
+<p>
+6 9<br>
+....#.<br>
+.....#<br>
+......<br>
+......<br>
+......<br>
+......<br>
+......<br>
+#@...#<br>
+.#..#.<br>
+11 9<br>
+.#.........<br>
+.#.#######.<br>
+.#.#.....#.<br>
+.#.#.###.#.<br>
+.#.#..@#.#.<br>
+.#.#####.#.<br>
+.#.......#.<br>
+.#########.<br>
+...........<br>
+11 6<br>
+..#..#..#..<br>
+..#..#..#..<br>
+..#..#..###<br>
+..#..#..#@.<br>
+..#..#..#..<br>
+..#..#..#..<br>
+7 7<br>
+..#.#..<br>
+..#.#..<br>
+###.###<br>
+...@...<br>
+###.###<br>
+..#.#..<br>
+..#.#..<br>
+0 0<br>
+</p>
+<p><b><br>
+  Sample Output</b></p>
+<p>
+45<br>
+59<br>
+6<br>
+13<br>
+</p>
+
+            <hr>
+            
+            
+                Source: <strong>Asia 2004, Ehime (Japan), Japan Domestic</strong><br>
+            
+            
+            <center>
+                <a href="/onlinejudge/submit.do?problemId=1165"><font color="blue">Submit</font></a>
+                
+                &nbsp;&nbsp;
+                <a href="/onlinejudge/showProblemStatus.do?problemId=1165"><font color="blue">Status</font></a>
+                
+                
+            </center>
+        </div>
+        
+
+
+                </td>
+                </tr>
+            </table>
+            <div id="footer">
+                
+	<hr>
+	<p>Copyright @ 2001-2014, Zhejiang University ACM/ICPC Team, All rights reserved.</p>
+	
+
+            </div>
+        </div>
+    </body>
+</html>
+
+

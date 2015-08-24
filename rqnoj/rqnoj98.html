@@ -1,0 +1,349 @@
+<!doctype HTML>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="keywords" content="OJ,OI,ACM,信息学,题库,比赛,测试数据,RQNOJ" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <title>逃亡的准备 - 题库 - RQNOJ</title>
+  <link type="text/css" rel="stylesheet" href="/static/css/styles.css">
+  <link href="//static.rqnoj.cn/css/font-awesome.min.css" rel="stylesheet">
+  <script src="//static.rqnoj.cn/js/jquery-1.9.1.min.js"></script>
+  <script src="//static.rqnoj.cn/js/jquery.scrollTo.min.js"></script>
+  <script src="//static.rqnoj.cn/js/jquery.localScroll.min.js"></script>
+  <script src="/static/js/global.js"></script>
+  <script src="//static.rqnoj.cn/js/lazyload-min.js"></script>
+  <script src="/static/js/views.js"></script>
+  <script src="//static.rqnoj.cn/js/jquery.placeholder.min.js"></script>
+  <script src="/static/js/functions.js"></script>
+  <script src="/static/js/user.js"></script>
+</head>
+<body>
+  <div id="up" class="hide"><i class="fa fa-arrow-up"></i></div>
+  <div id="msg">
+    <div class="title"></div>
+    <div class="msg"></div>
+    <div class="link"><a href="#">点这里查看</a></div>
+  </div>
+  </div>
+  <div id="nav">
+    <ul>
+      <li id="logo">
+        <a href="/" id="logo-img"><img src="//static.rqnoj.cn/images/logo.png"></a>
+              </li>
+      <li class="tab current"><a href="/problem">题库</a></li>
+      <li class="tab"><a href="/contest">比赛</a></li>
+      <li class="tab"><a href="/wenba">问吧</a></li>
+      <li class="tab"><a href="/discussion">讨论</a></li>
+      <li class="tab"><a href="/status">统计</a></li>
+      <li>
+        <div id="search-box">
+          <input type="text" id="search"><span id="search-icon"></span>
+        </div>
+      </li>
+      <li id="user">
+        <div class="info">
+          <div class="main"></div>
+          <div class="sub"></div>
+        </div>
+        <div class="img">
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="wrap">
+<script>
+var simple_tags = [{"tag_id":"11","tag_name":"\u52a8\u6001\u89c4\u5212","parent":"2"}];
+var more_tags = [{"parent_id":"2","parent_name":"\u7c7b\u578b","child":[{"tag_id":"11","tag_name":"\u52a8\u6001\u89c4\u5212"}]}];
+var problem_level = [{"count":"2","level":"5"}];
+var quality_chart = [0,0,0,0,100].reverse();
+var problem_state = {"code":0,"msg":"\u8bf7\u5148\u767b\u5f55"};
+var problem_detail = {"vid":"97","problem_id":"97","vpid":"98","voj_id":"1","ac_count":"1412","submit_count":"4490","virtual_problem_type":"1","publish_uid":"543","time_publish":"2013-10-24 18:16:35","title":"\u9003\u4ea1\u7684\u51c6\u5907","title_in_eng":null,"description":"\u3010\u95ee\u9898\u63cf\u8ff0\u3011\n\u5728\u300aHarry Potter and the Deathly Hallows\u300b\u4e2d\uff0cHarry Potter\u4ed6\u4eec\u4e00\u8d77\u9003\u4ea1\uff0c\u73b0\u5728\u6709\u8bb8\u591a\u7684\u4e1c\u897f\u8981\u653e\u5230\u8d6b\u654f\u7684\u5305\u91cc\u9762\uff0c\u4f46\u662f\u5305\u7684\u5927\u5c0f\u6709\u9650\uff0c\u6240\u4ee5\u6211\u4eec\u53ea\u80fd\u591f\u5728\u91cc\u9762\u653e\u5165\u975e\u5e38\u91cd\u8981\u7684\u7269\u54c1\uff0c\u73b0\u5728\u7ed9\u51fa\u8be5\u79cd\u7269\u54c1\u7684\u6570\u91cf\u3001\u4f53\u79ef\u3001\u4ef7\u503c\u7684\u6570\u503c\uff0c\u5e0c\u671b\u4f60\u80fd\u591f\u7b97\u51fa\u600e\u6837\u80fd\u4f7f\u80cc\u5305\u7684\u4ef7\u503c\u6700\u5927\u7684\u7ec4\u5408\u65b9\u5f0f\uff0c\u5e76\u4e14\u8f93\u51fa\u8fd9\u4e2a\u6570\u503c\uff0c\u8d6b\u654f\u4f1a\u975e\u5e38\u5730\u611f\u8c22\u4f60\u3002\n\u51fa\u81ea:\u5b9c\u660c\u4e00\u4e2d\n\u3010\u6570\u636e\u89c4\u6a21\u3011\n\u5bf9\u4e8e30%\u7684\u6570\u636e\n1<=v<=500\n1<=n<=2000\n1<=m<=10\n1<=w<=20\n1<=s<=100\n\n\u5bf9\u4e8e100%\u7684\u6570\u636e\n1<=v<=500\n1<=n<=2000\n1<=m<=5000\n1<=w<=20\n1<=s<=100","input_format":"\u3010\u8f93\u5165\u3011\n\uff081\uff09\u7b2c\u4e00\u884c\u67092\u4e2a\u6574\u6570\uff0c\u7269\u54c1\u79cd\u6570n\u548c\u80cc\u5305\u88c5\u8f7d\u4f53\u79efv\u3002\n\uff082\uff092\u884c\u5230n+1\u884c\u6bcf\u884c3\u4e2a\u6574\u6570\uff0c\u4e3a\u7b2ci\u79cd\u7269\u54c1\u7684\u6570\u91cfm\u3001\u4f53\u79efw\u3001\u4ef7\u503cs\u3002.\n","output_format":"\u3010\u8f93\u51fa\u3011\n\u4ec5\u5305\u542b\u4e00\u4e2a\u6574\u6570\uff0c\u5373\u4e3a\u80fd\u62ff\u5230\u7684\u6700\u5927\u7684\u7269\u54c1\u4ef7\u503c\u603b\u548c\u3002\n","sample":[{"input":"2 10                            \n3 4 3\n2 2 5\n","output":"13\n"}],"hint":"\u6837\u4f8b\u89e3\u91ca\uff1a\u9009\u7b2c\u4e00\u79cd\u4e00\u4e2a\uff0c\u7b2c\u4e8c\u79cd\u4e24\u4e2a\u3002","data_point":"10","quality":"10","maxlen":"0"};
+var user_level    = {"code":0,"msg":"\u7528\u6237\u672a\u767b\u5f55\n"};
+var user_code     = {"code":0,"msg":"\u767b\u5f55\u540e\u624d\u53ef\u4ee5\u67e5\u770b\u4fdd\u5b58\u7684\u4ee3\u7801\u54e6!"};
+var voj_id = 1;
+var vpid = 98;
+var pid = 97;
+var login_state = false;
+var discuss_lastid = 6847;
+</script>
+<div id="problem-detail" class="section">
+  <div id="problem-title" class="bar">
+    <span class="title">
+      PID98 / 逃亡的准备      </span>
+    <span class="title" style="cursor:pointer" id="do_problem_fav">☆</span>
+    <ul>
+      <li><a href="#problem-submit">提交你的代码</a></li>
+      <li><a href="#problem-detail-talk">查看讨论和题解</a></li>
+    </ul>
+  </div>
+  <!-- <div id="contest-info-bar-before" class="sub-bar">
+  CID10001 / RQNOJ 新版上线庆功赛 剩余时间为    
+  <span class="clock">2小时59分</span>
+  <div class="select right">
+  <span class="selected">A</span>
+  <span>B</span>
+  <span>C</span>
+  <span>D</span>
+  </div>
+  <div class="clear"></div>
+  </div> -->
+  <div id="problem-detail-info" class="sub-bar">
+    <div class="status dropdown-menu">
+      <img class="icon" src="/static/images/blank.png">
+      <div class="before"></div>
+      <div class="after">
+        <div class="my-status">
+          <div class="subtitle">
+            我的状态
+          </div>
+          <div class="ac">
+          </div>
+          <div class="time">
+          </div>
+          <div class="timecost">
+          </div>
+          <div class="ramcost">
+          </div>
+        </div>
+        <div class="extra-bar">
+          查看最后一次评测记录
+          <div class="button-s">
+            <img src="/static/img/36_lightgrey_circle_status.png">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="score dropdown-menu">
+      <img class="icon" src="/static/images/static.png">
+      <div class="before"></div>
+      <div class="after">
+        <div class="subtitle">题目评价</div>
+        <div class="em">
+          <div class="left">质量</div>
+          <div class="right" id="score-dropdown-after-quality"></div>
+          <div class="clear"></div>
+        </div>
+        <div class="left">
+          <div>★★★★★</div>
+          <div>★★★★☆</div>
+          <div>★★★☆☆</div>
+          <div>★★☆☆☆</div>
+          <div>★☆☆☆☆</div>
+        </div>
+        <div class="left chart" style="width:100px; overflow:hidden;"></div>
+        <div class="clear"></div>
+        <!--
+        <div class="em">
+        <div class="left">热度</div>
+        <div class="right">3.9</div>
+        <div class="clear"></div>
+        </div>
+        -->
+        <!-- <div class="extra-bar">
+        先通过才能评分哟～
+        <div class="button-s">
+        <img src="img/36_lightgrey_circle_rateswitch.png">
+        </div>
+        </div> -->
+        <div class="extra-bar">
+          <div class="stars" star=4>
+            <!-- ☆ -->
+            <div class="star" nth=1>★</div>
+            <div class="star" nth=2>★</div>
+            <div class="star" nth=3>★</div>
+            <div class="star" nth=4>★</div>
+            <div class="star" nth=5>★</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="acinfo dropdown-menu">
+      <img class="icon" src="/static/images/button-check.png">
+      <div class="before">通过人数 1412 / 4490</div>
+      <div class="after">
+        <div class="subtitle">通过统计</div>
+        <div class="left leftsource">
+        </div>
+        <div class="left chart"></div>
+        <div class="clear"></div>
+        <div class="em">
+          <div class="left">
+            最短耗时
+          </div>
+          <div class="right" id="mintime">
+            0ms          </div>
+          <div class="clear"></div>
+        </div>
+        <div class="em">
+          <div class="left">
+            最小内存
+          </div>
+          <div class="right" id="minmem">
+            0KB          </div>
+          <div class="clear"></div>
+        </div>
+      </div>
+    </div>
+    <div class="tags dropdown-menu">
+      <img class="icon" src="/static/images/tag.png">
+      <div class="before"></div>
+      <div class="after">
+        <div class="subtitle">题目标签</div>
+        <div class="moretag">
+        </div>
+        <!--
+        <div class="extra-bar">
+        先通过才能添加标签哦~
+        <div class="button-s">
+        <img src="/static/img/36_lightgrey_circle_add.png">
+        </div>
+        </div>
+        -->
+      </div>
+    </div>
+  </div>
+  <div class="content">
+    <div class="item">
+      <span class="item-title">题目描述</span>
+      <p>【问题描述】</p><p>在《Harry Potter and the Deathly Hallows》中，Harry Potter他们一起逃亡，现在有许多的东西要放到赫敏的包里面，但是包的大小有限，所以我们只能够在里面放入非常重要的物品，现在给出该种物品的数量、体积、价值的数值，希望你能够算出怎样能使背包的价值最大的组合方式，并且输出这个数值，赫敏会非常地感谢你。</p><p>出自:宜昌一中</p><p>【数据规模】</p><p>对于30%的数据</p><p>1&lt;=v&lt;=500</p><p>1&lt;=n&lt;=2000</p><p>1&lt;=m&lt;=10</p><p>1&lt;=w&lt;=20</p><p>1&lt;=s&lt;=100</p><p></p><p>对于100%的数据</p><p>1&lt;=v&lt;=500</p><p>1&lt;=n&lt;=2000</p><p>1&lt;=m&lt;=5000</p><p>1&lt;=w&lt;=20</p><p>1&lt;=s&lt;=100</p>
+    </div>
+    <div class="item">
+      <span class="item-title">输入格式</span>
+      <p>【输入】</p><p>（1）第一行有2个整数，物品种数n和背包装载体积v。</p><p>（2）2行到n+1行每行3个整数，为第i种物品的数量m、体积w、价值s。.</p><p></p>
+    </div>
+    <div class="item">
+      <span class="item-title">输出格式</span>
+      <p>【输出】</p><p>仅包含一个整数，即为能拿到的最大的物品价值总和。</p><p></p>
+    </div>
+        <div class="item left">
+      <span class="item-title">样例输入</span>
+      <textarea>2 10                            
+3 4 3
+2 2 5
+</textarea>
+    </div>
+    <div class="item right">
+      <span class="item-title">样例输出</span>
+      <textarea>13
+</textarea>
+    </div>
+        <div class="clear"></div>
+    <div class="item">
+      <span class="item-title">注释</span>
+      <p>样例解释：选第一种一个，第二种两个。</p>
+    </div>
+        <div class="clear"></div>
+  </div>
+</div>
+<div id="problem-detail">
+  <a href="http://focus.topschool.org/201403oi/" target="_blank">
+    <div style="background: url(/static/ads/problem_tb.jpg) no-repeat left center; width: 900px; height: 100px"></div>
+  </a>
+</div>
+<div id="problem-submit" class="section">
+  <div id="problem-submit-bar" class="sub-bar">
+    <span class="title">提交题目</span>
+    <span id="language"><img class="icon" src="/static/images/language.png"><strong class="now">
+Error [ 更改语言 ]     </strong> Language</span>
+    <div id="pro-detail-submit-done" class="button-l right">
+      <img src="/static/img/48_grey_circle__0001_Shape-1-copy-18.png">
+    </div>
+    <div id="pro-detail-submit-save" class="button-l right">
+      <img src="/static/img/48_grey_circle__0019_Shape-1-copy-40.png">
+    </div>
+  </div>
+  <div id="language-bar">
+    <span class="c_cpp" data-lang="c">C</span>
+    <span class="c_cpp" data-lang="cpp">C++</span>
+    <span class="java" data-lang="java">Java</span>
+    <span class="pascal" data-lang="pascal">Pascal</span>
+    <span class="python" data-lang="python">Python2</span>
+  </div>
+  <div id="editor" class="scroll-pane">
+    <div class="editor-login">
+      <div class="editor-notice">
+        拥有 RQNOJ 账号，您可以：
+        <ul>
+          <li>查看海量题库，并提交您的代码</li>
+          <li>参加比赛，证明实力</li>
+          <li>与大家讨论，解答疑问，分享心得</li>
+        </ul>
+        <button class="editor-button" onclick="location.href='/member/register'">注册</button>
+      </div>
+      <div class="editor-form">
+        <form id="editor-login" method="post" action="javascript:">
+          已有账号？
+          <input class="editor-input" type="text" name="username" placeholder="用户名" />
+          <input class="editor-input" type="password" name="password" placeholder="密码" />
+          <input id="safecode" class="safecode" type="text" name="safecode" placeholder="验证码" />
+          <div id="safecode-info"></div>
+          <button class="editor-button">登录</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section" id="problem-detail-talk">
+  <div class="sub-bar">
+    <span class="title">
+      相关讨论
+    </span>
+    <div class="button-l right" id="problem-detail-talk-add-button">
+      <img src="/static/img/48_grey_circle__0008_Shape-1-copy-48.png">
+    </div>
+  </div>
+  <ul>
+    <li><a href="/discussion/13173">[ 讨论 ] 多重背包 </a> 4月前&nbsp;/&nbsp;0&nbsp;回复&nbsp;/&nbsp0&nbsp;顶</li><li><a href="/discussion/11028">[ 讨论 ] 管理员神马意思这 </a> 11月前&nbsp;/&nbsp;4&nbsp;回复&nbsp;/&nbsp0&nbsp;顶</li><li><a href="/discussion/12066">[ 讨论 ] 纪念我滴第88道题 </a> 1年前&nbsp;/&nbsp;0&nbsp;回复&nbsp;/&nbsp0&nbsp;顶</li><li><a href="/discussion/11919">[ 讨论 ] else break``` </a> 1年前&nbsp;/&nbsp;0&nbsp;回复&nbsp;/&nbsp0&nbsp;顶</li><li><a href="/discussion/6847">[ 讨论 ] 你妹的 </a> 2年前&nbsp;/&nbsp;3&nbsp;回复&nbsp;/&nbsp0&nbsp;顶</li>  </ul>
+  <div id="problem-detail-talk-more" class="more">
+      查看更多讨论
+  </div>
+</div>
+
+<div class="section" id="problem-detail-talk-add">
+  <div class="sub-bar">
+    <span class="title">
+        发布新讨论
+    </span>
+    <span id="problem-talk-add-type">
+      <img class="icon" src="/static/img/48_grey_circle__0020_Shape-1-copy-40.png">
+      <strong>讨论</strong>
+    </span>
+    <div class="button-l right" id="problem-detail-talk-add-submit">
+      <img src="/static/img/48_grey_circle__0001_Shape-1-copy-18.png">
+    </div>
+    <div class="button-l right" id="problem-detail-talk-add-close">
+      <img src="/static/img/48_grey_circle__0006_Shape-1-copy-48.png">
+    </div>
+  </div>
+  <textarea id="problem-talk-add-title" placeholder="标题"></textarea>
+  <textarea id="problem-talk-add-content" placeholder="添加新讨论"></textarea>
+</div>
+
+<script src="/static/js/pro-detail.js"></script>
+<pre id="footer">
+  <a href="/help">快速帮助</a> | <a href="/status/monitor">运行状态</a> | <a href="/feedback">反馈举报</a> | <a href="/about">关于我们</a> | <a href="/legal">免责声明</a> | <a href="#">浙ICP备11060257号</a>
+
+    Processed in 0.0634	Second(s)
+    Copyright (C) RQNOJ 2007-2014. All Rights Reserved.
+</pre>
+<script>
+	var uid = 0;
+</script>
+<!-- Piwik -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(["trackPageView"]);
+  _paq.push(["enableLinkTracking"]);
+
+  (function() {
+    var u=(("https:" == document.location.protocol) ? "https" : "http") + "://analysis.rqnoj.cn/";
+    _paq.push(["setTrackerUrl", u+"piwik.php"]);
+    _paq.push(["setSiteId", "1"]);
+    var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+    g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Piwik Code -->
+  </div><!-- #wrap end -->
+</body>

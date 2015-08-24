@@ -1,0 +1,229 @@
+
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+    <head>
+        <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
+        <META HTTP-EQUIV="EXPIRES" CONTENT="0">
+
+        <title>ZOJ :: Problems :: Show Problem</title>
+        <link rel="stylesheet" href="/onlinejudge/style/zoj.css" type="text/css">
+        <script language="javascript" src="/onlinejudge/js/zoj.js"></script>
+    </head>
+
+    <body id="page" >
+        <div id="container">
+            <div id="header">
+<img src="/onlinejudge/image/banner.jpg" width="770"/></div>
+            <div id="loginbar">
+                
+
+
+
+                <div class="welcome_msg">Welcome to ZOJ</div>
+                <div class="login_info">
+                    
+                        <a href="/onlinejudge/login.do">Login</a> 
+                        
+                        | <a href="/onlinejudge/register.do">Register</a>
+                                            	
+                    
+                    
+                </div>
+
+            </div>
+            <div id="minibar">
+                
+
+
+
+
+
+
+
+
+                <div id="menus">
+                <a  href="/onlinejudge/">Home</a>
+                
+                | <a  href="/onlinejudge/showContests.do">Contests</a>
+                
+                
+                | <a class="selected" href="/onlinejudge/showProblemsets.do">Problems</a>
+                
+                | <a  href="/forum/">Forum</a> 
+                
+                
+                
+                
+                | <a href="/donation/">Donation</a>
+                </div>
+
+
+            </div>
+            <table id="main">
+                <tr>
+                <td width="169" height="100%" style="vertical-align:top">
+                    <table id="leftnav" cellspacing="1" height="100%">
+                       
+
+
+
+
+                <tr><td class="nav_header">
+                    <img src="/onlinejudge/image/arrow_sub2.gif"><div><a href="/onlinejudge/showProblemsets.do">Problem Sets</a></div></img>
+                </td></tr>
+                
+                
+                    
+                
+                <tr><td class="item">
+                    <a href="/onlinejudge/problemsetInfo.do?contestId=1">Information</a>
+                </td></tr>
+                <tr><td class="item">
+                    <a href="/onlinejudge/showProblems.do?contestId=1">Select Problem</a>
+                </td></tr>
+                <!--
+                <tr><td class="item">
+                    <a href="/onlinejudge/searchProblem.do?contestId=1">Search Problem</a>
+                </td></tr>
+                -->
+                <tr><td class="item">
+                    <a href="/onlinejudge/showRuns.do?contestId=1">Runs</a>
+                </td></tr>
+                <tr><td class="item">
+                    <a href="/onlinejudge/showRankList.do?contestId=1&from=0&order=AC">Ranklist</a>
+                </td></tr>
+                <!--
+                <tr><td class="item">
+                    <a href="/onlinejudge/clarification.do?contestId=1">Clarification</a>
+                </td></tr>
+                -->
+                
+                   
+                
+                
+
+                <tr><td class="icpc_logo"><img src="/onlinejudge/image/cpc_acm.jpg"/></td></tr>
+
+                    </table>
+                </td>
+                <td id="content" style="vertical-align:top">
+                    
+
+
+
+
+
+
+
+
+
+        
+        
+        <div id="content_title">ZOJ Problem Set - 1709</div>
+        <div id="content_body">
+            <center><span class="bigProblemTitle">Oil Deposits</span></center>
+            <hr>
+            <center>
+                <font color="green">Time Limit: </font> 2 Seconds
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <font color="green">Memory Limit: </font> 65536 KB
+                
+            </center>
+            <hr>
+            The GeoSurvComp geologic survey company is responsible for detecting underground 
+oil deposits. GeoSurvComp works with one large rectangular region of land at a 
+time, and creates a grid that divides the land into numerous square plots. It 
+then analyzes each plot separately, using sensing equipment to determine whether 
+or not the plot contains oil. A plot containing oil is called a pocket. If two 
+pockets are adjacent, then they are part of the same oil deposit. Oil deposits 
+can be quite large and may contain numerous pockets. Your job is to determine 
+how many different oil deposits are contained in a grid.
+<p><br>
+  <b>Input</b></p>
+<p>The input file contains one or more grids. Each grid begins with a line containing 
+  m and n, the number of rows and columns in the grid, separated by a single space. 
+  If m = 0 it signals the end of the input; otherwise 1 &lt;= m &lt;= 100 and 
+  1 &lt;= n &lt;= 100. Following this are m lines of n characters each (not counting 
+  the end-of-line characters). Each character corresponds to one plot, and is 
+  either `*', representing the absence of oil, or `@', representing an oil pocket.</p>
+<p><br>
+  <b>Output</b></p>
+<p>For each grid, output the number of distinct oil deposits. Two different pockets 
+  are part of the same oil deposit if they are adjacent horizontally, vertically, 
+  or diagonally. An oil deposit will not contain more than 100 pockets.</p>
+<p><b><br>
+  Sample Input</b></p>
+<p>1 1<br>
+  *<br>
+  3 5<br>
+  *@*@*<br>
+  **@**<br>
+  *@*@*<br>
+  1 8<br>
+  @@****@*<br>
+  5 5 <br>
+  ****@<br>
+  *@@*@<br>
+  *@**@<br>
+  @@@*@<br>
+  @@**@<br>
+  0 0 </p>
+<p><br>
+  <b>Sample Output</b></p>
+<p>0<br>
+  1<br>
+  2<br>
+  2<br>
+</p>
+
+            <hr>
+            
+            
+                Source: <strong>Mid-Central USA 1997</strong><br>
+            
+            
+            <center>
+                <a href="/onlinejudge/submit.do?problemId=709"><font color="blue">Submit</font></a>
+                
+                &nbsp;&nbsp;
+                <a href="/onlinejudge/showProblemStatus.do?problemId=709"><font color="blue">Status</font></a>
+                
+                
+            </center>
+        </div>
+        
+
+
+                </td>
+                </tr>
+            </table>
+            <div id="footer">
+                
+	<hr>
+	<p>Copyright @ 2001-2014, Zhejiang University ACM/ICPC Team, All rights reserved.</p>
+	
+
+            </div>
+        </div>
+    </body>
+</html>
+
+
