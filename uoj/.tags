@@ -1,0 +1,2 @@
+quan	/Volumes/Data/oj/uoj/uoj16.cpp	/^int quan[200010];$/;"	variable	line:7
+main	/Volumes/Data/oj/uoj/uoj16.cpp	/^int main() {$/;"	function	line:9	signature:()
