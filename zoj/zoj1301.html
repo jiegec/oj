@@ -1,0 +1,261 @@
+
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+    <head>
+        <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
+        <META HTTP-EQUIV="EXPIRES" CONTENT="0">
+        <meta content="ZOJ is an online judge system maintained by Zhejiang University ACM/ICPC Team. It allows people to solve algorithm problems online." name="description">
+        <meta name="keywords" content="programming, language, algorithm, contest, java, scheme, php, pascal, c, c++, python, perl, online, judge, problem, problemset, acm, zoj, zhejiang, university, zju">
+
+        <title>ZOJ :: Problems :: Show Problem</title>
+        <link rel="stylesheet" href="/onlinejudge/style/zoj.css" type="text/css">
+        <script language="javascript" src="/onlinejudge/js/zoj.js"></script>
+    </head>
+
+    <body id="page" >
+        <div id="container">
+            <div id="header">
+<img src="/onlinejudge/image/banner.jpg" width="770"/></div>
+            <div id="loginbar">
+                
+
+
+
+                <div class="welcome_msg">Welcome to ZOJ</div>
+                <div class="login_info">
+                    
+                        <a href="/onlinejudge/login.do">Login</a> 
+                        
+                        | <a href="/onlinejudge/register.do">Register</a>
+                                            	
+                    
+                    
+                </div>
+
+            </div>
+            <div id="minibar">
+                
+
+
+
+
+
+
+
+
+                <div id="menus">
+                <a  href="/onlinejudge/">Home</a>
+                
+                | <a  href="/onlinejudge/showContests.do">Contests</a>
+                
+                
+                | <a class="selected" href="/onlinejudge/showProblemsets.do">Problems</a>
+                
+                | <a  href="/forum/">Forum</a> 
+                | <a  href="/donation/">Donation</a> 
+                
+                
+                
+                
+                </div>
+
+
+            </div>
+            <table id="main">
+                <tr>
+                <td width="169" height="100%" style="vertical-align:top">
+                    <table id="leftnav" cellspacing="1" height="100%">
+                       
+
+
+
+
+                <tr><td class="nav_header">
+                    <img src="/onlinejudge/image/arrow_sub2.gif"><div><a href="/onlinejudge/showProblemsets.do">Problem Sets</a></div></img>
+                </td></tr>
+                
+                
+                    
+                
+                <tr><td class="item">
+                    <a href="/onlinejudge/problemsetInfo.do?contestId=1">Information</a>
+                </td></tr>
+                <tr><td class="item">
+                    <a href="/onlinejudge/showProblems.do?contestId=1">Select Problem</a>
+                </td></tr>
+                <!--
+                <tr><td class="item">
+                    <a href="/onlinejudge/searchProblem.do?contestId=1">Search Problem</a>
+                </td></tr>
+                -->
+                <tr><td class="item">
+                    <a href="/onlinejudge/showRuns.do?contestId=1">Runs</a>
+                </td></tr>
+                <tr><td class="item">
+                    <a href="/onlinejudge/showRankList.do?contestId=1&from=0&order=AC">Ranklist</a>
+                </td></tr>
+                <!--
+                <tr><td class="item">
+                    <a href="/onlinejudge/clarification.do?contestId=1">Clarification</a>
+                </td></tr>
+                -->
+                
+                   
+                
+                
+
+                <tr><td class="icpc_logo"><img src="/onlinejudge/image/cpc_acm.jpg"/></td></tr>
+
+                    </table>
+                </td>
+                <td id="content" style="vertical-align:top">
+                    
+
+
+
+
+
+
+
+
+
+        
+        
+        <div id="content_title">ZOJ Problem Set - 1301</div>
+        <div id="content_body">
+            <center><span class="bigProblemTitle">The New Villa</span></center>
+            <hr>
+            <center>
+                <font color="green">Time Limit: </font> 2 Seconds
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <font color="green">Memory Limit: </font> 65536 KB
+                
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <font color="blue">Special Judge</font>
+                
+            </center>
+            <hr>
+            Mr. Black recently bought a villa in the countryside. Only one thing bothers him: 
+although there are light switches in most rooms, the lights they control are often 
+in other rooms than the switches themselves. While his estate agent saw this as 
+a feature, Mr. Black has come to believe that the electricians were a bit absent-minded 
+(to put it mildly) when they connected the switches to the outlets. 
+<p>One night, Mr. Black came home late. While standing in the hallway, he noted 
+  that the lights in all other rooms were switched off. Unfortunately, Mr. Black 
+  was afraid of the dark, so he never dared to enter a room that had its lights 
+  out and would never switch off the lights of the room he was in. </p>
+<p>After some thought, Mr. Black was able to use the incorrectly wired light switches 
+  to his advantage. He managed to get to his bedroom and to switch off all lights 
+  except for the one in the bedroom. </p>
+<p> You are to write a program that, given a description of a villa, determines 
+  how to get from the hallway to the bedroom if only the hallway light is initially 
+  switched on. You may never enter a dark room, and after the last move, all lights 
+  except for the one in the bedroom must be switched off. If there are several 
+  paths to the bedroom, you have to find the one which uses the smallest number 
+  of steps, where ``move from one room to another'', ``switch on a light'' and 
+  ``switch off a light'' each count as one step. </p>
+<p><br>
+  <b>Input</b><br>
+  <br>
+  The input contains several villa descriptions. Each villa starts with a line 
+  containing three integers r, d, and s. r is the number of rooms in the villa, 
+  which will be at most 10. d is the number of doors/connections between the rooms 
+  and s is the number of light switches in the villa. The rooms are numbered from 
+  1 to r; room number 1 is the hallway, room number r is the bedroom. </p>
+<p>This line is followed by d lines containing two integers i and j each, specifying 
+  that room i is connected to room j by a door. Then follow s lines containing 
+  two integers k and l each, indicating that there is a light switch in room k 
+  that controls the light in room l. </p>
+<p> A blank line separates the villa description from the next one. The input 
+  ends with a villa having r = d = s = 0, which should not be processed. </p>
+<p><br>
+  <b>Output</b><br>
+  <br>
+  For each villa, first output the number of the test case (`Villa #1', `Villa 
+  #2', etc.) in a line of its own. </p>
+<p> If there is a solution to Mr. Black's problem, output the shortest possible 
+  sequence of steps that leads him to his bedroom and only leaves the bedroom 
+  light switched on. (Output only one shortest sequence if you find more than 
+  one.) Adhere to the output format shown in the sample below. </p>
+<p> If there is no solution, output a line containing the statement `The problem 
+  cannot be solved.' </p>
+<p> Output a blank line after each test case. </p>
+<p><br>
+  <b>Sample Input</b></p>
+<p>3 3 4<br>
+  1 2<br>
+  1 3<br>
+  3 2<br>
+  1 2<br>
+  1 3<br>
+  2 1<br>
+  3 2</p>
+<p>2 1 2<br>
+  2 1<br>
+  1 1<br>
+  1 2</p>
+<p>0 0 0</p>
+<p><b><br>
+  Sample Output</b></p>
+<p>Villa #1<br>
+  The problem can be solved in 6 steps:<br>
+  - Switch on light in room 2.<br>
+  - Switch on light in room 3.<br>
+  - Move to room 2.<br>
+  - Switch off light in room 1.<br>
+  - Move to room 3.<br>
+  - Switch off light in room 2.</p>
+<p>Villa #2<br>
+  The problem cannot be solved.<br>
+</p>
+            <hr>
+            
+            
+                Source: <strong>Southwest Europe 1996</strong><br>
+            
+            
+            <center>
+                <a href="/onlinejudge/submit.do?problemId=301"><font color="blue">Submit</font></a>
+                
+                &nbsp;&nbsp;
+                <a href="/onlinejudge/showProblemStatus.do?problemId=301"><font color="blue">Status</font></a>
+                
+                
+            </center>
+        </div>
+        
+
+
+                </td>
+                </tr>
+            </table>
+            <div id="footer">
+                
+
+                <hr width=100%/>
+                <p>Copyright @ 2001-2015, Zhejiang University ACM/ICPC Team, All rights reserved.</p>
+
+            </div>
+        </div>
+    </body>
+</html>
+
+
