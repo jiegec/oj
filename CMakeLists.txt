@@ -1,0 +1,13 @@
+cmake_minimum_required(VERSION 3.3)
+project(oj)
+
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+
+add_subdirectory(custom)
+add_subdirectory(hdu)
+add_subdirectory(hoj)
+add_subdirectory(poj)
+add_subdirectory(rqnoj)
+add_subdirectory(uoj)
+add_subdirectory(uva)
+add_subdirectory(zoj)
