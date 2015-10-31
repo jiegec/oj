@@ -1,2 +1,11 @@
 cmake_minimum_required(VERSION 3.3)
 project(zoj)
+
+add_executable(zoj1301 zoj1301.cpp)
+add_executable(zoj1366 zoj1366.cpp)
+add_executable(zoj1457 zoj1457.cpp)
+add_executable(zoj1709 zoj1709.cpp)
+add_executable(zoj2100 zoj2100.cpp)
+add_executable(zoj2110 zoj2110.cpp)
+add_executable(zoj2156 zoj2156.cpp)
+add_executable(zoj2165 zoj2165.cpp)
