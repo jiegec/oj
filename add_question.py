@@ -25,9 +25,8 @@ for k, v in oj.items():
         continue
       print('Processing %s %s.' % (k, problemId))
       content = urllib.request.urlopen(v + problemId).read()
-      with open('%s/%s%s.html' % (k, k, problemId), 'wb') as f:
-        f.write(content)
-
+      with open('%s/%s%s.html' % (k, k, problemId), 'wb') as ff:
+        ff.write(content)
 
 with open('CMakeLists.txt', 'w') as f:
   f.write('cmake_minimum_required(VERSION 3.3)\nproject(oj)\n\nset(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")\n\n')
