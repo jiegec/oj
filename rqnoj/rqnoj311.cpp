@@ -17,12 +17,12 @@ int main() {
 		for(int j = i;j < n;j++) {
 			number[i][j] = num[i];
 		}
-		
+
 		for(int j = 0;j < i;j++) {
 			for(int k = i;k < n;k++) {
-				number[j][k] *= 10;	
-				number[j][k] += num[i];	
-			}							
+				number[j][k] *= 10;
+				number[j][k] += num[i];
+			}
 		}
 	}
 	for(int i = 0;i < n;i++) {
@@ -35,5 +35,5 @@ int main() {
 			}
 		}
 	}
-	printf("%d\n",dp[n-1][k]);
+	printf("%lld\n",dp[n-1][k]);
 }

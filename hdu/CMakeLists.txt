@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.3)
 project(hdu)
 
 add_executable(hdu1003 hdu1003.cpp)
+add_executable(hdu1043 hdu1043.cpp)
 add_executable(hdu1059 hdu1059.cpp)
 add_executable(hdu1087 hdu1087.cpp)
 add_executable(hdu1114 hdu1114.cpp)

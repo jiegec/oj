@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.3)
 project(poj)
 
 add_executable(poj1004 poj1004.cpp)
+add_executable(poj1077 poj1077.cpp)
 add_executable(poj1376 poj1376.cpp)
 add_executable(poj1852 poj1852.cpp)
 add_executable(poj2421 poj2421.cpp)
