@@ -1,4 +1,5 @@
-#include <stdio.h>
+#include <cstdio>
+
 long long numbers[100010];
 int l[100010],r[100010];
 int main() {

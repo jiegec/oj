@@ -1,12 +1,9 @@
-#include <stdio.h>
+#include <cstdio>
 
 int n;
 
 int main() {
     while(scanf("%d",&n) && n) {
-        if (n <= 2 )
-            printf("Alice\n");
-        else
-            printf("Bob\n");
+      printf(n <= 2 ? "Alice\n" : "Bob\n");
     }
 }

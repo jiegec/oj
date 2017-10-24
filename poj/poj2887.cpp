@@ -1,6 +1,6 @@
-#include <stdio.h>
-#include <string.h>
-#include <math.h>
+#include <cstdio>
+#include <cstring>
+#include <cmath>
 
 char block[2][1010][5010];
 int current = 0;

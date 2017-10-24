@@ -1,0 +1,10 @@
+cmake_minimum_required(VERSION 3.3)
+project(ts)
+
+add_executable(tsA1000 tsA1000.cpp)
+add_executable(tsA1001 tsA1001.cpp)
+add_executable(tsA1002 tsA1002.cpp)
+add_executable(tsD13609 tsD13609.cpp)
+add_executable(tsD13610 tsD13610.cpp)
+add_executable(tsD13611 tsD13611.cpp)
+add_executable(tsD13612 tsD13612.cpp)

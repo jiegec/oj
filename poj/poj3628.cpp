@@ -1,18 +1,19 @@
-#include <stdio.h>
-#include <string.h>
+#include <cstdio>
+#include <cstring>
+
 void bag01(int cost, int value, int money, int dp[]) {
 	for(int i = money;i >= cost;i--) {
 		if(dp[i] < dp[i-cost]+value) {
 			dp[i] = dp[i-cost]+value;
 		}
-		
+
 	}
 }
 int dp[10086000];
 
 int main() {
 	int n,b;
-	while(scanf("%d%d",&n,&b)!=EOF){  
+	while(scanf("%d%d",&n,&b)!=EOF){
 		int h[20],sum = 0;
 		memset(dp,0,sizeof(dp));
 		for(int i = 0;i < n;i++) {
