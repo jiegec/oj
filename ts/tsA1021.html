@@ -1,0 +1,594 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/Pages.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link type="text/css" href="/styles/Tsinsen2011.css" rel="stylesheet" />
+<script language="javascript" type="text/javascript" src="/js/tsinsen0.js"></script>
+<script language="javascript" type="text/javascript" src="/js/tsinsen2013.js"></script>
+
+<!-- InstanceBeginEditable name="header" -->
+
+<title>A1021. 集合运算 -- Tsinsen 清橙网络自动评测系统 - 清橙</title>
+<!-- InstanceEndEditable -->
+<script type="text/javascript">
+var loadTime = new Date().getTime();
+function getUserInfo()
+{
+	var ret = {"admindisplay":"none","cdate":"2017年10月30日 星期一","course":"","courseid":"","coursetype":"","email":"","emailt":"0","login":"","msgs":"0","name":"","notadmindisplay":"block","notuserdisplay":"block","ret":"1","school":"","time":"81620","type":"NULL","userdisplay":"none","userid":""};
+	ret.isSysAdmin = (ret.type=="SYSADMIN");
+	ret.isAdmin = ret.isSysAdmin||(ret.type=="ADMIN");
+	ret.isUser = ret.isAdmin||(ret.type=="USER");
+	ret.times = ret["time"];
+	ret.timec = loadTime;
+	return ret;
+}
+</script>
+</head>
+
+<body>
+<div id="popall"></div>
+<div id="ubody">
+<div id="frameall">
+<div id="top">
+<div id="headimg">
+ <div id='ctime'></div>
+ <div style="position:absolute; left:100px; top:102px;"><a href="http://www.tsinsen.com/" style="color:#FFF;">http://www.tsinsen.com/</a></div>
+ <div style="display:none;"><h1>清橙网格自动评测系统</h1></div>
+</div>
+</div>
+
+<div id="mainm" style="display:none;">
+<ul class="mainmenu">
+<li class="mmitem"><a href="/">首页</a>
+ <div class="drop">
+  <div class=t><a href='/' title="进入首页，主菜单也可以直接点哦">进入首页</a></div>
+ </div></li>
+<li class="mmitem"><a href="/ProblemArchive.html">公共题库</a>
+ <div class="drop">
+  <div class=t><a href='/ProblemArchive.page' title="进入公共题库，主菜单也可以直接点哦">进入公共题库</a></div>
+  <div class=t req="sysadmin"><a href='/ASelect.page'>添加试题到公共题库</a></div>
+ </div></li>
+<li class="mmitem"><a href="/AllSubmits.page?type=a">查看提交结果</a>
+ <div class="drop">
+  <div class=t><a href='/AllSubmits.page?type=a' title="查看提交结果，主菜单也可以直接点哦">查看提交结果</a></div>
+ </div></li>
+<li class="mmitem" req="user">课程
+ <div class="drop">
+  <div class=t req="admin"><a href='/AssignManage.page'>作业管理</a></div>
+  <div class=t><a href='/MyAssignment.page'>我的作业</a></div>
+  <div class=t><a href='/Problemlist.page'>课内题库</a></div>
+  <div class="sep"></div>
+  <div class=t><a href='/DiskView.page?type=d'>教学课件</a></div>
+  <div class="sep" req="admin"></div>
+  <div class=t req="admin"><a href='/AUsers.page'>用户管理</a></div>
+  <div class="sep"></div>
+  <div class=t><a href='/DomainChange.page'>课程切换</a></div>
+  <div class=t><a href='/course/applycourse.page'>开设新课程(老师专用)</a></div>
+  <div class="sep"></div>
+  <div class=t><a href='/Forum/Index.page'>试题讨论</a></div>
+ </div></li>
+</li>
+<li class="mmitem" req="user">我的清橙
+ <div class="drop">
+  <div class=t><a href='/ProblemManage.page'>我来出题</a></div>
+  <div class="sep"></div>
+  <div class=t><a href='/ChangePwd.page'>修改密码</a></div>
+  <div class=t><a href='/MyMessages.page'>我的消息</a></div>
+  <div class=t req="admin"><a href='/SendMessage.page'>发送消息</a></div>
+  <div class="sep"></div>
+  <div class=t><a href='###' onclick="logoutClick()">登出</a></div>
+ </div></li>
+<li class="mmitem" req="sysadmin">管理
+ <div class="drop">
+  <div class=t><a href='/UserManage.page'>用户管理</a></div>
+  <div class=t><a href='/ProblemAdmin.page'>试题管理</a></div>
+  <div class=t><a href='/rejudge.page'>试题复评</a></div>
+  <div class=t><a href='/ChangeUPwd.page'>密码重设</a></div>
+ </div></li>
+<li class="mmitem">常用资源
+ <div class="drop">
+  <div class=t><a href='/resources.page'>竞赛资料下载</a></div>
+ </div></li>
+<li class="mmitem"><a href="/help.page">帮助</a>
+ <div class="drop">
+  <div class=t><a href='/help.page' title="查看帮助，主菜单也可以直接点哦">查看帮助</a></div>
+  <div class="sep"></div>
+  <div class=t><a href='/updates.page' title="最近更新">最近更新</a></div>
+ </div></li>
+</ul>
+<div id="topOp"></div>
+</div>
+<div id="cuinfo" class="cuinfo">
+&gt;&gt; 用户名或邮箱：<input type="text" id="username" name="username" class="text"> &nbsp; 密码：<input type="password" id="password" name="password" onkeydown="pwdkey(event)" class="text"> &nbsp; <input type="submit" name="Submit" value=" 登 录 " class="button" style="cursor:pointer" onclick="loginClick()" /> &nbsp; <input type="button" name="Reg" value=" 注 册 " class="button" style="cursor:pointer" onclick="regClick()" /> &nbsp; <a href="/FindPassword.page">忘记密码</a> &nbsp;
+其他登录：<a href="###" title="QQ登录" onclick="qqlogin()"><div class="qqpic">&nbsp;</div></a>
+<a href="###" title="人人登录" onclick="renrenlogin()"><div class="renrenpic">&nbsp;</div></a>
+<a href="###" title="微博登录" onclick="weibologin()"><div class="weibopic">&nbsp;</div></a>
+</div>
+
+<div id="menuall" style="display:none;"></div>
+<script type="text/javascript">
+onPageStart();
+</script>
+<div id="main"><div class="content">
+<!--begin main-->
+<!-- InstanceBeginEditable name="content" -->
+<div class="probtitle" id="ptit">A1021. 集合运算</div>
+<div style="text-align:center; font-size:14px; vertical-align:middle;" id="pres">
+<div style="font-weight:bold; margin:8px 0px 6px 0px; ">时间限制：<span class="uline">1.0s</span> &nbsp; 内存限制：<span class="uline">512.0MB</span> &nbsp; <span id="subinterdiv"></span><span id="probtypediv"></span><span class="uline"></span></div>
+<div>总提交次数：<b><a href="/AllSubmits.page?type=a&gpid=A1021,D64,D227,D474,D922,D1052,D1180,D1345,D1592,D7208,D7504,D7752,D9416,D10634,D11553,P64"></a></b> &nbsp; AC次数：<b></b> &nbsp; 平均分：<b></b></div>
+<div id="inputoutput"></div>
+</div>
+<div class="ralign" style="margin:20px 0 20px 0;"><div class="inl vmid">将本题分享到：</div><div class="inl vmid"><a class="share_renren" title="分享到人人网" onclick="renrenShareClick()"></a> &nbsp; <a class="share_qq" title="分享到QQ空间" onclick="qqShareClick()"></a> &nbsp; <a class="share_weibo" title="分享到新浪微博" onclick="weiboShareClick()"></a></div> &nbsp; <div class="inl vmid"><a href="###" onclick="formatChange()" id="fcl">查看未格式化的试题</a> &nbsp; <a href="###" onclick="showSubmit()">提交</a> &nbsp; <a href="###" onclick="discussProblem()">试题讨论</a></div></div>
+<div id="psrc" style="margin-top:20px; display:none;">
+<div class="pdsec">试题来源</div><div class="pdcont">　　</div>
+</div>
+<div id="pinputs" style="display:none; ">
+<div class="pdsec">输入数据</div>
+<div class="pdcont"><span class="notice">　　这是一道提交答案的试题，下面给出了该题的输入数据：</span></div>
+<div id="inputlist" class="pddata">
+</div>
+</div>
+<div id="pcont1" style="margin-top:20px; display:block;">
+<div class='pdsec'>问题描述</div><div class='pdcont'>　　给出两个整数集合A、B，求出他们的交集、并集以及B在A中的余集。</div><div class='pdsec'>输入格式</div><div class='pdcont'>　　第一行为一个整数n，表示集合A中的元素个数。<br />
+　　第二行有n个互不相同的用空格隔开的整数，表示集合A中的元素。<br />
+　　第三行为一个整数m，表示集合B中的元素个数。<br />
+　　第四行有m个互不相同的用空格隔开的整数，表示集合B中的元素。<br />
+　　集合中的所有元素均为int范围内的整数，n、m&lt;=1000。</div><div class='pdsec'>输出格式</div><div class='pdcont'>　　第一行按从小到大的顺序输出A、B交集中的所有元素。<br />
+　　第二行按从小到大的顺序输出A、B并集中的所有元素。<br />
+　　第三行按从小到大的顺序输出B在A中的余集中的所有元素。</div><div class='pdsec'>样例输入</div><div class='pddata'>5<br />
+1 2 3 4 5<br />
+5<br />
+2 4 6 8 10</div><div class='pdsec'>样例输出</div><div class='pddata'>2 4<br />
+1 2 3 4 5 6 8 10<br />
+1 3 5</div><div class='pdsec'>样例输入</div><div class='pddata'>4<br />
+1 2 3 4<br />
+3<br />
+5 6 7</div><div class='pdsec'>样例输出</div><div class='pddata'>1 2 3 4 5 6 7<br />
+1 2 3 4</div>
+
+</div>
+<div id="pcont2" style="margin-top:20px; display:none;">
+<p class="subtitle">问题描述</p>
+<p class="probcontent">给出两个整数集合A、B，求出他们的交集、并集以及B在A中的余集。<br />
+&nbsp;</p>
+<p class="subtitle">输入格式</p>
+<p class="probcontent">第一行为一个整数n，表示集合A中的元素个数。<br />
+第二行有n个互不相同的用空格隔开的整数，表示集合A中的元素。<br />
+第三行为一个整数m，表示集合B中的元素个数。<br />
+第四行有m个互不相同的用空格隔开的整数，表示集合B中的元素。</p>
+<p class="probcontent">集合中的所有元素均为int范围内的整数，n、m&lt;=1000。<br />
+<br />
+&nbsp;</p>
+<p class="subtitle">输出格式</p>
+<p class="probcontent">第一行按从小到大的顺序输出A、B交集中的所有元素。<br />
+第二行按从小到大的顺序输出A、B并集中的所有元素。<br />
+第三行按从小到大的顺序输出B在A中的余集中的所有元素。<br />
+<br />
+&nbsp;</p>
+<p class="subtitle">样例输入1</p>
+<p class="probcontent">5<br />
+1 2 3 4 5<br />
+5<br />
+2 4 6 8 10<br />
+<br />
+&nbsp;</p>
+<p class="subtitle">样例输出1</p>
+<p class="probcontent">2 4<br />
+1 2 3 4 5 6 8 10<br />
+1 3 5<br />
+<br />
+&nbsp;</p>
+<p class="subtitle">样例输入2</p>
+<p class="probcontent">4<br />
+1 2 3 4<br />
+3<br />
+5 6 7<br />
+<br />
+&nbsp;</p>
+<p class="subtitle">样例输出2</p>
+<p class="probcontent"><br />
+1 2 3 4 5 6 7<br />
+1 2 3 4<br />
+<br />
+&nbsp;</p>
+</div>
+<br />
+<div id="pcode" class="code">
+<div id="pcodesu" style="display:none;">
+<hr />
+<span class='notice'>这是一道完善程序的试题，你只需要在下面程序标注的"<span class='code'><span class="Y">@你的代码</span></span>"的位置补充适当的语句或语句段使程序能正确运行即可，在提交的时候，你要提交的内容只包括补充的内容，不包括其他的代码。</span>
+</div>
+</div>
+
+<div class="ralign"><a href="###" onclick="showSubmit()">提交</a> &nbsp; <a href="###" onclick="discussProblem()">试题讨论</a></div>
+<script type="text/javascript">
+
+var viewType = "f";
+_codeLines = document.createElement("OL");
+e("pcode").appendChild(_codeLines);
+function getGPID() {
+	return "A1021";
+}
+var gpid = getGPID();
+function getProbTitle() {
+	return "集合运算";
+}
+function getProbType() {
+	return "DEFAULT";
+}
+function getProbContent() { return e("pcont1").innerHTML; }
+function getSrc() {
+	return "";
+}
+function getCode() {
+	return "";
+}
+function getLangs() {
+	return "CPP,C0X,VC9,C,JAVA,PAS,CS";
+}
+function getInDataCount() {
+	return "0";
+}
+function getInputFileName() {
+	return "";
+}
+function getOutputFileName() {
+	return "";
+}
+function getSubinter() {
+	var inter = "0";
+	var iint = parseInt(""+inter);
+	if (!(iint>0))
+		return 0;
+	return iint;
+}
+function getRemain() {
+	var remain = "0";
+	var iremain = parseInt(""+remain);
+	if (!(iremain>0))
+		return 0;
+	return iremain;
+}
+
+function initProb()
+{
+	if (getSrc() && getSrc()!="")
+		e("psrc").style.display = "block";
+	var cod = getCode();
+	if (cod && cod.indexOf("@你的代码")>=0)
+	{
+		e("pcodesu").style.display = "block";
+		port_fc(cod, addline);
+	}
+	if (getSubinter()>0)
+	{
+		var rem = getRemain();
+		var intervalVar;
+		var startT = new Date().getTime();
+		function setSubInt()
+		{
+			var passT = Math.floor((new Date().getTime() - startT) / 1000);
+			var crem = rem - passT;
+			var minu = Math.floor(crem/60); var sec = crem - minu*60;
+			var subTxt = "";
+			if (crem<=0)
+				subTxt = "<span class=gcolor>现在可以提交</span>";
+			else
+				subTxt = "<span class=rcolor>还剩" + (minu>0?minu+"分":"") + sec + "秒</span>";
+			var html = "代码提交间隔：<span class='uline'>" + getSubinter() + "分钟(" + subTxt + ")</span> &nbsp; ";
+			e("subinterdiv").innerHTML = html;
+			if (crem <= 0)
+			{
+				clearInterval(intervalVar);
+			}
+		}
+		intervalVar = setInterval(setSubInt, 1000);
+		setSubInt();
+	}
+	if (getProbType()=="SUBMIT")
+	{
+		e("probtypediv").innerHTML = "<span class='uline'>提交答案型</span> &nbsp; ";
+		e("pinputs").style.display = "block";
+		var inCnt = parseInt(getInDataCount());
+		var _dlist = newT("UL", e("inputlist"));
+		{
+			var ca = newT("A", newT("LI", _dlist), "", "下载全部");
+			ca.href = "###";
+			ca.onclick = function() {
+				portxd("/problem.Problem.dt", {cmd:"indata",gpid:"A1021",dataid:"all"},function(obj) {
+					if (obj["ret"]+""=="1")
+					{
+						downloadByHandle(obj["handle"]);
+					}
+				});
+			}
+		}
+		newT("br", _dlist);
+		for (var i = 0; i < inCnt; ++i)
+		{
+			var ca = newT("A", newT("LI", _dlist), "", "input" + (i+1) + ".txt");
+			ca.dataId = i+1;
+			ca.href = "###";
+			ca.onclick = function() {
+				portxd("/problem.Problem.dt", {cmd:"indata",gpid:"A1021",dataid:this.dataId},function(obj) {
+					if (obj["ret"]+""=="1")
+					{
+						downloadByHandle(obj["handle"]);
+					}
+				});
+			}
+		}
+	}
+	var inpName = getInputFileName(), outName = getOutputFileName();
+	var inOutStr = "";
+	if (inpName && inpName!="")
+	{
+		inOutStr = "输入文件名：<b>" + inpName + "</b>";
+	}
+	if (outName && outName!="")
+	{
+		if (inOutStr != "")
+			inOutStr += " &nbsp; ";
+		inOutStr += "输出文件名：<b>" + outName + "</b>";
+	}
+	e("inputoutput").innerHTML = inOutStr;
+}
+
+initProb();
+
+function weiboShareClick() {
+	var _w = 16 , _h = 16;
+	var param = {
+		url:location.href,
+		type:'3',
+		count:'', /**是否显示分享数，1显示(可选)*/
+		appkey:'1707773381', /**您申请的应用appkey,显示分享来源(可选)*/
+		title:"试题 "+getProbTitle(), /**分享的文字内容(可选，默认为所在页面的title)*/
+		pic:'http://www.tsinsen.com/images/tsinsen100.png', /**分享图片的路径(可选)*/
+		ralateUid:'', /**关联用户的UID，分享微博会@该用户(可选)*/
+		language:'zh_cn', /**设置语言，zh_cn|zh_tw(可选)*/
+		rnd:new Date().valueOf()
+	}
+	rrShareOnclick(param, "http://service.weibo.com/share/share.php");
+}
+
+function qqShareClick() {
+	var cont = removeHTML(getProbContent());
+	var param = {
+		url:location.href,
+		showcount:'0',/*是否显示分享总数,显示：'1'，不显示：'0' */
+		desc:'',/*默认分享理由(可选)*/
+		summary:cont,/*分享摘要(可选)*/
+		title:getProbTitle(),/*分享标题(可选)*/
+		site:'清橙网络自动评测系统',/*分享来源 如：腾讯网(可选)*/
+		pics:'http://www.tsinsen.com/images/tsinsen100.png', /*分享图片的路径(可选)*/
+		style:'203',
+		width:22,
+		height:22
+	};
+	rrShareOnclick(param, "http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey");
+}
+
+function renrenShareClick() {
+	var cont = removeHTML(getProbContent());
+	var param = {
+		resourceUrl : '',	//分享的资源Url
+		pic : 'http://www.tsinsen.com/images/tsinsen100.png',		//分享的主题图片Url
+		title :getProbTitle(),		//分享的标题
+		description : cont	//分享的详细描述
+	};
+	rrShareOnclick(param);
+}
+
+var lineNum = 0;
+function addline(st) { newT("LI", _codeLines, ((++lineNum)&1)?"odd":"even", st.replace("@你的代码", '<span class="Y">@你的代码</span>')); }
+
+function OnUploadCompleted(ret, fn, msg)
+{
+	if (ret+""=="1")
+	{
+		setData("lastsubtype", "FILE");
+		portxd("/test.SubmitCode.dt", {gpid:gpid,codefn:msg}, function(obj){
+			if (""+obj["ret"]=="1")
+			{
+				window.location.href = "/AllSubmits.page?type=a";
+			}
+			else
+			{
+				alert(obj["msg"]);
+				showSubmit();
+			}
+		});
+	}
+	else
+	{
+		alert(msg);
+		showSubmit();
+	}
+}
+
+function showSubmit()
+{
+	var cc = getCode();
+	var canUseFile = (cc==null)||(cc=="");
+	var isSubmit = (getProbType()=="SUBMIT");
+	var canUsePaste = !isSubmit;
+	var _langs;
+	var _pop = createPopWin("提交代码", function(gdiv){
+		var divS = newT("", gdiv, "vsp");
+		
+		var fdiv = newT("", gdiv);
+		newT("", fdiv, "", '<iframe id="dataupf" src="/CommonFileUpload.page" style="width:220px; height:40px; margin:0px; padding:0px; border:0px; "></iframe>');
+		
+		var div = newT("", gdiv);
+		
+		fdiv.style.display = "none";
+		div.style.display = "block";
+		
+		function setDivS1()
+		{
+			if (!canUsePaste && canUseFile)
+			{
+				setDivS2()
+				return ;
+			}
+			fdiv.style.display = "none";
+			div.style.display = "block";
+			divS.innerHTML = "";
+			var l1 = newT("span", divS, "", "<b>* 粘贴代码提交</b>");
+			if (canUseFile)
+			{
+				newT("span", divS, "", " &nbsp; &nbsp; &nbsp; ");
+				
+				var l2 = newT("a", divS, "", "上传文件提交");
+				l2.href = "###";
+				l2.onclick = function() {
+					setDivS2();
+				};
+			}
+		}
+		function toLangDesc(lang)
+		{
+			if (lang=="CPP") return "C++ (MinGW g++ 4.7.2)";
+			if (lang=="C") return "C (MinGW gcc 4.7.2)";
+			if (lang=="C0X") return "C++0x (MinGW g++ 4.7.2 --std=c++0x)";
+			if (lang=="VC9") return "VC (Microsoft Visual C++ 2008)";
+			if (lang=="PAS") return "PAS (Free Pascal Compiler 2.4.0)";
+			if (lang=="CS") return "C# (Microsoft .NET 3.5)";
+			if (lang=="JAVA") return "Java (Java 1.7.0_15)";
+			if (lang=="RUBY") return "Ruby (Ruby 1.8.6)";
+			if (lang=="PERL") return "Perl (Perl v5.16.3)";
+			if (lang=="PYTHON") return "Python (Python 3.3.0)";
+			if (lang=="PYTHON27") return "Python (Python 2.7.3)";
+			if (lang=="PHP") return "PHP (PHP 5.4.13)";
+			return lang;
+		}
+		function setDivS2()
+		{
+			if (canUsePaste && !canUseFile)
+			{
+				setDivS1()
+				return ;
+			}
+			div.style.display = "none";
+			fdiv.style.display = "block";
+			divS.innerHTML = "";
+			if (canUsePaste)
+			{
+				var l1 = newT("a", divS, "", "粘贴代码提交");
+				l1.href = "###";
+				l1.onclick = function() {
+					setDivS1();
+				};
+				newT("span", divS, "", " &nbsp; &nbsp; &nbsp; ");
+			}
+			var l2 = newT("span", divS, "", "<b>* 上传文件提交</b>");
+			if (isSubmit)
+			{
+				newT("", divS, "", "这是一道提交答案的试题，请将<b>output*.txt</b>打包在一起后提交。");
+			}
+		}
+		var prevsubtype = getData("lastsubtype");
+		if (prevsubtype == "FILE")
+			setDivS2();
+		else
+			setDivS1();
+		
+		var _lang = newT(null, div, "smallsp", "语言选择：");
+		_langs = newT("select", _lang);
+
+		var langs = getLangs();
+		var langss = langs.split(",");
+		_langs.options.length = 0;
+		for (la in langss)
+			_langs.options.add(new Option(toLangDesc(langss[la]), langss[la]));
+
+		try {
+			var prevlang = getData("lastlang");
+			if (prevlang)
+			{
+				for (var i = 0; i < _langs.options.length; i++)
+					if (_langs.options[i].value == prevlang)
+						_langs.options[i].selected = true;
+			}
+		} catch ( errx ) {};
+
+		var _code = newT(null, div, "code");
+		var _curcode = getCode() || "";
+		var lineNum = 0;
+		if (_curcode && _curcode.indexOf("@你的代码")>=0)
+		{
+			var _scodeLines = newT("OL", _code);
+			port_fc(_curcode, function(st){ newT("LI", _scodeLines, ((++lineNum)&1)?"odd":"even", st.replace("@你的代码", "<textarea name='code' id='code' class='code' style='height:200px;width:600px;'></textarea>")); });
+		}
+		else
+			_code.innerHTML = "<textarea name='code' id='code' class='code' style='height:430px;width:660px;'></textarea>";
+		var _btns = newT("", div, "btns");
+		var _okBtn = createButton(_btns, "提交", function() {
+			var vgpid = gpid;
+			var vlang = _langs.value;
+			var vcode = e("code").value;
+			if (vcode=="")
+			{
+				alert("请输入要提交的程序。");
+				_okBtn.enableClick();
+				return true;
+			}
+			else
+			{
+				setData("lastsubtype", "CODE");
+				portxd("/test.SubmitCode.dt", {gpid:vgpid,lang:vlang,code:vcode}, function(obj){
+					setData("lastlang", vlang);
+					if (""+obj["ret"]=="1")
+					{
+						window.location.href = "/AllSubmits.page?type=a";
+					}
+					else
+					{
+						alert(obj["msg"]);
+						_okBtn.enableClick();
+					}
+				});
+			}
+			return false;
+		});
+		var _closeBtn = createButton(_btns, "关闭", function() { _pop.doHide(); });
+	}, "", function(){}, 800);
+}
+function formatChange()
+{
+	if (viewType == "f")
+	{
+		viewType = "p";
+		e("pcont1").style.display = "none";
+		e("pcont2").style.display = "block";
+		e('fcl').innerHTML = "查看格式化的试题";
+	}
+	else
+	{
+		viewType = "f";
+		e("pcont2").style.display = "none";
+		e("pcont1").style.display = "block";
+		e('fcl').innerHTML = "查看未格式化的试题";
+	}
+}
+function discussProblem() { location.href = "/Forum/Index.page?gpid=" + gpid; }
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+  	inlineMath: [ ['$'+'$','$'+'$'], ['\\(','\\)']],
+  	displayMath: [ ['\\[','\\]'] ]
+  }
+});
+</script>
+<script type="text/javascript" src="/MathJax/MathJax.js?config=TeX-AMS_HTML"></script>
+<!-- InstanceEndEditable -->
+<!--end main-->
+</div></div>
+<iframe id="dframe" src="about:blank" style="width:1px; height:1px; visibility:hidden; border:0px; padding:0px; margin:0px;"></iframe>
+<div id="footer"><div class="content"><hr>&copy;2005-2015 胡伟栋 &nbsp; &nbsp; &nbsp; 京ICP备13041125号 &nbsp; &nbsp; &nbsp; 京公网安备11010802017621号</div></div>
+</div>
+</div>
+</body>
+<!-- InstanceEnd --></html>
