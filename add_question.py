@@ -3,6 +3,9 @@
 import glob
 import os
 import urllib.request
+import requests
+from pycookiecheat import chrome_cookies
+
 oj = {'rqnoj': 'http://www.rqnoj.cn/problem/',
       'hdu': 'http://acm.hdu.edu.cn/showproblem.php?pid=',
       'zoj': 'http://acm.zju.edu.cn/onlinejudge/showProblem.do?problemCode=',
@@ -10,7 +13,7 @@ oj = {'rqnoj': 'http://www.rqnoj.cn/problem/',
       'poj': 'http://poj.org/problem?id=',
       'uoj': 'http://uoj.ac/problem/',
       'uva': 'https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=',
-      'ts': 'http://www.tsinsen.com/',
+      'ts': 'http://oj.tsinsen.com/',
       'loj': 'https://loj.ac/problem/'}
 for k, v in oj.items():
   with open('%s/CMakeLists.txt' % k, 'w') as f:
@@ -26,7 +29,12 @@ for k, v in oj.items():
       if os.path.exists('%s/%s%s.html' % (k, k, problemId)):
         continue
       print('Processing %s %s.' % (k, problemId))
-      content = urllib.request.urlopen(v + problemId).read()
+      # content = urllib.request.urlopen(v + problemId).read()
+      if problemId.startswith('D'):
+        cookies=chrome_cookies(v)
+        content = requests.get(v + problemId, cookies=cookies).content
+      else:
+        content = requests.get(v + problemId).content
       with open('%s/%s%s.html' % (k, k, problemId), 'wb') as ff:
         ff.write(content)
 
