@@ -30,8 +30,8 @@ for k, v in oj.items():
         continue
       print('Processing %s %s.' % (k, problemId))
       # content = urllib.request.urlopen(v + problemId).read()
-      if problemId.startswith('D'):
-        cookies=chrome_cookies(v)
+      if problemId.startswith('D') and 'tsinsen' in v:
+        cookies = chrome_cookies(v)
         content = requests.get(v + problemId, cookies=cookies).content
       else:
         content = requests.get(v + problemId).content

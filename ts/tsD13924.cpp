@@ -25,15 +25,12 @@ int main() {
       for(int j = i*i;j <= 10000;j += i) prime[j] = 2;
     }
   }
-  for (int i = a;i <= b;i++) {
-    if ((i & 1) == 0)
-      continue;
+  for (int i = a | 1;i <= b;i+=2) {
     if (i <= 10000) {
       if (prime[i]==1 && isPan(i)) {
         printf("%d\n", i);
       }
-    }
-    else if (i> 10000) {
+    } else if (i > 10000) {
       if (!isPan(i))
         continue;
       int j = 0;
