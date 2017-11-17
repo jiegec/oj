@@ -41,5 +41,6 @@ for k, v in oj.items():
 with open('CMakeLists.txt', 'w') as f:
   f.write('cmake_minimum_required(VERSION 3.3)\nproject(oj)\n\nset(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")\n\n')
   f.write('add_subdirectory(custom)\n')
+  f.write('add_subdirectory(templates)\n')
   for k in oj:
     f.write('add_subdirectory(%s)\n' % k)

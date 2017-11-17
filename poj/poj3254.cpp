@@ -1,4 +1,5 @@
 // 状压DP
+// http://blog.csdn.net/accry/article/details/6607703
 #include <stdio.h>
 #include <cstring>
 
