@@ -1,5 +1,7 @@
 ts/tsD*.html
 .DS_Store
+Makefile
+build/
 
 ## HubIgnore Begin: C++, Global/JetBrains
 ## C++ Begins:
