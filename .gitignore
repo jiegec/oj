@@ -2,6 +2,8 @@ ts/tsD*.html
 .DS_Store
 Makefile
 build/
+.vscode/
+cquery_diagnostics.log
 
 ## HubIgnore Begin: C++, Global/JetBrains
 ## C++ Begins:
