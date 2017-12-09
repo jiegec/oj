@@ -1,0 +1,139 @@
+# -*- org-export-babel-evaluate: nil -*-
+#+REVEAL_ROOT: https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.2.0/
+#+REVEAL_HLEVEL: 2
+#+REVEAL_PLUGINS: (highlight)
+#+AUTHOR: 陈嘉杰
+#+EMAIL: jiegec@qq.com
+#+TITLE: 1003. IP 过滤器 2
+#+STARTUP: showall
+* 题目回顾
+  :PROPERTIES:
+  :SLIDE:    segue dark quote
+  :ASIDE:    right bottom
+  :ARTICLE:  flexbox vleft auto-fadein
+  :END:
+  输入一行特定格式的IP过滤器，然后对下面的若干的IP地址判断是否会被过滤。
+
+** 首先，把输入的框架写好：
+   #+ATTR_REVEAL: :frag (appear)
+   #+BEGIN_SRC cpp
+     #include &lt;stdio.h>
+     #include &lt;string.h>
+
+     int main() {
+       int ip_begin[4], ip_end[4];
+       char filter[100];
+       scanf("%s",filter);
+       // parse filter
+       int n;
+       scanf("%d",&n);
+       for (int k = 0;k < n;k++) {
+         char ip[100];
+         scanf("%s", ip);
+         // parse ip
+       }
+       return 0;
+     }
+   #+END_SRC
+
+   #+REVEAL: split
+   接下来，让我介绍一些新的函数给你们：
+
+   #+ATTR_REVEAL: :frag (appear)
+   #+BEGIN_SRC text
+     函数类型： char *strtok( char *str, const char *delim );
+     用途：根据delim把str分成多个部分，通过多次调用这个函数得到各个部分的内容。
+     假如要以 "." 作为间隔符，然后： char ip[] = "192.168.0.1";
+     首先调用 char *token = strtok(ip, ".");
+     此时如果 token == NULL ,那么这个字符串中就没有 "."
+     如果这个字符串中有点，此时的 token 就会是 "192": puts(token); // 192
+     在之后的调用中，用 NULL 代替 ip 表示继续上一次的过程：
+     token = strtok(NULL, "."); puts(token); // 168
+     token = strtok(NULL, "."); puts(token); // 0
+     token = strtok(NULL, "."); puts(token); // 1
+     我们也可以写成一个循环：
+     char *token = strtok(input, ".");
+     while(token) {
+       puts(token);
+       token = strtok(NULL, ".");
+     }
+     那么输出会是："192\n168\n0\n1\n"
+   #+END_SRC
+
+   #+REVEAL: split
+   那么，我们可以把这个用到IP过滤器的解析中，也可以用在IP的解析中。
+
+   #+ATTR_REVEAL: :frag (appear)
+   #+BEGIN_SRC cpp
+     // parse filter
+     char *token = strtok(filter, ".");
+     while(token) {
+       if (strchr(token, '-') != NULL) {
+         // range
+       } else if (strcmp(token, "*") == 0) {
+         // asterisk
+       } else {
+         // only one ip
+       }
+       token = strtok(NULL, ".");
+      }
+   #+END_SRC
+
+   #+ATTR_REVEAL: :frag (appear)
+   我们用到了 ~strchr~ 函数：在字符串中搜索字符，如果有就返回字符串中第一个找到的这个字符的地址，否则返回 ~NULL~ 。
+
+   #+REVEAL: split
+   #+BEGIN_SRC cpp
+     int i = 0;
+     while(token) {
+       char *delim;
+       if ((delim = strchr(token, '-')) != NULL) {
+         // range
+         ip_begin[i] = atoi(token);
+         ip_end[i] = atoi(delim+1);
+       } else if (strcmp(token, "*") == 0) {
+         // asterisk
+         ip_begin[i] = 0;
+         ip_end[i] = 255;
+       } else {
+         // only one ip
+         ip_begin[i] = ip_end[i] = atoi(token);
+       }
+       token = strtok(NULL, ".");
+       i++;
+     }
+   #+END_SRC
+
+   #+ATTR_REVEAL: :frag (appear)
+   这里的 ~atoi~ 函数的作用是把字符串转换为数字。也可以用 ~sscanf~ 代替。
+
+   #+REVEAL: split
+   下面的代码也可以类似地写出来：
+
+   #+ATTR_REVEAL: :frag (appear)
+   #+BEGIN_SRC cpp
+     i = 0;
+     token = strtok(ip, ".");
+     while(token) {
+       int temp = atoi(token);
+       if (temp < ip_begin[i] || temp > ip_end[i]) {
+         printf("Failed\n");
+         break;
+       }
+       token = strtok(NULL, ".");
+       i++;
+      }
+     if (i == 4)
+           printf("Accepted\n");
+   #+END_SRC
+
+   #+ATTR_REVEAL: :frag (appear)
+   这里为了演示几个标准库的字符串处理函数，特地用了这种写法。其实，可以用别的很多做法也可以达到相同的目的。
+
+
+* Q & A ?
+  :PROPERTIES:
+  :SLIDE:    segue dark quote
+  :ASIDE:    right bottom
+  :ARTICLE:  flexbox vleft auto-fadein
+  :END:

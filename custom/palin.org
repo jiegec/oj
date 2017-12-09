@@ -1,0 +1,58 @@
+# -*- org-export-babel-evaluate: nil -*-
+#+REVEAL_ROOT: https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.2.0/
+#+REVEAL_HLEVEL: 2
+#+REVEAL_PLUGINS: (highlight)
+#+AUTHOR: 陈嘉杰
+#+EMAIL: jiegec@qq.com
+#+TITLE: 2098. 回文串
+#+STARTUP: showall
+* 题目回顾
+  :PROPERTIES:
+  :SLIDE:    segue dark quote
+  :ASIDE:    right bottom
+  :ARTICLE:  flexbox vleft auto-fadein
+  :END:
+  输入若干行字符串，判断每行是否是回文串。
+
+** 首先，用一个循环输入每一行的内容
+   #+ATTR_REVEAL: :frag (appear)
+   #+BEGIN_SRC cpp
+     #include &lt;stdio.h>
+     #include &lt;string.h>
+
+     int main() {
+       char buffer[1024];
+       int len, i;
+       while(scanf("%s", buffer) != EOF) {
+         len = strlen(buffer);
+         // TO-DO
+       }
+       return 0;
+     }
+   #+END_SRC
+
+   #+REVEAL: split
+   这里，我们用一个循环不断比较处于对称位置的两个字符，不正确则输出并离开循环，最后判断一下即可。
+   #+ATTR_REVEAL: :frag (appear)
+   #+BEGIN_SRC cpp
+         for (i = 0;i < len;i++) {
+           if (buffer[i] != buffer[len-i-1]) {
+             printf("n\n");
+             break;
+           }
+         }
+
+         if (i == len) {
+           printf("y\n");
+         }
+   #+END_SRC
+
+   #+REVEAL: split
+   注：由于对称性，这里不一定要循环到 ~len~ 。
+
+* Q & A ?
+  :PROPERTIES:
+  :SLIDE:    segue dark quote
+  :ASIDE:    right bottom
+  :ARTICLE:  flexbox vleft auto-fadein
+  :END:
