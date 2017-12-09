@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>2019. 打印杨辉三角</title>
+<meta name="author" content="(陈嘉杰)"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.2.0/css/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.2.0/css/theme/moon.css" id="theme"/>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.2.0/lib/css/zenburn.css"/>
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.2.0/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">2019. 打印杨辉三角</h1><h2 class="author">陈嘉杰</h2><p class="date">Created: 2017-12-09 Sat 10:49</p>
+</section>
+<section id="table-of-contents">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#/slide-org87f82f7">1. 题目回顾</a>
+<ul>
+<li><a href="#/slide-orgfaed981">1.1. 数学基础</a></li>
+</ul>
+</li>
+<li><a href="#/slide-org17c18bd">2. Q &amp; A ?</a></li>
+</ul>
+</div>
+</div>
+</section>
+<section>
+<section id="slide-org87f82f7">
+<h2 id="org87f82f7"><span class="section-number-2">1</span> 题目回顾</h2>
+<p>
+输入一个 <code>N</code> ，输出前 <code>N</code> 层的杨辉三角。
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-orgfaed981">
+<h3 id="orgfaed981"><span class="section-number-3">1.1</span> 数学基础</h3>
+<p>
+每一行除了第一项是1以外，每一项都是上一行的同一列和前一列上数字之和。
+</p>
+
+<p class="fragment (appear)">
+那我们就用数组实现这个简单问题吧：
+</p>
+
+<p class="fragment (appear)">
+首先是输入，然后初始化一个数组：
+</p>
+
+<div class="org-src-container">
+
+<pre class="fragment (appear)"><code class="cpp" >#include &lt;stdio.h>
+
+int main() {
+  int N;
+  int row[20][20] = {0};
+  scanf("%d",&N);
+  return 0;
+}
+</code></pre>
+</div>
+
+</section>
+<section >
+<p>
+然后开始计算杨辉三角：
+</p>
+<div class="org-src-container">
+
+<pre><code class="cpp" >row[0][0] = 1;
+for (int i = 1;i <= N;i++) {
+  row[i][0] = 1;
+  printf("%d",row[i][0]);
+  for (int j = 1;j < i;j++) {
+    row[i][j] = row[i-1][j-1] + row[i-1][j];
+    printf(" %d",row[i][j]);
+  }
+  putchar('\n');
+ }
+</code></pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org17c18bd">
+<h2 id="org17c18bd"><span class="section-number-2">2</span> Q &amp; A ?</h2>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.2.0/lib/js/head.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.2.0/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.2.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }]
+});
+</script>
+</body>
+</html>

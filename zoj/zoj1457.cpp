@@ -6,12 +6,12 @@ bool prime[20];
 int n;
 bool visit[20];
 int number[20];
-void print() {	
+void print() {
 	for(int i = 1;i < n;i++) {
 		printf("%d ",number[i]);
 	}
 	printf("%d",number[n]);
-	printf("\n");	
+	printf("\n");
 }
 void dfs(int num) {
 	if(num == n) {
@@ -46,7 +46,7 @@ int main() {
 		visit[1] = true;
 		printf("Case %d:\n",i);
 		if(n % 2 == 0)
-			dfs(2);		
+			dfs(2);
 		printf("\n");
 		i++;
 	}

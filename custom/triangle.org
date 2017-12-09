@@ -1,0 +1,57 @@
+# -*- org-export-babel-evaluate: nil -*-
+#+REVEAL_ROOT: https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.2.0/
+#+REVEAL_HLEVEL: 2
+#+REVEAL_PLUGINS: (highlight)
+#+AUTHOR: 陈嘉杰
+#+EMAIL: jiegec@qq.com
+#+TITLE: 2019. 打印杨辉三角
+#+STARTUP: showall
+* 题目回顾
+  :PROPERTIES:
+  :SLIDE:    segue dark quote
+  :ASIDE:    right bottom
+  :ARTICLE:  flexbox vleft auto-fadein
+  :END:
+  输入一个 ~N~ ，输出前 ~N~ 层的杨辉三角。
+
+** 数学基础
+   每一行除了第一项是1以外，每一项都是上一行的同一列和前一列上数字之和。
+
+   #+ATTR_REVEAL: :frag (appear)
+   那我们就用数组实现这个简单问题吧：
+
+   #+ATTR_REVEAL: :frag (appear)
+   首先是输入，然后初始化一个数组：
+
+   #+ATTR_REVEAL: :frag (appear)
+   #+BEGIN_SRC cpp
+     #include &lt;stdio.h>
+
+     int main() {
+       int N;
+       int row[20][20] = {0};
+       scanf("%d",&N);
+       return 0;
+     }
+   #+END_SRC
+
+   #+REVEAL: split
+   然后开始计算杨辉三角：
+   #+BEGIN_SRC cpp
+     row[0][0] = 1;
+     for (int i = 1;i <= N;i++) {
+       row[i][0] = 1;
+       printf("%d",row[i][0]);
+       for (int j = 1;j < i;j++) {
+         row[i][j] = row[i-1][j-1] + row[i-1][j];
+         printf(" %d",row[i][j]);
+       }
+       putchar('\n');
+      }
+   #+END_SRC
+* Q & A ?
+  :PROPERTIES:
+  :SLIDE:    segue dark quote
+  :ASIDE:    right bottom
+  :ARTICLE:  flexbox vleft auto-fadein
+  :END:

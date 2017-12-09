@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>1076. 字符串变换</title>
+<meta name="author" content="(陈嘉杰)"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.2.0/css/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.2.0/css/theme/moon.css" id="theme"/>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.2.0/lib/css/zenburn.css"/>
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.2.0/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">1076. 字符串变换</h1><h2 class="author">陈嘉杰</h2><p class="date">Created: 2017-12-09 Sat 10:48</p>
+</section>
+<section id="table-of-contents">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#/slide-org2235140">1. 回顾题目</a>
+<ul>
+<li><a href="#/slide-org5cfcae0">1.1. 首先，把输入和操作判断的框架写好：</a></li>
+<li><a href="#/slide-org5c12dea">1.2. 然后，开始一个一个填坑：</a></li>
+</ul>
+</li>
+<li><a href="#/slide-org818ff67">2. Q &amp; A ?</a></li>
+</ul>
+</div>
+</div>
+</section>
+<section>
+<section id="slide-org2235140">
+<h2 id="org2235140"><span class="section-number-2">1</span> 回顾题目</h2>
+<p>
+要求实现一个程序，支持五种字符串操作
+</p>
+
+<ol>
+<li class="fragment appear">小写 -&gt; 大写</li>
+<li class="fragment appear">大写 -&gt; 小写</li>
+<li class="fragment appear">逆序</li>
+<li class="fragment appear">大写 &lt;-&gt; 小写</li>
+<li class="fragment appear">大写 -&gt; 小写后，合并连续字符</li>
+
+</ol>
+
+<p class="fragment (appear)">
+然后把结果输出到控制台
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-org5cfcae0">
+<h3 id="org5cfcae0"><span class="section-number-3">1.1</span> 首先，把输入和操作判断的框架写好：</h3>
+<div class="org-src-container">
+
+<pre><code class="cpp" >#include &lt;stdio.h>
+#include &lt;string.h>
+
+int main() {
+  int action;
+  char buffer[1024];
+  scanf("%d %s", &action, buffer);
+
+  switch(action) {
+  case 1:
+    break;
+  case 2:
+    break;
+  case 3:
+    break;
+  case 4:
+    break;
+  case 5:
+    break;
+  }
+  return 0;
+}
+</code></pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-org5c12dea">
+<h3 id="org5c12dea"><span class="section-number-3">1.2</span> 然后，开始一个一个填坑：</h3>
+<p>
+第一个是 小写 -&gt; 大写。
+</p>
+
+<div class="org-src-container">
+
+<pre class="fragment (appear)"><code class="cpp" >int len = strlen(buffer);
+int i;
+switch(action) {
+ case 1:
+   for (i = 0;i < len;i++) {
+     if ('a' <= buffer[i] && buffer[i] <= 'z') {
+       putchar(buffer[i] - 'a' + 'A');
+     } else {
+       putchar(buffer[i]);
+     }
+   }
+   break;
+}
+</code></pre>
+</div>
+
+</section>
+<section >
+<p>
+第二个是 大写 -&gt; 小写。
+</p>
+
+<div class="org-src-container">
+
+<pre class="fragment (appear)"><code class="cpp" >switch(action) {
+ case 2:
+   for (i = 0;i < len;i++) {
+     if ('A' <= buffer[i] && buffer[i] <= 'Z') {
+       putchar(buffer[i] - 'A' + 'a');
+     } else {
+       putchar(buffer[i]);
+     }
+   }
+   break;
+}
+</code></pre>
+</div>
+
+</section>
+<section >
+<p>
+第三个是 逆序。
+</p>
+
+<div class="org-src-container">
+
+<pre class="fragment (appear)"><code class="cpp" >switch(action) {
+ case 3:
+   // Method 1
+   for (i = 0;i < len;i++) {
+     putchar(buffer[len-i-1]);
+   }
+   // Method 2
+   for (i = len-1;i >= 0;i--) {
+     putchar(buffer[i]);
+   }
+   break;
+}
+</code></pre>
+</div>
+
+</section>
+<section >
+<p>
+第四个是 大写 &lt;-&gt; 小写。
+</p>
+
+<div class="org-src-container">
+
+<pre class="fragment (appear)"><code class="cpp" >switch(action) {
+ case 4:
+   for (i = 0;i < len;i++) {
+     if ('A' <= buffer[i] && buffer[i] <= 'Z') {
+       putchar(buffer[i] - 'A' + 'a');
+     } else {
+       putchar(buffer[i] - 'a' + 'A');
+     }
+   }
+   break;
+}
+</code></pre>
+</div>
+
+</section>
+<section >
+<p>
+第五个是 大写 -&gt; 小写，再合并连续的字符。
+</p>
+
+<p class="fragment (appear)">
+首先把 大写 -&gt; 小写 实现了:
+</p>
+
+<div class="org-src-container">
+
+<pre class="fragment (appear)"><code class="cpp" >switch(action) {
+ case 5:
+   for (i = 0;i < len;i++) {
+     if ('A' <= buffer[i] && buffer[i] <= 'Z') {
+       buffer[i] = buffer[i] - 'A' + 'a';
+     }
+   }
+   // TO-DO
+   break;
+}
+</code></pre>
+</div>
+
+</section>
+<section >
+<p>
+接下来，考虑一下如何实现这个合并连续的字符：
+</p>
+
+<ol>
+<li class="fragment appear">首先，用一个 <code>begin</code> 记录一下连续的字符的开头。</li>
+<li class="fragment appear">由于小写字符在ASCII码里都是连续的，我们只要记录连续的字符开头所在的位置 <code>begin_pos</code> 那么，如果结尾的位置为 <code>i</code> ，那么连续的字符就以 <code>begin+(i-begin_pos)</code> 结尾。</li>
+<li class="fragment appear">那么，思路就出来了：
+a. 如果当前的字符和前面连续的搭不上，我们就把前面的输出，注意考虑长度为一、长度为二的特殊情况，然后把 <code>begin</code> 和 <code>begin_pos</code> 都设成当前的这一个。
+b. 如果当前的字符和前面连续的搭上了，也就是说 <code>buffer[i] == begin+(i-begin_pos)</code> ，好，那就继续往下扫描。
+c. 当字符串结束的时候，看看现在有没有剩的连续的字符，有就输出。</li>
+
+</ol>
+
+</section>
+<section >
+<div class="org-src-container">
+
+<pre><code class="cpp" >begin = buffer[0];
+begin_pos = 0;
+for (i = 1;i < len;i++) {
+  if (buffer[i] != begin+(i-begin_pos)) {
+    putchar(begin);
+    if (i - begin_pos >= 3) {
+      putchar('-');
+    }
+    if (i - begin_pos >= 2) {
+      putchar(begin+(i-begin_pos-1));
+    }
+
+    begin = buffer[i];
+    begin_pos = i;
+  }
+}
+// trailing consecutive characters
+putchar(begin);
+if (i - begin_pos >= 3) {
+  putchar('-');
+}
+if (i - begin_pos >= 2) {
+  putchar(begin+(i-begin_pos-1));
+}
+</code></pre>
+</div>
+
+</section>
+<section >
+<p>
+当然，如果不想特别考虑怎么输出最后的一组连续字符，我们也可以用另一种实现：
+</p>
+
+<div class="org-src-container">
+
+<pre class="fragment (appear)"><code class="cpp" >begin = buffer[0];
+begin_pos = 0;
+for (i = 1;i <= len;i++) {
+  if (buffer[i] != begin+(i-begin_pos)) {
+    putchar(begin);
+    if (i - begin_pos >= 3) {
+      putchar('-');
+    }
+    if (i - begin_pos >= 2) {
+      putchar(begin+(i-begin_pos-1));
+    }
+
+    begin = buffer[i];
+    begin_pos = i;
+  }
+}
+</code></pre>
+</div>
+
+<p class="fragment (appear)">
+注意此处的 <code>i &lt; len</code> 改成了 <code>i &lt;= len</code> 。利用字符串末尾的 <code>'\0'</code> ，我们简化了一点代码。
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-org818ff67">
+<h2 id="org818ff67"><span class="section-number-2">2</span> Q &amp; A ?</h2>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.2.0/lib/js/head.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.2.0/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.2.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }]
+});
+</script>
+</body>
+</html>
