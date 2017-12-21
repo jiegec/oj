@@ -26,27 +26,28 @@
 <body>
 <div class="reveal">
 <div class="slides">
-<section id="sec-title-slide"><h1 class="title">1076. 字符串变换</h1><h2 class="author">陈嘉杰</h2><p class="date">Created: 2017-12-09 Sat 10:48</p>
+<section id="sec-title-slide"><h1 class="title">1076. 字符串变换</h1><h2 class="author">陈嘉杰</h2><p class="date">Created: 2017-12-12 Tue 15:08</p>
 </section>
 <section id="table-of-contents">
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#/slide-org2235140">1. 回顾题目</a>
+<li><a href="#/slide-orge694bd0">1. 回顾题目</a>
 <ul>
-<li><a href="#/slide-org5cfcae0">1.1. 首先，把输入和操作判断的框架写好：</a></li>
-<li><a href="#/slide-org5c12dea">1.2. 然后，开始一个一个填坑：</a></li>
+<li><a href="#/slide-org5dc0ab2">1.1. 首先，把输入和操作判断的框架写好：</a></li>
+<li><a href="#/slide-org7602e6f">1.2. 然后，开始一个一个填坑：</a></li>
 </ul>
 </li>
-<li><a href="#/slide-org818ff67">2. Q &amp; A ?</a></li>
+<li><a href="#/slide-org97dcb41">2. Q &amp; A ?</a></li>
+<li><a href="#/slide-orgfa3f283">3. 补充内容</a></li>
 </ul>
 </div>
 </div>
 </section>
 <section>
-<section id="slide-org2235140">
-<h2 id="org2235140"><span class="section-number-2">1</span> 回顾题目</h2>
+<section id="slide-orge694bd0">
+<h2 id="orge694bd0"><span class="section-number-2">1</span> 回顾题目</h2>
 <p>
 要求实现一个程序，支持五种字符串操作
 </p>
@@ -67,8 +68,8 @@
 </section>
 </section>
 <section>
-<section id="slide-org5cfcae0">
-<h3 id="org5cfcae0"><span class="section-number-3">1.1</span> 首先，把输入和操作判断的框架写好：</h3>
+<section id="slide-org5dc0ab2">
+<h3 id="org5dc0ab2"><span class="section-number-3">1.1</span> 首先，把输入和操作判断的框架写好：</h3>
 <div class="org-src-container">
 
 <pre><code class="cpp" >#include &lt;stdio.h>
@@ -99,8 +100,8 @@ int main() {
 </section>
 </section>
 <section>
-<section id="slide-org5c12dea">
-<h3 id="org5c12dea"><span class="section-number-3">1.2</span> 然后，开始一个一个填坑：</h3>
+<section id="slide-org7602e6f">
+<h3 id="org7602e6f"><span class="section-number-3">1.2</span> 然后，开始一个一个填坑：</h3>
 <p>
 第一个是 小写 -&gt; 大写。
 </p>
@@ -296,8 +297,21 @@ for (i = 1;i <= len;i++) {
 </section>
 </section>
 <section>
-<section id="slide-org818ff67">
-<h2 id="org818ff67"><span class="section-number-2">2</span> Q &amp; A ?</h2>
+<section id="slide-org97dcb41">
+<h2 id="org97dcb41"><span class="section-number-2">2</span> Q &amp; A ?</h2>
+
+</section>
+</section>
+<section>
+<section id="slide-orgfa3f283">
+<h2 id="orgfa3f283"><span class="section-number-2">3</span> 补充内容</h2>
+<p>
+那么，标准库中有没有上面需要实现的一些功能呢？
+</p>
+
+<p class="fragment (appear)">
+是的。 <code>islower</code> <code>isupper</code> <code>tolower</code> <code>toupper</code> 可以完成大小写的判断和转换。
+</p>
 </section>
 </section>
 </div>

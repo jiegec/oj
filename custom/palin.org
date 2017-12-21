@@ -47,8 +47,17 @@
          }
    #+END_SRC
 
+   #+ATTR_REVEAL: :frag (appear)
+   注：由于对称性，这里可以循环到 ~len/2~ 。
+
    #+REVEAL: split
-   注：由于对称性，这里不一定要循环到 ~len~ 。
+   问题来了：能否用C/C++标准库里的函数实现这个？答案是：也许可以，可以。
+
+   #+ATTR_REVEAL: :frag (appear)
+   原因在于：有一个函数 ~strrev~ 可以将字符串反转，配合上 ~strcmp~ 与原来的字符串比较的出结果。但是，这个函数并不在C的标准中，但是在一些编译环境下可以直接用。
+
+   #+ATTR_REVEAL: :frag (appear)
+   不过，C++中有 ~std::reverse~ 函数，可以达成一样的效果。
 
 * Q & A ?
   :PROPERTIES:

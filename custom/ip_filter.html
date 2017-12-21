@@ -26,26 +26,27 @@
 <body>
 <div class="reveal">
 <div class="slides">
-<section id="sec-title-slide"><h1 class="title">1003. IP 过滤器 2</h1><h2 class="author">陈嘉杰</h2><p class="date">Created: 2017-12-09 Sat 22:26</p>
+<section id="sec-title-slide"><h1 class="title">1003. IP 过滤器 2</h1><h2 class="author">陈嘉杰</h2><p class="date">Created: 2017-12-10 Sun 08:01</p>
 </section>
 <section id="table-of-contents">
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#/slide-org9f981e0">1. 题目回顾</a>
+<li><a href="#/slide-orgee37cb4">1. 题目回顾</a>
 <ul>
-<li><a href="#/slide-org60b416d">1.1. 首先，把输入的框架写好：</a></li>
+<li><a href="#/slide-org1ce1701">1.1. 首先，把输入的框架写好：</a></li>
 </ul>
 </li>
-<li><a href="#/slide-orgfb37823">2. Q &amp; A ?</a></li>
+<li><a href="#/slide-org45dc06a">2. Q &amp; A ?</a></li>
+<li><a href="#/slide-org676ddb3">3. 如何找到符合你的需求的标准库函数并且使用它？</a></li>
 </ul>
 </div>
 </div>
 </section>
 <section>
-<section id="slide-org9f981e0">
-<h2 id="org9f981e0"><span class="section-number-2">1</span> 题目回顾</h2>
+<section id="slide-orgee37cb4">
+<h2 id="orgee37cb4"><span class="section-number-2">1</span> 题目回顾</h2>
 <p>
 输入一行特定格式的IP过滤器，然后对下面的若干的IP地址判断是否会被过滤。
 </p>
@@ -53,8 +54,8 @@
 </section>
 </section>
 <section>
-<section id="slide-org60b416d">
-<h3 id="org60b416d"><span class="section-number-3">1.1</span> 首先，把输入的框架写好：</h3>
+<section id="slide-org1ce1701">
+<h3 id="org1ce1701"><span class="section-number-3">1.1</span> 首先，把输入的框架写好：</h3>
 <div class="org-src-container">
 
 <pre class="fragment (appear)"><code class="cpp" >#include &lt;stdio.h>
@@ -193,8 +194,32 @@ if (i == 4)
 </section>
 </section>
 <section>
-<section id="slide-orgfb37823">
-<h2 id="orgfb37823"><span class="section-number-2">2</span> Q &amp; A ?</h2>
+<section id="slide-org45dc06a">
+<h2 id="org45dc06a"><span class="section-number-2">2</span> Q &amp; A ?</h2>
+
+</section>
+</section>
+<section>
+<section id="slide-org676ddb3">
+<h2 id="org676ddb3"><span class="section-number-2">3</span> 如何找到符合你的需求的标准库函数并且使用它？</h2>
+<p>
+在上面的程序里，我使用的 <code>strtok</code> <code>strchr</code> 和 <code>atoi</code> 三个函数你们可能是第一次见。
+</p>
+
+<p class="fragment (appear)">
+那么，如何根据子集的需求，找到标准库中已有的功能呢？
+</p>
+
+</section>
+<section >
+<ol>
+<li class="fragment appear">看别人的代码。同样的这段代码，我可以用 <code>std::string</code> 实现，也可以纯粹用字符指针实现。如果见到新的函数，记住用途和名字即可</li>
+<li class="fragment appear">知道了名字以后，上 cppreference.com 去搜索。这里面有非常详细的函数的说明，建议看英文版，不行也可以看中文版。</li>
+<li class="fragment appear">这个说明的下方还会有一些使用的例子，可以看代码理解一下这个函数的行为，也可以在本地写一个测试一下。</li>
+<li class="fragment appear">例子下方还会有与这个函数相关的函数的连接，也可以点进去学习。</li>
+<li class="fragment appear">更进一步，试着自己实现一下这些函数，可以有更深刻的理解。</li>
+
+</ol>
 </section>
 </section>
 </div>

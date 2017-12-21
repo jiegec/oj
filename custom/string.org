@@ -218,3 +218,15 @@
   :ASIDE:    right bottom
   :ARTICLE:  flexbox vleft auto-fadein
   :END:
+
+* 补充内容
+  :PROPERTIES:
+  :SLIDE:    segue dark quote
+  :ASIDE:    right bottom
+  :ARTICLE:  flexbox vleft auto-fadein
+  :END:
+
+  那么，标准库中有没有上面需要实现的一些功能呢？
+
+  #+ATTR_REVEAL: :frag (appear)
+  是的。 ~islower~ ~isupper~ ~tolower~ ~toupper~ 可以完成大小写的判断和转换。

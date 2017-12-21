@@ -4,6 +4,8 @@
 #+REVEAL_PLUGINS: (highlight)
 #+AUTHOR: 陈嘉杰
 #+EMAIL: jiegec@qq.com
+#+LATEX_HEADER: \usepackage{xeCJK}
+#+LATEX_HEADER: \setCJKmainfont{Songti SC}
 #+TITLE: 1003. IP 过滤器 2
 #+STARTUP: showall
 * 题目回顾
@@ -16,7 +18,7 @@
 
 ** 首先，把输入的框架写好：
    #+ATTR_REVEAL: :frag (appear)
-   #+BEGIN_SRC cpp
+   #+BEGIN_SRC c++
      #include &lt;stdio.h>
      #include &lt;string.h>
 
@@ -64,7 +66,7 @@
    那么，我们可以把这个用到IP过滤器的解析中，也可以用在IP的解析中。
 
    #+ATTR_REVEAL: :frag (appear)
-   #+BEGIN_SRC cpp
+   #+BEGIN_SRC c++
      // parse filter
      char *token = strtok(filter, ".");
      while(token) {
@@ -83,7 +85,7 @@
    我们用到了 ~strchr~ 函数：在字符串中搜索字符，如果有就返回字符串中第一个找到的这个字符的地址，否则返回 ~NULL~ 。
 
    #+REVEAL: split
-   #+BEGIN_SRC cpp
+   #+BEGIN_SRC c++
      int i = 0;
      while(token) {
        char *delim;
@@ -111,7 +113,7 @@
    下面的代码也可以类似地写出来：
 
    #+ATTR_REVEAL: :frag (appear)
-   #+BEGIN_SRC cpp
+   #+BEGIN_SRC c++
      i = 0;
      token = strtok(ip, ".");
      while(token) {
@@ -137,3 +139,26 @@
   :ASIDE:    right bottom
   :ARTICLE:  flexbox vleft auto-fadein
   :END:
+
+* 如何找到符合你的需求的标准库函数并且使用它？
+  :PROPERTIES:
+  :SLIDE:    segue dark quote
+  :ASIDE:    right bottom
+  :ARTICLE:  flexbox vleft auto-fadein
+  :END:
+
+  在上面的程序里，我使用的 ~strtok~ ~strchr~ 和 ~atoi~ 三个函数你们可能是第一次见。
+
+  #+ATTR_REVEAL: :frag (appear)
+  那么，如何根据自己的需求，找到标准库中已有的功能呢？
+
+  #+REVEAL: split
+  #+ATTR_REVEAL: :frag (appear)
+  1. 看别人的代码。同样的这段代码，我可以用 ~std::string~ 实现，也可以纯粹用字符指针实现。如果见到新的函数，记住用途和名字即可
+  2. 知道了名字以后，上 cppreference.com 去搜索。这里面有非常详细的函数的说明，建议看英文版，不行也可以看中文版。
+  3. 这个说明的下方还会有一些使用的例子，可以看代码理解一下这个函数的行为，也可以在本地写一个测试一下。
+  4. 例子下方还会有与这个函数相关的函数的连接，也可以点进去学习。
+  5. 更进一步，试着自己实现一下这些函数，可以有更深刻的理解。
+
+  #+REVEAL: split
+  如果有兴趣的话，可以用 ~std::string~ 中的 ~std::string::find~ 和 ~std::string::substring~ 函数代替 ~strtok~ 和 ~strchr~ ，用 ~std::stringstream~ 实现 ~atoi~ 。
