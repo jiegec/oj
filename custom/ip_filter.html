@@ -26,27 +26,27 @@
 <body>
 <div class="reveal">
 <div class="slides">
-<section id="sec-title-slide"><h1 class="title">1003. IP 过滤器 2</h1><h2 class="author">陈嘉杰</h2><p class="date">Created: 2017-12-10 Sun 08:01</p>
+<section id="sec-title-slide"><h1 class="title">1003. IP 过滤器 2</h1><h2 class="author">陈嘉杰</h2><p class="date">Created: 2017-12-21 Thu 14:22</p>
 </section>
 <section id="table-of-contents">
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#/slide-orgee37cb4">1. 题目回顾</a>
+<li><a href="#/slide-org8cba922">1. 题目回顾</a>
 <ul>
-<li><a href="#/slide-org1ce1701">1.1. 首先，把输入的框架写好：</a></li>
+<li><a href="#/slide-orgd8f84a8">1.1. 首先，把输入的框架写好：</a></li>
 </ul>
 </li>
-<li><a href="#/slide-org45dc06a">2. Q &amp; A ?</a></li>
-<li><a href="#/slide-org676ddb3">3. 如何找到符合你的需求的标准库函数并且使用它？</a></li>
+<li><a href="#/slide-orgf1da3f7">2. Q &amp; A ?</a></li>
+<li><a href="#/slide-orge4110ae">3. 如何找到符合你的需求的标准库函数并且使用它？</a></li>
 </ul>
 </div>
 </div>
 </section>
 <section>
-<section id="slide-orgee37cb4">
-<h2 id="orgee37cb4"><span class="section-number-2">1</span> 题目回顾</h2>
+<section id="slide-org8cba922">
+<h2 id="org8cba922"><span class="section-number-2">1</span> 题目回顾</h2>
 <p>
 输入一行特定格式的IP过滤器，然后对下面的若干的IP地址判断是否会被过滤。
 </p>
@@ -54,12 +54,12 @@
 </section>
 </section>
 <section>
-<section id="slide-org1ce1701">
-<h3 id="org1ce1701"><span class="section-number-3">1.1</span> 首先，把输入的框架写好：</h3>
+<section id="slide-orgd8f84a8">
+<h3 id="orgd8f84a8"><span class="section-number-3">1.1</span> 首先，把输入的框架写好：</h3>
 <div class="org-src-container">
 
-<pre class="fragment (appear)"><code class="cpp" >#include &lt;stdio.h>
-#include &lt;string.h>
+<pre class="fragment (appear)"><code class="c++" >#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
 
 int main() {
   int ip_begin[4], ip_end[4];
@@ -67,8 +67,8 @@ int main() {
   scanf("%s",filter);
   // parse filter
   int n;
-  scanf("%d",&n);
-  for (int k = 0;k < n;k++) {
+  scanf("%d",&amp;n);
+  for (int k = 0;k &lt; n;k++) {
     char ip[100];
     scanf("%s", ip);
     // parse ip
@@ -114,7 +114,7 @@ while(token) {
 
 <div class="org-src-container">
 
-<pre class="fragment (appear)"><code class="cpp" >// parse filter
+<pre class="fragment (appear)"><code class="c++" >// parse filter
 char *token = strtok(filter, ".");
 while(token) {
   if (strchr(token, '-') != NULL) {
@@ -137,7 +137,7 @@ while(token) {
 <section >
 <div class="org-src-container">
 
-<pre><code class="cpp" >int i = 0;
+<pre><code class="c++" >int i = 0;
 while(token) {
   char *delim;
   if ((delim = strchr(token, '-')) != NULL) {
@@ -170,11 +170,11 @@ while(token) {
 
 <div class="org-src-container">
 
-<pre class="fragment (appear)"><code class="cpp" >i = 0;
+<pre class="fragment (appear)"><code class="c++" >i = 0;
 token = strtok(ip, ".");
 while(token) {
   int temp = atoi(token);
-  if (temp < ip_begin[i] || temp > ip_end[i]) {
+  if (temp &lt; ip_begin[i] || temp &gt; ip_end[i]) {
     printf("Failed\n");
     break;
   }
@@ -194,20 +194,20 @@ if (i == 4)
 </section>
 </section>
 <section>
-<section id="slide-org45dc06a">
-<h2 id="org45dc06a"><span class="section-number-2">2</span> Q &amp; A ?</h2>
+<section id="slide-orgf1da3f7">
+<h2 id="orgf1da3f7"><span class="section-number-2">2</span> Q &amp; A ?</h2>
 
 </section>
 </section>
 <section>
-<section id="slide-org676ddb3">
-<h2 id="org676ddb3"><span class="section-number-2">3</span> 如何找到符合你的需求的标准库函数并且使用它？</h2>
+<section id="slide-orge4110ae">
+<h2 id="orge4110ae"><span class="section-number-2">3</span> 如何找到符合你的需求的标准库函数并且使用它？</h2>
 <p>
 在上面的程序里，我使用的 <code>strtok</code> <code>strchr</code> 和 <code>atoi</code> 三个函数你们可能是第一次见。
 </p>
 
 <p class="fragment (appear)">
-那么，如何根据子集的需求，找到标准库中已有的功能呢？
+那么，如何根据自己的需求，找到标准库中已有的功能呢？
 </p>
 
 </section>
@@ -220,6 +220,12 @@ if (i == 4)
 <li class="fragment appear">更进一步，试着自己实现一下这些函数，可以有更深刻的理解。</li>
 
 </ol>
+
+</section>
+<section >
+<p>
+如果有兴趣的话，可以用 <code>std::string</code> 中的 <code>std::string::find</code> 和 <code>std::string::substring</code> 函数代替 <code>strtok</code> 和 <code>strchr</code> ，用 <code>std::stringstream</code> 实现 <code>atoi</code> 。
+</p>
 </section>
 </section>
 </div>
@@ -252,6 +258,11 @@ multiplex: {
 
 // Optional libraries used to extend on reveal.js
 dependencies: [
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.2.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.2.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.2.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.2.0/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.2.0/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
  { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.2.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }]
 });
 </script>

@@ -1,7 +1,5 @@
 # -*- org-export-babel-evaluate: nil -*-
-#+REVEAL_ROOT: https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.2.0/
 #+REVEAL_HLEVEL: 2
-#+REVEAL_PLUGINS: (highlight)
 #+AUTHOR: 陈嘉杰
 #+EMAIL: jiegec@qq.com
 #+TITLE: 1076. 字符串变换
@@ -28,8 +26,8 @@
 ** 首先，把输入和操作判断的框架写好：
 
    #+BEGIN_SRC cpp
-     #include &lt;stdio.h>
-     #include &lt;string.h>
+     #include <stdio.h>
+     #include <string.h>
 
      int main() {
        int action;

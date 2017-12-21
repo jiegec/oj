@@ -1,7 +1,5 @@
 # -*- org-export-babel-evaluate: nil -*-
-#+REVEAL_ROOT: https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.2.0/
 #+REVEAL_HLEVEL: 2
-#+REVEAL_PLUGINS: (highlight)
 #+AUTHOR: 陈嘉杰
 #+EMAIL: jiegec@qq.com
 #+TITLE: 2098. 回文串
@@ -17,8 +15,8 @@
 ** 首先，用一个循环输入每一行的内容
    #+ATTR_REVEAL: :frag (appear)
    #+BEGIN_SRC cpp
-     #include &lt;stdio.h>
-     #include &lt;string.h>
+     #include <stdio.h>
+     #include <string.h>
 
      int main() {
        char buffer[1024];

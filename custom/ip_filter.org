@@ -1,11 +1,7 @@
 # -*- org-export-babel-evaluate: nil -*-
-#+REVEAL_ROOT: https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.2.0/
 #+REVEAL_HLEVEL: 2
-#+REVEAL_PLUGINS: (highlight)
 #+AUTHOR: 陈嘉杰
 #+EMAIL: jiegec@qq.com
-#+LATEX_HEADER: \usepackage{xeCJK}
-#+LATEX_HEADER: \setCJKmainfont{Songti SC}
 #+TITLE: 1003. IP 过滤器 2
 #+STARTUP: showall
 * 题目回顾
@@ -19,8 +15,8 @@
 ** 首先，把输入的框架写好：
    #+ATTR_REVEAL: :frag (appear)
    #+BEGIN_SRC c++
-     #include &lt;stdio.h>
-     #include &lt;string.h>
+     #include <stdio.h>
+     #include <string.h>
 
      int main() {
        int ip_begin[4], ip_end[4];

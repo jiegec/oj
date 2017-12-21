@@ -26,28 +26,28 @@
 <body>
 <div class="reveal">
 <div class="slides">
-<section id="sec-title-slide"><h1 class="title">1076. 字符串变换</h1><h2 class="author">陈嘉杰</h2><p class="date">Created: 2017-12-12 Tue 15:08</p>
+<section id="sec-title-slide"><h1 class="title">1076. 字符串变换</h1><h2 class="author">陈嘉杰</h2><p class="date">Created: 2017-12-21 Thu 14:27</p>
 </section>
 <section id="table-of-contents">
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#/slide-orge694bd0">1. 回顾题目</a>
+<li><a href="#/slide-org48e6ab1">1. 回顾题目</a>
 <ul>
-<li><a href="#/slide-org5dc0ab2">1.1. 首先，把输入和操作判断的框架写好：</a></li>
-<li><a href="#/slide-org7602e6f">1.2. 然后，开始一个一个填坑：</a></li>
+<li><a href="#/slide-orgf4d02c1">1.1. 首先，把输入和操作判断的框架写好：</a></li>
+<li><a href="#/slide-org77958b9">1.2. 然后，开始一个一个填坑：</a></li>
 </ul>
 </li>
-<li><a href="#/slide-org97dcb41">2. Q &amp; A ?</a></li>
-<li><a href="#/slide-orgfa3f283">3. 补充内容</a></li>
+<li><a href="#/slide-org9a32558">2. Q &amp; A ?</a></li>
+<li><a href="#/slide-org1653e14">3. 补充内容</a></li>
 </ul>
 </div>
 </div>
 </section>
 <section>
-<section id="slide-orge694bd0">
-<h2 id="orge694bd0"><span class="section-number-2">1</span> 回顾题目</h2>
+<section id="slide-org48e6ab1">
+<h2 id="org48e6ab1"><span class="section-number-2">1</span> 回顾题目</h2>
 <p>
 要求实现一个程序，支持五种字符串操作
 </p>
@@ -68,17 +68,17 @@
 </section>
 </section>
 <section>
-<section id="slide-org5dc0ab2">
-<h3 id="org5dc0ab2"><span class="section-number-3">1.1</span> 首先，把输入和操作判断的框架写好：</h3>
+<section id="slide-orgf4d02c1">
+<h3 id="orgf4d02c1"><span class="section-number-3">1.1</span> 首先，把输入和操作判断的框架写好：</h3>
 <div class="org-src-container">
 
-<pre><code class="cpp" >#include &lt;stdio.h>
-#include &lt;string.h>
+<pre><code class="cpp" >#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
 
 int main() {
   int action;
   char buffer[1024];
-  scanf("%d %s", &action, buffer);
+  scanf("%d %s", &amp;action, buffer);
 
   switch(action) {
   case 1:
@@ -100,8 +100,8 @@ int main() {
 </section>
 </section>
 <section>
-<section id="slide-org7602e6f">
-<h3 id="org7602e6f"><span class="section-number-3">1.2</span> 然后，开始一个一个填坑：</h3>
+<section id="slide-org77958b9">
+<h3 id="org77958b9"><span class="section-number-3">1.2</span> 然后，开始一个一个填坑：</h3>
 <p>
 第一个是 小写 -&gt; 大写。
 </p>
@@ -112,8 +112,8 @@ int main() {
 int i;
 switch(action) {
  case 1:
-   for (i = 0;i < len;i++) {
-     if ('a' <= buffer[i] && buffer[i] <= 'z') {
+   for (i = 0;i &lt; len;i++) {
+     if ('a' &lt;= buffer[i] &amp;&amp; buffer[i] &lt;= 'z') {
        putchar(buffer[i] - 'a' + 'A');
      } else {
        putchar(buffer[i]);
@@ -134,8 +134,8 @@ switch(action) {
 
 <pre class="fragment (appear)"><code class="cpp" >switch(action) {
  case 2:
-   for (i = 0;i < len;i++) {
-     if ('A' <= buffer[i] && buffer[i] <= 'Z') {
+   for (i = 0;i &lt; len;i++) {
+     if ('A' &lt;= buffer[i] &amp;&amp; buffer[i] &lt;= 'Z') {
        putchar(buffer[i] - 'A' + 'a');
      } else {
        putchar(buffer[i]);
@@ -157,11 +157,11 @@ switch(action) {
 <pre class="fragment (appear)"><code class="cpp" >switch(action) {
  case 3:
    // Method 1
-   for (i = 0;i < len;i++) {
+   for (i = 0;i &lt; len;i++) {
      putchar(buffer[len-i-1]);
    }
    // Method 2
-   for (i = len-1;i >= 0;i--) {
+   for (i = len-1;i &gt;= 0;i--) {
      putchar(buffer[i]);
    }
    break;
@@ -179,8 +179,8 @@ switch(action) {
 
 <pre class="fragment (appear)"><code class="cpp" >switch(action) {
  case 4:
-   for (i = 0;i < len;i++) {
-     if ('A' <= buffer[i] && buffer[i] <= 'Z') {
+   for (i = 0;i &lt; len;i++) {
+     if ('A' &lt;= buffer[i] &amp;&amp; buffer[i] &lt;= 'Z') {
        putchar(buffer[i] - 'A' + 'a');
      } else {
        putchar(buffer[i] - 'a' + 'A');
@@ -205,8 +205,8 @@ switch(action) {
 
 <pre class="fragment (appear)"><code class="cpp" >switch(action) {
  case 5:
-   for (i = 0;i < len;i++) {
-     if ('A' <= buffer[i] && buffer[i] <= 'Z') {
+   for (i = 0;i &lt; len;i++) {
+     if ('A' &lt;= buffer[i] &amp;&amp; buffer[i] &lt;= 'Z') {
        buffer[i] = buffer[i] - 'A' + 'a';
      }
    }
@@ -238,13 +238,13 @@ c. 当字符串结束的时候，看看现在有没有剩的连续的字符，�
 
 <pre><code class="cpp" >begin = buffer[0];
 begin_pos = 0;
-for (i = 1;i < len;i++) {
+for (i = 1;i &lt; len;i++) {
   if (buffer[i] != begin+(i-begin_pos)) {
     putchar(begin);
-    if (i - begin_pos >= 3) {
+    if (i - begin_pos &gt;= 3) {
       putchar('-');
     }
-    if (i - begin_pos >= 2) {
+    if (i - begin_pos &gt;= 2) {
       putchar(begin+(i-begin_pos-1));
     }
 
@@ -254,10 +254,10 @@ for (i = 1;i < len;i++) {
 }
 // trailing consecutive characters
 putchar(begin);
-if (i - begin_pos >= 3) {
+if (i - begin_pos &gt;= 3) {
   putchar('-');
 }
-if (i - begin_pos >= 2) {
+if (i - begin_pos &gt;= 2) {
   putchar(begin+(i-begin_pos-1));
 }
 </code></pre>
@@ -273,13 +273,13 @@ if (i - begin_pos >= 2) {
 
 <pre class="fragment (appear)"><code class="cpp" >begin = buffer[0];
 begin_pos = 0;
-for (i = 1;i <= len;i++) {
+for (i = 1;i &lt;= len;i++) {
   if (buffer[i] != begin+(i-begin_pos)) {
     putchar(begin);
-    if (i - begin_pos >= 3) {
+    if (i - begin_pos &gt;= 3) {
       putchar('-');
     }
-    if (i - begin_pos >= 2) {
+    if (i - begin_pos &gt;= 2) {
       putchar(begin+(i-begin_pos-1));
     }
 
@@ -297,14 +297,14 @@ for (i = 1;i <= len;i++) {
 </section>
 </section>
 <section>
-<section id="slide-org97dcb41">
-<h2 id="org97dcb41"><span class="section-number-2">2</span> Q &amp; A ?</h2>
+<section id="slide-org9a32558">
+<h2 id="org9a32558"><span class="section-number-2">2</span> Q &amp; A ?</h2>
 
 </section>
 </section>
 <section>
-<section id="slide-orgfa3f283">
-<h2 id="orgfa3f283"><span class="section-number-2">3</span> 补充内容</h2>
+<section id="slide-org1653e14">
+<h2 id="org1653e14"><span class="section-number-2">3</span> 补充内容</h2>
 <p>
 那么，标准库中有没有上面需要实现的一些功能呢？
 </p>
@@ -344,6 +344,11 @@ multiplex: {
 
 // Optional libraries used to extend on reveal.js
 dependencies: [
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.2.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.2.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.2.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.2.0/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.2.0/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
  { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.2.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }]
 });
 </script>

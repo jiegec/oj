@@ -26,26 +26,26 @@
 <body>
 <div class="reveal">
 <div class="slides">
-<section id="sec-title-slide"><h1 class="title">2098. 回文串</h1><h2 class="author">陈嘉杰</h2><p class="date">Created: 2017-12-21 Thu 10:25</p>
+<section id="sec-title-slide"><h1 class="title">2098. 回文串</h1><h2 class="author">陈嘉杰</h2><p class="date">Created: 2017-12-21 Thu 14:27</p>
 </section>
 <section id="table-of-contents">
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#/slide-orgf691896">1. 题目回顾</a>
+<li><a href="#/slide-org6558969">1. 题目回顾</a>
 <ul>
-<li><a href="#/slide-orgadff8dd">1.1. 首先，用一个循环输入每一行的内容</a></li>
+<li><a href="#/slide-orge7ad69c">1.1. 首先，用一个循环输入每一行的内容</a></li>
 </ul>
 </li>
-<li><a href="#/slide-orga8793ac">2. Q &amp; A ?</a></li>
+<li><a href="#/slide-org94c766c">2. Q &amp; A ?</a></li>
 </ul>
 </div>
 </div>
 </section>
 <section>
-<section id="slide-orgf691896">
-<h2 id="orgf691896"><span class="section-number-2">1</span> 题目回顾</h2>
+<section id="slide-org6558969">
+<h2 id="org6558969"><span class="section-number-2">1</span> 题目回顾</h2>
 <p>
 输入若干行字符串，判断每行是否是回文串。
 </p>
@@ -53,12 +53,12 @@
 </section>
 </section>
 <section>
-<section id="slide-orgadff8dd">
-<h3 id="orgadff8dd"><span class="section-number-3">1.1</span> 首先，用一个循环输入每一行的内容</h3>
+<section id="slide-orge7ad69c">
+<h3 id="orge7ad69c"><span class="section-number-3">1.1</span> 首先，用一个循环输入每一行的内容</h3>
 <div class="org-src-container">
 
-<pre class="fragment (appear)"><code class="cpp" >#include &lt;stdio.h>
-#include &lt;string.h>
+<pre class="fragment (appear)"><code class="cpp" >#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
 
 int main() {
   char buffer[1024];
@@ -73,12 +73,13 @@ int main() {
 </div>
 
 </section>
+<section >
 <p>
 这里，我们用一个循环不断比较处于对称位置的两个字符，不正确则输出并离开循环，最后判断一下即可。
 </p>
 <div class="org-src-container">
 
-<pre class="fragment (appear)"><code class="cpp" >for (i = 0;i < len;i++) {
+<pre class="fragment (appear)"><code class="cpp" >for (i = 0;i &lt; len;i++) {
   if (buffer[i] != buffer[len-i-1]) {
     printf("n\n");
     break;
@@ -96,6 +97,7 @@ if (i == len) {
 </p>
 
 </section>
+<section >
 <p>
 问题来了：能否用C/C++标准库里的函数实现这个？答案是：也许可以，可以。
 </p>
@@ -111,8 +113,8 @@ if (i == len) {
 </section>
 </section>
 <section>
-<section id="slide-orga8793ac">
-<h2 id="orga8793ac"><span class="section-number-2">2</span> Q &amp; A ?</h2>
+<section id="slide-org94c766c">
+<h2 id="org94c766c"><span class="section-number-2">2</span> Q &amp; A ?</h2>
 </section>
 </section>
 </div>
@@ -145,6 +147,11 @@ multiplex: {
 
 // Optional libraries used to extend on reveal.js
 dependencies: [
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.2.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.2.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.2.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.2.0/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.2.0/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
  { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.2.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }]
 });
 </script>
