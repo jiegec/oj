@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <memory.h>
 
-bool prime[20];
+bool prime[40];
 
 int n;
 bool visit[20];

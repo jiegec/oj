@@ -1,7 +1,8 @@
 #include <stdio.h>
+#include <math.h>
 #include <complex>
 
-typedef complex<double> cplx;
+typedef std::complex<double> cplx;
 
 uint32_t rev(uint32_t x) {
   x = (x & 0x55555555) << 1 | ((x >> 1) & 0x55555555);
@@ -40,7 +41,7 @@ uint32_t ntz(uint32_t x) {
 // idft must divide n after use
 void fft(int sign, cplx * data, int n) {
   int d = 1 + ntz(n);
-  double theta = sign * 2.0 * _M_PI / n;
+  double theta = sign * 2.0 * M_PI / n;
   for (int m = n;m >>= 2;m >>= 1, theta *= 2) {
     cplx tri = cplx(cos(theta), sin(theta));
     cplx w = cplx(1, 0);
@@ -66,5 +67,5 @@ void fft(int sign, cplx * data, int n) {
 
 
 int main() {
-  p
+
     }
