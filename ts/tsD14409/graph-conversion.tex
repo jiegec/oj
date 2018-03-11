@@ -1,0 +1,286 @@
+% Created 2018-03-11 Sun 13:16
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[newfloat]{minted}
+\usepackage{xeCJK}
+\setCJKmainfont{Songti SC}
+\usepackage{latexsym}
+\usepackage[mathscr]{eucal}
+\usepackage[section]{placeins}
+\usepackage{float}
+\usepackage{svg}
+\author{计72 陈嘉杰}
+\date{\today}
+\title{不同的图的格式之间的转换 tsD14409}
+\hypersetup{
+ pdfauthor={计72 陈嘉杰},
+ pdftitle={不同的图的格式之间的转换 tsD14409},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 26.0.91 (Org mode 9.1.7)},
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\section{题目说明}
+\label{sec:orgb461eab}
+文件 \texttt{input.txt} 中含有一个图的权矩阵表示，要求输出这个图的关联矩阵、边列表、正向表和邻接表到 \texttt{output.txt} 中。
+
+\section{实现思路}
+\label{sec:orgc182ded}
+先把传入的这个权矩阵转化为边的列表和邻接表。边列表用于关联矩阵和边列表的转换，邻接表可以用于正向表的生成。
+
+\section{实现步骤}
+\label{sec:org9a66093}
+\subsection{下标约定}
+\label{sec:orgf8a23b4}
+输入数据中点和边都从1开始，故在我的代码中同样如此。部分与点和边无关的下标，则从0开始。
+\subsection{数据的读入}
+\label{sec:org922e68e}
+
+考虑到输入的数据中 0 < n \(\le\) 100, 所以可以直接在全局变量中开足够大的空间存放数据。
+首先是文件重定向，接着，读入数据，转换成边的列表和邻接表的格式。
+
+\begin{minted}[linenos,numbersep=5pt,breaklines]{c++}
+#include <stdio.h>
+
+int edge_from[10010];
+int edge_to[10010];
+int edge_weight[10010];
+int edge_num = 1;
+int adj[110][10010] = {{0}};
+int adj_weight[110][10010] = {{0}};
+int adj_num[110] = {0};
+
+int main() {
+  freopen("input.txt", "r", stdin);
+  freopen("output.txt", "w", stdout);
+  scanf("%d", &n);
+  for (int i = 1; i <= n; i++) {
+    for (int j = 1; j <= n; j++) {
+      int weight;
+      scanf("%d", &weight);
+      if (weight) {
+        edge_from[edge_num] = i;
+        edge_to[edge_num] = j;
+        edge_weight[edge_num] = weight;
+        edge_num++;
+
+        adj[i][adj_num[i]] = j;
+        adj_weight[i][adj_num[i]] = weight;
+        adj_num[i] ++;
+      }
+    }
+  }
+  return 0;
+}
+\end{minted}
+
+\subsection{输出关联矩阵}
+\label{sec:org00c5648}
+关联矩阵中每一列对应一条边，只要把这条边的两个结点所在的行进行处理即可。处理完则输出。
+
+\begin{minted}[linenos,numbersep=5pt,breaklines]{c++}
+// guanlian
+for (int i = 1; i < edge_num; i++) {
+  link_matrix[edge_from[i]][i] = 1;
+  link_matrix[edge_to[i]][i] = -1;
+ }
+for (int i = 1; i <= n; i++) {
+  for (int j = 1; j < edge_num; j++) {
+    printf("%d ", link_matrix[i][j]);
+  }
+  printf("\n");
+ }
+\end{minted}
+
+\subsection{输出边列表}
+\label{sec:orgba5faeb}
+边列表，在读入数据的时候已经处理好，简单处理成矩阵的形式，直接输出即可。
+
+\begin{minted}[linenos,numbersep=5pt,breaklines]{c++}
+// bianliebiao
+for (int i = 1; i < edge_num; i++) {
+  edge_list[0][i] = edge_from[i];
+  edge_list[1][i] = edge_to[i];
+  edge_list[2][i] = edge_weight[i];
+ }
+
+for (int i = 0; i < 3; i++) {
+  for (int j = 1; j < edge_num; j++) {
+    printf("%d ", edge_list[i][j]);
+  }
+  printf("\n");
+ }
+\end{minted}
+
+\subsection{输出正向表}
+\label{sec:orgc825de7}
+这个可能就是最难得一部分了。这个表中，A数组的元素代表相应的结点的后继结点的起始下标。最后添加一个结尾。所以，我们使用变量 \texttt{zhengxiangbiao\_current} 记录当前的下标，以此更新A数组。
+
+\begin{minted}[linenos,numbersep=5pt,breaklines]{c++}
+  // zhengxiangbiao
+for (int i = 1; i <= n; i++) {
+  zhengxiangbiao_a[i] = zhengxiangbiao_current;
+  for (int j = 0; j < adj_num[i]; j++) {
+    zhengxiangbiao_b[zhengxiangbiao_current] = adj[i][j];
+    zhengxiangbiao_z[zhengxiangbiao_current] = adj_weight[i][j];
+    zhengxiangbiao_current ++;
+  }
+ }
+zhengxiangbiao_a[n+1] = zhengxiangbiao_current;
+
+for (int i = 1; i <= n+1; i++) {
+  printf("%d ", zhengxiangbiao_a[i]);
+ }
+printf("\n");
+
+for (int i = 1; i < zhengxiangbiao_current; i++) {
+  printf("%d ", zhengxiangbiao_b[i]);
+ }
+printf("\n");
+
+for (int i = 1; i < zhengxiangbiao_current; i++) {
+  printf("%d ", zhengxiangbiao_z[i]);
+ }
+printf("\n");
+\end{minted}
+
+\subsection{输出邻接表}
+\label{sec:orgc4b3c87}
+这一步也很简单，在读入数据的时候已经处理完毕。
+
+\begin{minted}[linenos,numbersep=5pt,breaklines]{c++}
+// linjiebiao
+for (int i = 1;i <= n;i++) {
+  for (int j = 0;j < adj_num[i];j++) {
+    printf("%d %d ", adj_weight[i][j], adj[i][j]);
+  }
+  printf("\n");
+ }
+\end{minted}
+
+\subsection{完整代码}
+\label{sec:org6ca54fa}
+\begin{minted}[linenos,numbersep=5pt,breaklines]{c++}
+#include <stdio.h>
+
+int edge_from[10010];
+int edge_to[10010];
+int edge_weight[10010];
+int edge_num = 1;
+int adj[110][10010] = {{0}};
+int adj_weight[110][10010] = {{0}};
+int adj_num[110] = {0};
+int link_matrix[110][10010] = {{0}};
+int edge_list[3][10010] = {0};
+int zhengxiangbiao_a[110] = {0};
+int zhengxiangbiao_b[10010] = {0};
+int zhengxiangbiao_z[10010] = {0};
+int zhengxiangbiao_current = 1;
+int n;
+
+int main() {
+  freopen("input.txt", "r", stdin);
+  freopen("output.txt", "w", stdout);
+  scanf("%d", &n);
+  for (int i = 1; i <= n; i++) {
+    for (int j = 1; j <= n; j++) {
+      int weight;
+      scanf("%d", &weight);
+      if (weight) {
+        edge_from[edge_num] = i;
+        edge_to[edge_num] = j;
+        edge_weight[edge_num] = weight;
+        edge_num++;
+
+        adj[i][adj_num[i]] = j;
+        adj_weight[i][adj_num[i]] = weight;
+        adj_num[i] ++;
+      }
+    }
+  }
+
+  // guanlian
+  for (int i = 1; i < edge_num; i++) {
+    link_matrix[edge_from[i]][i] = 1;
+    link_matrix[edge_to[i]][i] = -1;
+  }
+  for (int i = 1; i <= n; i++) {
+    for (int j = 1; j < edge_num; j++) {
+      printf("%d ", link_matrix[i][j]);
+    }
+    printf("\n");
+  }
+
+  // bianliebiao
+  for (int i = 1; i < edge_num; i++) {
+    edge_list[0][i] = edge_from[i];
+    edge_list[1][i] = edge_to[i];
+    edge_list[2][i] = edge_weight[i];
+  }
+
+  for (int i = 0; i < 3; i++) {
+    for (int j = 1; j < edge_num; j++) {
+      printf("%d ", edge_list[i][j]);
+    }
+    printf("\n");
+  }
+
+  // zhengxiangbiao
+  for (int i = 1; i <= n; i++) {
+    zhengxiangbiao_a[i] = zhengxiangbiao_current;
+    for (int j = 0; j < adj_num[i]; j++) {
+      zhengxiangbiao_b[zhengxiangbiao_current] = adj[i][j];
+      zhengxiangbiao_z[zhengxiangbiao_current] = adj_weight[i][j];
+      zhengxiangbiao_current ++;
+    }
+  }
+  zhengxiangbiao_a[n+1] = zhengxiangbiao_current;
+
+  for (int i = 1; i <= n+1; i++) {
+    printf("%d ", zhengxiangbiao_a[i]);
+  }
+  printf("\n");
+
+  for (int i = 1; i < zhengxiangbiao_current; i++) {
+    printf("%d ", zhengxiangbiao_b[i]);
+  }
+  printf("\n");
+
+  for (int i = 1; i < zhengxiangbiao_current; i++) {
+    printf("%d ", zhengxiangbiao_z[i]);
+  }
+  printf("\n");
+
+  // linjiebiao
+  for (int i = 1;i <= n;i++) {
+    for (int j = 0;j < adj_num[i];j++) {
+      printf("%d %d ", adj_weight[i][j], adj[i][j]);
+    }
+    printf("\n");
+  }
+  return 0;
+}
+
+\end{minted}
+
+\section{遇到的问题和得到的收获}
+\label{sec:org4734df3}
+遇到的问题主要就是审题不仔细，忘记输出权值，因此有了两次的错误提交。改掉之后就成功 AC 了。得到的收获就是，即便是写一个很简单的程序，最好也要提前想好思路和容易写错的地方随时提醒自己。这样可以省出更多的时间，省出时间来完成其它的作业。
+\end{document}
