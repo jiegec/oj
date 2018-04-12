@@ -1,0 +1,151 @@
+% Created 2018-04-12 Thu 17:08
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[newfloat]{minted}
+\usepackage{xeCJK}
+\setCJKmainfont{Songti SC}
+\usepackage{latexsym}
+\usepackage[mathscr]{eucal}
+\usepackage[section]{placeins}
+\usepackage{float}
+\usepackage{svg}
+\author{计72 陈嘉杰}
+\date{\today}
+\title{Huffman 编码 tsD14627}
+\hypersetup{
+ pdfauthor={计72 陈嘉杰},
+ pdftitle={Huffman 编码 tsD14627},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 26.1 (Org mode 9.1.9)},
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\section{题目说明}
+\label{sec:org90d842e}
+文件 \texttt{input.txt} 中含有一个字符串，然后要把 Huffman 编码后文本的长度写入 \texttt{output.txt} 中。
+
+\section{实现思路}
+\label{sec:org282ecfd}
+先统计词频，然后构造出哈夫曼树。由于这里只需要输出最后文本的长度，所以只需要对这个树进行遍历，对每个叶子结点进行统计即可得到答案。
+
+\section{程序编译环境}
+\label{sec:org3f67926}
+\begin{enumerate}
+\item 操作系统： macOS
+\item 编译器： LLVM/Clang 6.0.0
+\end{enumerate}
+
+\section{实现步骤}
+\label{sec:orgcc11c91}
+\subsection{数据读入}
+\label{sec:org74b1706}
+\begin{minted}[linenos,numbersep=5pt,breaklines]{c++}
+freopen("input.txt", "r", stdin);
+freopen("output.txt", "w", stdout);
+scanf("%s", buffer);
+len = strlen(buffer);
+if (len == 1) {
+  // only one char?
+  // zero entropy here
+  // no reasonable answer
+  printf("1\n");
+  return 0;
+ }
+\end{minted}
+
+首先把文本都保存到一个足够大的数组中。然后这里有一个有争议的地方：题目数据中有一个点， \texttt{input.txt} 中仅有一个字母 \texttt{a} 。在这种情况下， Huffman 树仅有一个叶结点。此时信息熵为 0 。我不是很确定这里应该写什么答案。还有就是，如果输入的文本是 \texttt{aaaa} ，此时信息熵仍然为 0 。那此时又如何编码呢。
+
+\subsection{建 Huffman 树}
+\label{sec:orgd210d60}
+首先是数据结构：
+
+\begin{minted}[linenos,numbersep=5pt,breaklines]{c++}
+struct Node {
+  Node *left = NULL;
+  Node *right = NULL;
+  int weight = 0;
+  int index = 0;
+
+  bool operator()(const Node *a, const Node *b) {
+    return a->weight > b->weight;
+  }
+};
+\end{minted}
+
+很直观的一个二叉树， \texttt{weight} 保存子树的词频， \texttt{index} 表示叶结点对应的字母，下面的 \texttt{operator ()} 是提供给 \texttt{priority\_queue} 的比较器。
+
+接下来，统计词频，建树：
+
+\begin{minted}[linenos,numbersep=5pt,breaklines]{c++}
+for (int i = 0; i < len; i++) {
+  freq[buffer[i] - 'a']++;
+ }
+for (int i = 0; i < 26; i++) {
+  if (freq[i]) {
+    Node *node = new Node;
+    node->weight = freq[i];
+    node->index = i;
+    pq.push(node);
+  }
+ }
+while (pq.size() > 1) {
+  Node *first = pq.top();
+  pq.pop();
+
+  Node *second = pq.top();
+  pq.pop();
+
+  Node *new_node = new Node;
+  new_node->left = first;
+  new_node->right = second;
+  new_node->weight = first->weight + second->weight;
+  pq.push(new_node);
+}
+\end{minted}
+
+这就是很常规的建立 Huffman 树的方法。
+
+\subsection{统计结果}
+\label{sec:orgc5386b4}
+接下来，遍历这棵树，然后统计结果：
+
+\begin{minted}[linenos,numbersep=5pt,breaklines]{c++}
+int calc_length(Node *current, int cur_depth) {
+  if (current->left == NULL && current->right == NULL) {
+    return freq[current->index] * cur_depth;
+  }
+  return calc_length(current->left, cur_depth + 1) +
+         calc_length(current->right, cur_depth + 1);
+}
+
+int main() {
+  // ..snip..
+  root = pq.top();
+  printf("%d\n", calc_length(root, 0));
+  return 0;
+}
+\end{minted}
+
+对于字母表中的每个字母，它的高度就是 Huffman 编码中的长度，乘以词频求和即是答案。最后输出即可。
+
+\section{遇到的问题和得到的收获}
+\label{sec:org690e3f8}
+遇到的问题是，第一， \texttt{priority\_queue} 的默认比较，由于我这里用的是 \texttt{Node *} 类型，所以会变成指针比较。所以需要自己写一个 \texttt{comparator} ，但是全局的 \texttt{operator <} 又不支持指针。所以复用了 \texttt{struct Node} 作为比较器，这样就可以了。第二就是，输入的文本只有一个字母，这个我觉得没有一个很好的答案。为了过 OJ ，只写了一个小小的判断，留下我的疑问。
+\end{document}

@@ -31,7 +31,7 @@ int main() {
 
         adj[i][adj_num[i]] = j;
         adj_weight[i][adj_num[i]] = weight;
-        adj_num[i] ++;
+        adj_num[i]++;
       }
     }
   }
@@ -68,12 +68,12 @@ int main() {
     for (int j = 0; j < adj_num[i]; j++) {
       zhengxiangbiao_b[zhengxiangbiao_current] = adj[i][j];
       zhengxiangbiao_z[zhengxiangbiao_current] = adj_weight[i][j];
-      zhengxiangbiao_current ++;
+      zhengxiangbiao_current++;
     }
   }
-  zhengxiangbiao_a[n+1] = zhengxiangbiao_current;
+  zhengxiangbiao_a[n + 1] = zhengxiangbiao_current;
 
-  for (int i = 1; i <= n+1; i++) {
+  for (int i = 1; i <= n + 1; i++) {
     printf("%d ", zhengxiangbiao_a[i]);
   }
   printf("\n");
@@ -89,8 +89,8 @@ int main() {
   printf("\n");
 
   // linjiebiao
-  for (int i = 1;i <= n;i++) {
-    for (int j = 0;j < adj_num[i];j++) {
+  for (int i = 1; i <= n; i++) {
+    for (int j = 0; j < adj_num[i]; j++) {
       printf("%d %d ", adj_weight[i][j], adj[i][j]);
     }
     printf("\n");
