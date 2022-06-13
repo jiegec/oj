@@ -1,4 +1,3 @@
-// http://poj.org/problem?id=2559
 // http://acm.hdu.edu.cn/showproblem.php?pid=1506
 #include <cstdio>
 
