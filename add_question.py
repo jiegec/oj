@@ -8,7 +8,7 @@ import requests
 oj = {'rqnoj': 'http://www.rqnoj.cn/problem/',
       'hdu': 'http://acm.hdu.edu.cn/showproblem.php?pid=',
       'zoj': 'http://acm.zju.edu.cn/onlinejudge/showProblem.do?problemCode=',
-      'hoj': 'http://acm.hit.edu.cn/hoj/problem/view?id=',
+      'hoj': 'http://acm.hit.edu.cn/problemset/',
       'poj': 'http://poj.org/problem?id=',
       'uoj': 'http://uoj.ac/problem/',
       'uva': 'https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=',
