@@ -1,3 +1,4 @@
+// http://acm.hdu.edu.cn/showproblem.php?pid=1203
 #include <stdio.h>
 void bag01(int cost, double value, int money, double dp[]) {
 	for(int i = money;i >= cost;i--) {

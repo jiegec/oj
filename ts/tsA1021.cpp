@@ -1,3 +1,4 @@
+// http://oj.tsinsen.com/A1021
 #include <algorithm>
 #include <iostream>
 #include <numeric>

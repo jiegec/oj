@@ -1,3 +1,4 @@
+// http://oj.tsinsen.com/D14262
 #include <stdio.h>
 
 int n, m, a, b, c;

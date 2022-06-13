@@ -1,3 +1,4 @@
+// http://poj.org/problem?id=1004
 #include <cstdio>
 
 int main() {

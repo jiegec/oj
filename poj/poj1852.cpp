@@ -1,3 +1,4 @@
+// http://poj.org/problem?id=1852
 #include <stdio.h>
 
 int max2(int a, int b) {

@@ -1,3 +1,4 @@
+// http://acm.hdu.edu.cn/showproblem.php?pid=1087
 #include <string.h>
 #include <stdio.h>
 int max(int a, int b) {

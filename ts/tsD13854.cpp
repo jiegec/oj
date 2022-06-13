@@ -1,3 +1,4 @@
+// http://oj.tsinsen.com/D13854
 #include <stdio.h>
 
 inline char encode(char c) {

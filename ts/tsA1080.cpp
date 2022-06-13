@@ -1,3 +1,4 @@
+// http://oj.tsinsen.com/A1080
 #include <iostream>
 #include <algorithm>
 using namespace std;

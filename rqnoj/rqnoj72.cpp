@@ -1,3 +1,4 @@
+// http://www.rqnoj.cn/problem/72
 #include <stdio.h>
 #include <math.h>
 

@@ -1,3 +1,4 @@
+// http://oj.tsinsen.com/D13922
 #include <stdio.h>
 
 const int num = 100086;

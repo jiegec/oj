@@ -1,3 +1,4 @@
+// https://codeforces.com/contest1690/problem/B
 #include <algorithm>
 #include <stdio.h>
 

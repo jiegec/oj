@@ -1,3 +1,4 @@
+// http://oj.tsinsen.com/A1026
 #include <stdio.h>
 
 int main() {

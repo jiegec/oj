@@ -1,3 +1,4 @@
+// http://acm.hdu.edu.cn/showproblem.php?pid=1420
 #include <iostream>
 using namespace std;
 long long  powmod( long long a, long long n, long long k )

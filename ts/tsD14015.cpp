@@ -1,3 +1,4 @@
+// http://oj.tsinsen.com/D14015
 #include <stdio.h>
 
 int b[10] = {0};

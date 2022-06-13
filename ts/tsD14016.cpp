@@ -1,3 +1,4 @@
+// http://oj.tsinsen.com/D14016
 #include <stdio.h>
 
 int hh(int h) {

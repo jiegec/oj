@@ -1,3 +1,4 @@
+// http://acm.zju.edu.cn/onlinejudge/showProblem.do?problemCode=2156
 #include "stdio.h"
 #include <string.h>
 int prices[] = {1,5,10,25};

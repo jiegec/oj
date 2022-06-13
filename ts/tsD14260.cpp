@@ -1,3 +1,4 @@
+// http://oj.tsinsen.com/D14260
 #include <stdio.h>
 
 int map[8][8];

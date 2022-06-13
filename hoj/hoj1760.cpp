@@ -1,3 +1,4 @@
+// http://acm.hit.edu.cn/hoj/problem/view?id=1760
 #include <iostream>
 using namespace std;
 

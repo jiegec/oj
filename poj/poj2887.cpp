@@ -1,3 +1,4 @@
+// http://poj.org/problem?id=2887
 #include <cstdio>
 #include <cstring>
 #include <cmath>

@@ -1,3 +1,4 @@
+// http://oj.tsinsen.com/A1002
 #include <stdio.h>
 // From https://stackoverflow.com/questions/111928/is-there-a-printf-converter-to-print-in-binary-format
 #define BYTE_TO_BINARY_PATTERN "%c%c%c%c%c%c"

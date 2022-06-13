@@ -1,3 +1,4 @@
+// http://oj.tsinsen.com/D13921
 #include <stdio.h>
 #include <string.h>
 #include <memory.h>

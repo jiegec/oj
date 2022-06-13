@@ -1,3 +1,4 @@
+// http://acm.hdu.edu.cn/showproblem.php?pid=2955
 #include <stdio.h>
 double max(double a, double b) {
 	return a > b ? a : b;

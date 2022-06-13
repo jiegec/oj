@@ -1,3 +1,4 @@
+// http://acm.hdu.edu.cn/showproblem.php?pid=2234
 #include <cstdio>
 int bound;
 bool flag;

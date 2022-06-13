@@ -1,3 +1,4 @@
+// http://acm.zju.edu.cn/onlinejudge/showProblem.do?problemCode=1366
 #include "stdio.h"
 #include <string.h>
 #define max(a,b) (a) > (b) ? (a) : (b)

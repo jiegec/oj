@@ -1,3 +1,5 @@
+// http://poj.org/problem?id=1077
+// http://acm.hdu.edu.cn/showproblem.php?pid=1043
 #include <cstdio>
 #define P(i,j) ((i)<<2|(j))
 int bound, loc_1[9][2]={2,2,0,0,0,1,0,2,1,0,1,1,1,2,2,0,2,1};

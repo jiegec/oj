@@ -1,3 +1,4 @@
+// http://acm.hdu.edu.cn/showproblem.php?pid=2571
 #include <stdio.h>
 int max2(int a, int b) {
 	return a > b ? a : b;

@@ -1,3 +1,4 @@
+// http://acm.hdu.edu.cn/showproblem.php?pid=2844
 #include <stdio.h>
 #include <string.h>
 void bag01(int cost, int value, int money, int dp[]) {

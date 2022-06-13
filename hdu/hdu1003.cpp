@@ -1,3 +1,4 @@
+// http://acm.hdu.edu.cn/showproblem.php?pid=1003
 #include <iostream>
 #include <fstream>
 

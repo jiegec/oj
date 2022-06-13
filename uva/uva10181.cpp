@@ -1,3 +1,4 @@
+// https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=10181
 #include <cstdio>
 #define P(i,j) ((i)<<2|(j))
 int bound, loc_1[16][2]={3,3,0,0,0,1,0,2,0,3,1,0,1,1,1,2,1,3,2,0,2,1,2,2,2,3,3,0,3,1,3,2};

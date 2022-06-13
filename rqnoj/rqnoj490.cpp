@@ -1,3 +1,4 @@
+// http://www.rqnoj.cn/problem/490
 #include <stdio.h>
 #include <string.h>
 int n, stone[1000*2], max[1000*2][1000*2],min[1000*2][1000*2],sum[1000*2];

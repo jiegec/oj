@@ -1,3 +1,4 @@
+// http://oj.tsinsen.com/D14729
 #include <memory.h>
 #include <queue>
 #include <stdio.h>

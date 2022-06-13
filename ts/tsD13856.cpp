@@ -1,3 +1,4 @@
+// http://oj.tsinsen.com/D13856
 #include <stdio.h>
 
 int buffer[100086];

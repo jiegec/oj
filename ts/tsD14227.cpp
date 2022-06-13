@@ -1,3 +1,4 @@
+// http://oj.tsinsen.com/D14227
 #include <stdio.h>
 #include <algorithm>
 

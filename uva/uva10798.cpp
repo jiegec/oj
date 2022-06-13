@@ -1,3 +1,4 @@
+// https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=10798
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

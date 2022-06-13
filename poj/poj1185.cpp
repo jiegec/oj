@@ -1,3 +1,4 @@
+// http://poj.org/problem?id=1185
 // 状压DP
 // http://blog.csdn.net/accry/article/details/6607703
 #include <stdio.h>

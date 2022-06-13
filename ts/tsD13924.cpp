@@ -1,3 +1,4 @@
+// http://oj.tsinsen.com/D13924
 #include <stdio.h>
 char prime[10086] = {0};
 int primes[2000] = {0};

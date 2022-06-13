@@ -1,3 +1,4 @@
+// http://uoj.ac/problem/15
 #include <stdio.h>
 
 int score[5][5] = {{0, 0, 1, 1, 0},

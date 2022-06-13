@@ -1,3 +1,4 @@
+// https://codeforces.com/contest1681/problem/A
 #include <algorithm>
 #include <stdio.h>
 #include <vector>

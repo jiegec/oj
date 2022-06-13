@@ -1,3 +1,4 @@
+// http://oj.tsinsen.com/D14409
 #include <stdio.h>
 
 int edge_from[10010];

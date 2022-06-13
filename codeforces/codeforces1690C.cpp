@@ -1,3 +1,4 @@
+// https://codeforces.com/contest1690/problem/C
 #include <stdio.h>
 #include <vector>
 

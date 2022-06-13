@@ -1,3 +1,4 @@
+// http://oj.tsinsen.com/A1027
 #include <stdio.h>
 #include <string>
 #include <vector>

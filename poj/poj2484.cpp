@@ -1,3 +1,4 @@
+// http://poj.org/problem?id=2484
 #include <cstdio>
 
 int n;

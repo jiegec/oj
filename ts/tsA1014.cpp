@@ -1,3 +1,4 @@
+// http://oj.tsinsen.com/A1014
 #include <stdio.h>
 #include <string.h>
 
