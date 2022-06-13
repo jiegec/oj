@@ -4,21 +4,21 @@ import glob
 import os
 import urllib.request
 import requests
-from pycookiecheat import chrome_cookies
 
-oj = {'rqnoj': 'http://www.rqnoj.cn/problem/',
-      'hdu': 'http://acm.hdu.edu.cn/showproblem.php?pid=',
-      'zoj': 'http://acm.zju.edu.cn/onlinejudge/showProblem.do?problemCode=',
-      'hoj': 'http://acm.hit.edu.cn/hoj/problem/view?id=',
-      'poj': 'http://poj.org/problem?id=',
-      'uoj': 'http://uoj.ac/problem/',
-      'uva': 'https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=',
-      'ts': 'http://oj.tsinsen.com/',
-      'loj': 'https://loj.ac/problem/'}
-for k, v in oj.items():
+oj = ['rqnoj', 'hdu', 'zoj', 'hoj', 'poj', 'uoj', 'uva', 'ts', 'loj', 'codeforces']
+#oj = {'rqnoj': 'http://www.rqnoj.cn/problem/',
+#      'hdu': 'http://acm.hdu.edu.cn/showproblem.php?pid=',
+#      'zoj': 'http://acm.zju.edu.cn/onlinejudge/showProblem.do?problemCode=',
+#      'hoj': 'http://acm.hit.edu.cn/hoj/problem/view?id=',
+#      'poj': 'http://poj.org/problem?id=',
+#      'uoj': 'http://uoj.ac/problem/',
+#      'uva': 'https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=',
+#      'ts': 'http://oj.tsinsen.com/',
+#      'loj': 'https://loj.ac/problem/'}
+for k in oj:
   with open('%s/CMakeLists.txt' % k, 'w') as f:
     f.write('cmake_minimum_required(VERSION 3.3)\nproject(%s)\n\n' % k)
-    for file in glob.glob("%s/%s*" % (k, k)):
+    for file in sorted(list(glob.glob("%s/%s*" % (k, k)))):
       file_name = os.path.basename(file)
       (root, ext) = os.path.splitext(file_name)
       if 'html' in file or 'exe' in file or len(ext) == 0:
@@ -26,17 +26,6 @@ for k, v in oj.items():
       if 'py' not in file and 'java' not in file:
         f.write('add_executable(%s %s)\n' % (root, file_name))
       problemId = os.path.basename(file)[len(k):].split('.')[0]
-      if os.path.exists('%s/%s%s.html' % (k, k, problemId)):
-        continue
-      print('Processing %s %s.' % (k, problemId))
-      # content = urllib.request.urlopen(v + problemId).read()
-      if problemId.startswith('D') and 'tsinsen' in v:
-        cookies = chrome_cookies(v)
-        content = requests.get(v + problemId, cookies=cookies).content
-      else:
-        content = requests.get(v + problemId).content
-      with open('%s/%s%s.html' % (k, k, problemId), 'wb') as ff:
-        ff.write(content)
 
 with open('CMakeLists.txt', 'w') as f:
   f.write('cmake_minimum_required(VERSION 3.3)\nproject(oj)\n\nset(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")\n\n')
