@@ -1,6 +1,6 @@
 // http://oj.tsinsen.com/D14259
-#include <stdio.h>
 #include <queue>
+#include <stdio.h>
 
 int r, c;
 char buffer[512];
@@ -36,27 +36,26 @@ void bfs() {
     }
   }
 
-
-  while(!que.empty()) {
+  while (!que.empty()) {
     Node cur = que.front();
     que.pop();
 
-    if (cur.x == r-1 && cur.y == c-1) {
+    if (cur.x == r - 1 && cur.y == c - 1) {
       printf("%d\n", cur.step);
       return;
     }
 
-    for (int i = 0;i < 4;i++) {
-      if ((i^1) != cur.prevdir && i != cur.prevdir) {
-        int new_x = cur.x+dxy[i][0];
-        int new_y = cur.y+dxy[i][1];
+    for (int i = 0; i < 4; i++) {
+      if ((i ^ 1) != cur.prevdir && i != cur.prevdir) {
+        int new_x = cur.x + dxy[i][0];
+        int new_y = cur.y + dxy[i][1];
         if (0 <= new_x && new_x < r && 0 <= new_y && new_y < c &&
             map[new_x][new_y]) {
           while (0 <= new_x && new_x < r && 0 <= new_y && new_y < c &&
                  map[new_x][new_y]) {
             if (vis[new_x][new_y][i] == 0) {
               vis[new_x][new_y][i] = 1;
-              Node new_node = {new_x, new_y, i, cur.step+1};
+              Node new_node = {new_x, new_y, i, cur.step + 1};
               que.push(new_node);
             }
             new_x += dxy[i][0];
@@ -69,10 +68,10 @@ void bfs() {
 }
 
 int main() {
-  scanf("%d%d\n",&r,&c);
-  for(int i = 0;i < r;i++) {
-    scanf("%s",buffer);
-    for (int j = 0;j < c;j++) {
+  scanf("%d%d\n", &r, &c);
+  for (int i = 0; i < r; i++) {
+    scanf("%s", buffer);
+    for (int j = 0; j < c; j++) {
       map[i][j] = buffer[j] == '0'; // 1 for can walk
       vis[i][j][0] = vis[i][j][1] = vis[i][j][2] = vis[i][j][3] = 0;
     }

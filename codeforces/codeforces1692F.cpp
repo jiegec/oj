@@ -6,22 +6,22 @@ int a[300000];
 int main() {
   int t;
   scanf("%d", &t);
-  while(t--) {
+  while (t--) {
     int n;
     scanf("%d", &n);
     int count[10] = {};
-    for (int i = 0;i < n;i++) {
+    for (int i = 0; i < n; i++) {
       scanf("%d", &a[i]);
       a[i] %= 10;
-      count[a[i]] ++;
+      count[a[i]]++;
     }
     bool found = false;
 
-    for (int i = 0;i < 10 && !found;i++) {
+    for (int i = 0; i < 10 && !found; i++) {
       if (!count[i]) {
         continue;
       }
-      for (int j = 0;j < 10 && !found;j++) {
+      for (int j = 0; j < 10 && !found; j++) {
         if (!count[j]) {
           continue;
         } else if (i == j && count[i] < 2) {

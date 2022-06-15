@@ -1,7 +1,7 @@
 // https://leetcode-cn.com/problems/find-array-given-subset-sums/
-#include <vector>
 #include <algorithm>
 #include <cassert>
+#include <vector>
 using namespace std;
 
 class Solution {

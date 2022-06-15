@@ -1,7 +1,7 @@
 // https://codeforces.com/contest/1690/problem/E
+#include <algorithm>
 #include <stdio.h>
 #include <vector>
-#include <algorithm>
 
 int main() {
   int t;

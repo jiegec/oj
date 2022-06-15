@@ -35,7 +35,7 @@ int main() {
     }
 
     int visit[300] = {0};
-    std::vector<std::vector<int> > chains;
+    std::vector<std::vector<int>> chains;
     for (int i = 0; i < n; i++) {
       if (visit[i] == 0) {
         std::vector<int> chain;

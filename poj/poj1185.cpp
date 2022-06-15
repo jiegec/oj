@@ -10,9 +10,7 @@ int STATE[70], TOP;
 int ROW[110], NUM[110];
 int DP[110][70][70];
 
-inline int max(int a, int b) {
-  return a > b ? a : b;
-}
+inline int max(int a, int b) { return a > b ? a : b; }
 
 int count(int x) {
   int cnt = 0;
@@ -25,11 +23,14 @@ int count(int x) {
 
 int main() {
   while (scanf("%d%d", &M, &N) != EOF) {
-    if (N == 0 && M == 0) break;
+    if (N == 0 && M == 0)
+      break;
     TOP = 0;
     for (int i = 0; i < (1 << N); i++) {
-      if (i & (i << 1)) continue;
-      if (i & (i << 2)) continue;
+      if (i & (i << 1))
+        continue;
+      if (i & (i << 2))
+        continue;
       STATE[TOP++] = i;
     }
     for (int i = 0; i < M; i++) {
@@ -38,7 +39,8 @@ int main() {
     for (int i = 0; i < M; i++) {
       ROW[i] = 0;
       for (int j = 0; j < N; j++) {
-        if (MAP[i][j] == 'H') ROW[i] += (1 << (N - j - 1));
+        if (MAP[i][j] == 'H')
+          ROW[i] += (1 << (N - j - 1));
       }
     }
     memset(DP, -1, sizeof(DP));

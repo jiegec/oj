@@ -1,6 +1,6 @@
 // http://poj.org/problem?id=2421
-#include <stdio.h>
 #include <algorithm>
+#include <stdio.h>
 
 using namespace std;
 
@@ -24,13 +24,11 @@ int edge_num;
 int n;
 
 int get_father(int n) {
-  return nodes[n].father == n ?
-         n : (nodes[n].father = get_father(nodes[n].father));
+  return nodes[n].father == n ? n
+                              : (nodes[n].father = get_father(nodes[n].father));
 }
 
-bool cmp(edge a, edge b) {
-  return a.dist < b.dist;
-}
+bool cmp(edge a, edge b) { return a.dist < b.dist; }
 
 bool merge(int a, int b) {
   a = get_father(a);
@@ -41,39 +39,39 @@ bool merge(int a, int b) {
 }
 
 int main() {
-  int dist,q,a,b,cost = 0;
-  scanf("%d",&n);
-  for (int i = 1;i <= n;i++) {
+  int dist, q, a, b, cost = 0;
+  scanf("%d", &n);
+  for (int i = 1; i <= n; i++) {
     nodes[i].father = i;
     nodes[i].childnum = 1;
-    for (int j = 1;j <= n;j++) {
-      scanf("%d",&dist);
+    for (int j = 1; j <= n; j++) {
+      scanf("%d", &dist);
       if (i < j) {
         edges[edge_num].a = i;
         edges[edge_num].b = j;
         edges[edge_num].dist = dist;
-        edge_num ++;
+        edge_num++;
       }
     }
   }
-  scanf("%d",&q);
-  for (int i = 0;i < q;i++) {
-    scanf("%d%d",&a,&b);
-    if (merge(a,b)) {
+  scanf("%d", &q);
+  for (int i = 0; i < q; i++) {
+    scanf("%d%d", &a, &b);
+    if (merge(a, b)) {
       printf("0\n");
       return 0;
     }
   }
-  sort(edges, edges+edge_num,cmp);
-  for (int i = 0;i < edge_num;i++) {
+  sort(edges, edges + edge_num, cmp);
+  for (int i = 0; i < edge_num; i++) {
     a = get_father(edges[i].a);
     b = get_father(edges[i].b);
     if (a == b) {
       continue;
     }
     cost += edges[i].dist;
-    if (merge(a,b)) {
-      printf("%d\n",cost);
+    if (merge(a, b)) {
+      printf("%d\n", cost);
       return 0;
     }
   }

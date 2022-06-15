@@ -1,6 +1,6 @@
-#include <stdio.h>
-#include <math.h>
 #include <complex>
+#include <math.h>
+#include <stdio.h>
 
 typedef std::complex<double> cplx;
 
@@ -8,8 +8,7 @@ uint32_t rev(uint32_t x) {
   x = (x & 0x55555555) << 1 | ((x >> 1) & 0x55555555);
   x = (x & 0x33333333) << 2 | ((x >> 2) & 0x33333333);
   x = (x & 0x0F0F0F0F) << 4 | ((x >> 4) & 0x0F0F0F0F);
-  x = (x << 24) | ((x & 0xFF00) << 8) |
-    ((x >> 8) & 0xFF00) | (x >> 24);
+  x = (x << 24) | ((x & 0xFF00) << 8) | ((x >> 8) & 0xFF00) | (x >> 24);
   return x;
 }
 
@@ -39,33 +38,29 @@ uint32_t ntz(uint32_t x) {
 // n must be power of 2
 // 1 for dft, -1 for idft
 // idft must divide n after use
-void fft(int sign, cplx * data, int n) {
+void fft(int sign, cplx *data, int n) {
   int d = 1 + ntz(n);
   double theta = sign * 2.0 * M_PI / n;
-  for (int m = n;m >>= 2;m >>= 1, theta *= 2) {
+  for (int m = n; m >>= 2; m >>= 1, theta *= 2) {
     cplx tri = cplx(cos(theta), sin(theta));
     cplx w = cplx(1, 0);
 
-    for (int i = 0, mh = m >> 1;i < mh;i++) {
-      for (int j = i;j < n;j += m) {
+    for (int i = 0, mh = m >> 1; i < mh; i++) {
+      for (int j = i; j < n; j += m) {
         int k = j + mh;
-        cplx tmp = data[j]-data[k];
+        cplx tmp = data[j] - data[k];
 
         data[j] += data[k];
         data[k] = w * tmp;
       }
       w *= tri;
-
     }
   }
-  for (int i = 0;i < n;i++) {
+  for (int i = 0; i < n; i++) {
     int j = rev(i) >> d;
     if (j < i)
       swap(data[i], data[j]);
   }
 }
 
-
-int main() {
-
-    }
+int main() {}

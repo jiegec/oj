@@ -4,20 +4,20 @@
 int main() {
   int t;
   scanf("%d", &t);
-  while(t--) {
+  while (t--) {
     int a, b, c, d;
     scanf("%d%d%d%d", &a, &b, &c, &d);
     int res = 0;
     if (b > a) {
-      res ++;
+      res++;
     }
     if (c > a) {
-      res ++;
+      res++;
     }
     if (d > a) {
-      res ++;
+      res++;
     }
     printf("%d\n", res);
   }
-	return 0;
+  return 0;
 }

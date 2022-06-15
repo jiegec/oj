@@ -1,43 +1,36 @@
-#include <stdio.h>
 #include <map>
+#include <stdio.h>
 
 long long d[50240];
 long long memo[50240];
 
-long long read()
-{
-  long long data=0,w=1;
-  char ch=0;
-  while(ch!='-' && (ch<'0' || ch>'9'))
-  {
-    ch=getchar();
+long long read() {
+  long long data = 0, w = 1;
+  char ch = 0;
+  while (ch != '-' && (ch < '0' || ch > '9')) {
+    ch = getchar();
   }
-  if(ch=='-')
-  {
-    w=-1;
-    ch=getchar();
+  if (ch == '-') {
+    w = -1;
+    ch = getchar();
   }
-  while(ch>='0' && ch<='9')
-  {
-    data=data*10+ch-'0';
-    ch=getchar();
+  while (ch >= '0' && ch <= '9') {
+    data = data * 10 + ch - '0';
+    ch = getchar();
   }
-  data*=w;
+  data *= w;
   return data;
 }
 
-void write(long long x)
-{
-  if(x<0)
-  {
+void write(long long x) {
+  if (x < 0) {
     putchar('-');
-    x=-x;
+    x = -x;
   }
-  if(x>9)
-  {
-    write(x/10);
+  if (x > 9) {
+    write(x / 10);
   }
-  putchar((int)(x%10+'0'));
+  putchar((int)(x % 10 + '0'));
 }
 
 int main() {

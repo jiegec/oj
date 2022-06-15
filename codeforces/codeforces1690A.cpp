@@ -4,7 +4,7 @@
 int main() {
   int t;
   scanf("%d", &t);
-  while(t--) {
+  while (t--) {
     int n;
     scanf("%d", &n);
     if (n % 3 == 0) {
@@ -15,5 +15,5 @@ int main() {
       printf("%d %d %d\n", n / 3 + 1, n / 3 + 2, n / 3 - 1);
     }
   }
-	return 0;
+  return 0;
 }

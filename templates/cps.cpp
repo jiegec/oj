@@ -15,7 +15,7 @@ int work(int a, int b, int c, int d) {
   goto f1;
 
 f1 : {
-  auto[f2, x, k] = *f1_arg;
+  auto [f2, x, k] = *f1_arg;
   auto k11 = std::get<0>(k);
 
   k1_arg = {k, 2 * x + 1};
@@ -23,14 +23,14 @@ f1 : {
   goto *k11;
 }
 k1 : {
-  auto[k2, i] = *k1_arg;
+  auto [k2, i] = *k1_arg;
 
   f1_arg = {{&&f1}, {std::get<1>(k2) + std::get<2>(k2)}, {&&k2, i, 0}};
   goto f1;
 }
 
 k2 : {
-  auto[k22, j] = *k2_arg;
+  auto [k22, j] = *k2_arg;
   return std::get<1>(k22) * j;
 }
 }

@@ -5,7 +5,7 @@
 
 int compute(int first_turn, std::vector<int> cards[2]) {
   int max = cards[first_turn][cards[first_turn].size() - 1];
-  int other_max = cards[1 - first_turn][cards[1 -first_turn].size() - 1];
+  int other_max = cards[1 - first_turn][cards[1 - first_turn].size() - 1];
   if (max >= other_max) {
     return first_turn;
   } else {

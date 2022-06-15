@@ -3,9 +3,9 @@
 
 int main() {
   float temp, sum = 0.0;
-  for (int i = 0;i < 12;i++) {
-    scanf("%f",&temp);
+  for (int i = 0; i < 12; i++) {
+    scanf("%f", &temp);
     sum += temp;
   }
-  printf("$%.2f\n",sum/12);
+  printf("$%.2f\n", sum / 12);
 }

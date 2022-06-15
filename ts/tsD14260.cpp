@@ -12,10 +12,10 @@ void dfs(int depth, int sum) {
       ans = sum;
     }
   } else {
-    for (int i = 0;i < 8;i++) {
+    for (int i = 0; i < 8; i++) {
       if (!vis[i]) {
         int j;
-        for (j = 0;j < depth;j++) {
+        for (j = 0; j < depth; j++) {
           if (i - num[j] == depth - j || i - num[j] == j - depth) {
             break;
           }
@@ -32,9 +32,9 @@ void dfs(int depth, int sum) {
 }
 
 int main() {
-  for (int i = 0;i < 8;i++) {
-    for (int j = 0;j < 8;j++) {
-      scanf("%d",&map[i][j]);
+  for (int i = 0; i < 8; i++) {
+    for (int j = 0; j < 8; j++) {
+      scanf("%d", &map[i][j]);
     }
   }
   dfs(0, 0);

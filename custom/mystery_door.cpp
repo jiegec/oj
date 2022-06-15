@@ -1,6 +1,5 @@
-#include <stdio.h>
 #include <memory.h>
-
+#include <stdio.h>
 
 const int MOD = 998244353;
 const int MAX = 100024;
@@ -14,7 +13,8 @@ void sievePHI() {
     if (phi[i] == 0) {
       phi[i] = i - 1;
       for (j = i * 2; j <= MAX; j += i) {
-        if (phi[j] == 0)phi[j] = j;
+        if (phi[j] == 0)
+          phi[j] = j;
         phi[j] /= i;
         phi[j] *= (i - 1);
       }
@@ -42,5 +42,5 @@ int main() {
       result %= MOD;
     }
   }
-  printf("%d\n", (int) result);
+  printf("%d\n", (int)result);
 }

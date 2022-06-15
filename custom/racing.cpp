@@ -7,14 +7,12 @@ using namespace std;
 
 long long N, M, T, A, V_MAX;
 struct rst {
-    int time;
-    int l;
-    int r;
+  int time;
+  int l;
+  int r;
 } R[200010];
 
-bool cmp(const struct rst &a, const struct rst &b) {
-  return a.time < b.time;
-}
+bool cmp(const struct rst &a, const struct rst &b) { return a.time < b.time; }
 
 int main() {
   int K;

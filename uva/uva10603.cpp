@@ -1,7 +1,7 @@
 // https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=10603
+#include <queue>
 #include <stdio.h>
 #include <string.h>
-#include <queue>
 
 using namespace std;
 
@@ -12,9 +12,7 @@ struct state {
   int sum;
 };
 
-bool operator <(state a,state b) {
-  return a.sum > b.sum;
-}
+bool operator<(state a, state b) { return a.sum > b.sum; }
 
 const int MAX = 0xfffffff;
 
@@ -22,15 +20,15 @@ int minsum[210][210][210];
 int mind[210];
 
 int main() {
-  int t,a,b,c,d;
-  scanf("%d",&t);
-  while(t--) {
-    scanf("%d%d%d%d",&a,&b,&c,&d);
-    for (int i = 0;i <= a+1;i++)
-      for (int j = 0;j <= b+1;j++)
-        for (int k = 0;k <= c+1;k++)
+  int t, a, b, c, d;
+  scanf("%d", &t);
+  while (t--) {
+    scanf("%d%d%d%d", &a, &b, &c, &d);
+    for (int i = 0; i <= a + 1; i++)
+      for (int j = 0; j <= b + 1; j++)
+        for (int k = 0; k <= c + 1; k++)
           minsum[i][j][k] = MAX;
-    for (int i = 0;i < 201;i++)
+    for (int i = 0; i < 201; i++)
       mind[i] = MAX;
     state start;
     start.x = start.y = 0;
@@ -44,14 +42,14 @@ int main() {
     while (!pq.empty()) {
       state current = pq.front();
       pq.pop();
-      mind[current.x] = min(mind[current.x],current.sum);
-      mind[current.y] = min(mind[current.y],current.sum);
-      mind[current.z] = min(mind[current.z],current.sum);
+      mind[current.x] = min(mind[current.x], current.sum);
+      mind[current.y] = min(mind[current.y], current.sum);
+      mind[current.z] = min(mind[current.z], current.sum);
       if (current.sum > mind[d]) {
         continue;
       }
 
-      int xtoy = min(current.x,b-current.y);
+      int xtoy = min(current.x, b - current.y);
       if (xtoy > 0) {
         state temp = current;
         temp.x -= xtoy;
@@ -63,7 +61,7 @@ int main() {
         }
       }
 
-      int ytoz = min(current.y,c-current.z);
+      int ytoz = min(current.y, c - current.z);
       if (ytoz > 0) {
         state temp = current;
         temp.y -= ytoz;
@@ -75,7 +73,7 @@ int main() {
         }
       }
 
-      int ztox = min(current.z,a-current.x);
+      int ztox = min(current.z, a - current.x);
       if (ztox > 0) {
         state temp = current;
         temp.z -= ztox;
@@ -87,7 +85,7 @@ int main() {
         }
       }
 
-      int xtoz = min(current.x,c-current.z);
+      int xtoz = min(current.x, c - current.z);
       if (xtoz > 0) {
         state temp = current;
         temp.x -= xtoz;
@@ -99,7 +97,7 @@ int main() {
         }
       }
 
-      int ytox = min(current.y,a-current.x);
+      int ytox = min(current.y, a - current.x);
       if (ytox > 0) {
         state temp = current;
         temp.y -= ytox;
@@ -111,7 +109,7 @@ int main() {
         }
       }
 
-      int ztoy = min(current.z,b-current.y);
+      int ztoy = min(current.z, b - current.y);
       if (ztoy > 0) {
         state temp = current;
         temp.z -= ztoy;
@@ -123,7 +121,7 @@ int main() {
         }
       }
     }
-    for (int i = d;i >= 0;i--) {
+    for (int i = d; i >= 0; i--) {
       if (mind[i] != MAX) {
         printf("%d %d\n", mind[i], i);
         break;

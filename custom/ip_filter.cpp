@@ -5,16 +5,16 @@
 int main() {
   int ip_begin[4], ip_end[4];
   char filter[100];
-  scanf("%s",filter);
+  scanf("%s", filter);
   // parse filter
   char *token = strtok(filter, ".");
   int i = 0;
-  while(token) {
+  while (token) {
     char *delim;
     if ((delim = strchr(token, '-')) != NULL) {
       // range
       ip_begin[i] = atoi(token);
-      ip_end[i] = atoi(delim+1);
+      ip_end[i] = atoi(delim + 1);
     } else if (strcmp(token, "*") == 0) {
       // asterisk
       ip_begin[i] = 0;
@@ -27,14 +27,14 @@ int main() {
     i++;
   }
   int n;
-  scanf("%d",&n);
-  for (int k = 0;k < n;k++) {
+  scanf("%d", &n);
+  for (int k = 0; k < n; k++) {
     char ip[100];
     scanf("%s", ip);
     // parse ip
     i = 0;
     token = strtok(ip, ".");
-    while(token) {
+    while (token) {
       int temp = atoi(token);
       if (temp < ip_begin[i] || temp > ip_end[i]) {
         printf("Failed\n");

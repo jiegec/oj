@@ -2,7 +2,7 @@
 #include <type_traits>
 
 // helper methods
-template<typename T, typename U = typename std::make_unsigned<T>::type>
+template <typename T, typename U = typename std::make_unsigned<T>::type>
 U powMod(U a, U b, U mod) {
   U ans = 1;
   a %= mod;
@@ -47,25 +47,21 @@ int modInv(int a, int mod) {
 }
 
 // require mod to be prime
-template<typename T>
-T modInv2(T a, T mod) {
+template <typename T> T modInv2(T a, T mod) {
   return powMod<T>(a, (mod - 2), mod);
 }
 
-template<int N, int MOD>
-struct modInv3 {
-    int inv[N]{};
+template <int N, int MOD> struct modInv3 {
+  int inv[N]{};
 
-    modInv3() {
-      inv[1] = 1;
-      for (int i = 2; i < N; i++) {
-        inv[i] = inv[MOD % i] * (MOD - MOD / i) % MOD;
-      }
+  modInv3() {
+    inv[1] = 1;
+    for (int i = 2; i < N; i++) {
+      inv[i] = inv[MOD % i] * (MOD - MOD / i) % MOD;
     }
+  }
 
-    int operator[](size_t pos) {
-      return inv[pos];
-    }
+  int operator[](size_t pos) { return inv[pos]; }
 };
 
 int main() {

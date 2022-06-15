@@ -1,6 +1,6 @@
 // https://codeforces.com/contest/1690/problem/D
-#include <stdio.h>
 #include <algorithm>
+#include <stdio.h>
 
 char str[204800];
 

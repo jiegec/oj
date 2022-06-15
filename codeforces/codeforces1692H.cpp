@@ -12,7 +12,7 @@ int main() {
   while (t--) {
     int n;
     scanf("%d", &n);
-    std::map<int, std::vector<int> > index;
+    std::map<int, std::vector<int>> index;
     for (int i = 0; i < n; i++) {
       scanf("%d", &x[i]);
       index[x[i]].push_back(i);

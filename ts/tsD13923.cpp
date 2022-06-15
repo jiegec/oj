@@ -1,20 +1,18 @@
 // http://oj.tsinsen.com/D13923
-#include <vector>
-#include <utility>
 #include <algorithm>
 #include <stdio.h>
+#include <utility>
+#include <vector>
 
 using namespace std;
 
-bool cmp(pair<int, int> a, pair<int, int> b) {
-  return a.first < b.first;
-}
+bool cmp(pair<int, int> a, pair<int, int> b) { return a.first < b.first; }
 
 int main() {
   int n;
-  scanf("%d",&n);
-  vector< pair<int, int> > vec;
-  for (int i = 0;i < n;i++)  {
+  scanf("%d", &n);
+  vector<pair<int, int>> vec;
+  for (int i = 0; i < n; i++) {
     int l, r;
     scanf("%d%d", &l, &r);
     vec.push_back(pair<int, int>(l, r));
@@ -23,7 +21,7 @@ int main() {
   int size = vec.size();
   int length = 0;
   int las_end = -1;
-  for (int i = 0;i < size;i++) {
+  for (int i = 0; i < size; i++) {
     pair<int, int> cur = vec[i];
     if (cur.first <= las_end) {
       if (cur.second > las_end) {

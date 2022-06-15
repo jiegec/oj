@@ -1,9 +1,9 @@
 // http://oj.tsinsen.com/D14013
 #include <algorithm>
+#include <cstdio>
 #include <iostream>
 #include <numeric>
 #include <vector>
-#include <cstdio>
 
 using namespace std;
 
@@ -31,10 +31,7 @@ int main() {
                    std::inserter(i, i.begin()));
   set_difference(a.begin(), a.end(), b.begin(), b.end(),
                  std::inserter(d, d.begin()));
-  cout << std::accumulate(i.begin(), i.end(), std::string(), cat)
-       << endl;
-  cout << std::accumulate(u.begin(), u.end(), std::string(), cat)
-       << endl;
-  cout << std::accumulate(d.begin(), d.end(), std::string(), cat)
-       << endl;
+  cout << std::accumulate(i.begin(), i.end(), std::string(), cat) << endl;
+  cout << std::accumulate(u.begin(), u.end(), std::string(), cat) << endl;
+  cout << std::accumulate(d.begin(), d.end(), std::string(), cat) << endl;
 }

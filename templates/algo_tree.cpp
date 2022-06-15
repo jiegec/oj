@@ -4,16 +4,15 @@ struct TreeNode {
   TreeNode *left, *right;
 };
 
-template<typename Callable>
-void morrisTraversal(TreeNode *root, Callable f) {
+template <typename Callable> void morrisTraversal(TreeNode *root, Callable f) {
   TreeNode *cur = root, *pred = NULL;
-  while(cur != NULL) {
+  while (cur != NULL) {
     if (cur->left == NULL) {
       f(cur);
       cur = cur->right;
     } else {
       pred = cur->left;
-      while(pred->right != NULL && pred->right != cur)
+      while (pred->right != NULL && pred->right != cur)
         pred = pred->right;
 
       if (pred->right == NULL) {
@@ -28,6 +27,4 @@ void morrisTraversal(TreeNode *root, Callable f) {
   }
 }
 
-int main() {
-
-}
+int main() {}

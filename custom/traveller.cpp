@@ -5,58 +5,57 @@ long bound;
 bool flag;
 long m, n;
 
-long rot[][2] = {{0,  1},
-                 {0,  -1},
-                 {1,  0},
-                 {-1, 0}};
+long rot[][2] = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
 
-inline long max(long a, long b) {
-  return a>b?a:b;
-}
+inline long max(long a, long b) { return a > b ? a : b; }
 
-inline long min(long a, long b) {
-  return a<b?a:b;
-}
+inline long min(long a, long b) { return a < b ? a : b; }
 
-struct D{
-    long a[51][51];
-    bool vis[51][51];
-    long cur;
-    long x, y;
-    long step;
-    long sum[51][51];
-    long dp[51][51];
-}s;
+struct D {
+  long a[51][51];
+  bool vis[51][51];
+  long cur;
+  long x, y;
+  long step;
+  long sum[51][51];
+  long dp[51][51];
+} s;
 
 void rotate(long dir) {
   s.x += rot[dir][0];
   s.y += rot[dir][1];
 }
 
-#define inc(dir,rev) {s.cur+=s.a[s.x][s.y],s.vis[s.x][s.y]=true;dfs1();s.cur-=s.a[s.x][s.y],s.vis[s.x][s.y]=false,rotate(rev);}
+#define inc(dir, rev)                                                          \
+  {                                                                            \
+    s.cur += s.a[s.x][s.y], s.vis[s.x][s.y] = true;                            \
+    dfs1();                                                                    \
+    s.cur -= s.a[s.x][s.y], s.vis[s.x][s.y] = false, rotate(rev);              \
+  }
 
 long maxs = 0;
 
-void dfs1(){
+void dfs1() {
   for (long i = 0; i < 2; i++) {
     long dir = i << 1;
     rotate(dir);
-    if (s.x == m-1 && s.y == n-1) {
+    if (s.x == m - 1 && s.y == n - 1) {
       maxs = max(maxs, s.cur);
-      rotate(dir^1);
-      return ;
-    } else if (s.x < 0 || s.y < 0 || s.x >= m || s.y >= n || s.vis[s.x][s.y] || s.x == s.y) {
-      rotate(dir^1);
+      rotate(dir ^ 1);
+      return;
+    } else if (s.x < 0 || s.y < 0 || s.x >= m || s.y >= n || s.vis[s.x][s.y] ||
+               s.x == s.y) {
+      rotate(dir ^ 1);
       continue;
     }
-    inc(dir, dir^1);
+    inc(dir, dir ^ 1);
   }
 }
 
-long DP[51][51][51];// DP[i][j][k]: 第i行 第1条路径从j下来，第2条路径从k下来
+long DP[51][51][51]; // DP[i][j][k]: 第i行 第1条路径从j下来，第2条路径从k下来
 int main() {
   scanf("%ld%ld", &m, &n);
-  flag=false;
+  flag = false;
   for (long i = 0; i < m; i++) {
     for (long j = 0; j < n; j++) {
       scanf("%ld", &s.a[i][j]);
@@ -64,7 +63,7 @@ int main() {
       s.dp[i][j] = 0;
       s.sum[i][j] = s.a[i][j];
       if (j > 0) {
-        s.sum[i][j] += s.sum[i][j-1];
+        s.sum[i][j] += s.sum[i][j - 1];
       }
     }
   }
@@ -75,14 +74,14 @@ int main() {
           s.dp[i][j] = s.a[i][j];
           long tmp = s.dp[i - 1][j];
           if (j > 0) {
-            tmp = max(tmp, s.dp[i][j-1]);
+            tmp = max(tmp, s.dp[i][j - 1]);
           }
           s.dp[i][j] += tmp;
         } else if (i < j) {
           s.dp[i][j] = s.a[i][j];
           long tmp = s.dp[i][j - 1];
           if (i > 0) {
-            tmp = max(tmp, s.dp[i-1][j]);
+            tmp = max(tmp, s.dp[i - 1][j]);
           }
           s.dp[i][j] += tmp;
         }

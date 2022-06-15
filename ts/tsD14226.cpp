@@ -9,7 +9,7 @@ struct item {
   int index;
 } items[1024];
 int s, n = 0;
-int chosen[1024], top=0;
+int chosen[1024], top = 0;
 
 bool operator<(const item &lhs, const item &rhs) {
   if (lhs.b != rhs.b)
@@ -44,7 +44,7 @@ int main() {
   if (top == 0) {
     printf("0\n");
   } else {
-    std::sort(chosen, chosen+top);
+    std::sort(chosen, chosen + top);
     printf("%d", chosen[0]);
     for (int i = 1; i < top; i++) {
       printf(" %d", chosen[i]);

@@ -16,8 +16,9 @@ int main() {
   auto state = "start"s;
   while (state != "halt"s) {
     for (int i = 0; i < 3; i++) {
-      printf("%s off:%d %s\n",data.data(),offset,state.data());
-      if (state == std::get<0>(table[i]) && data[offset] == std::get<1>(table[i])) {
+      printf("%s off:%d %s\n", data.data(), offset, state.data());
+      if (state == std::get<0>(table[i]) &&
+          data[offset] == std::get<1>(table[i])) {
         data[offset] = std::get<2>(table[i]);
         offset += std::get<3>(table[i]);
         state = std::get<4>(table[i]);

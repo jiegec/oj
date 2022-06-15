@@ -2,40 +2,27 @@
 #include <stdlib.h>
 
 int interpreter(int *sp, int *ip) {
-  static const void *jump_table[] = {
-    &&init,
-    &&push,
-    &&add,
-    &&ret
-  };
+  static const void *jump_table[] = {&&init, &&push, &&add, &&ret};
 
-
- init:
+init:
   goto *jump_table[*ip++];
- push:
+push:
   *sp++ = *ip++;
   goto *jump_table[*ip++];
- add:
-  {
-    int add_1 = *--sp, add_2 = *--sp;
-    *sp++ = add_1 + add_2;
-  }
+add : {
+  int add_1 = *--sp, add_2 = *--sp;
+  *sp++ = add_1 + add_2;
+}
   goto *jump_table[*ip++];
- ret:
+ret:
   return *--sp;
 }
 
-
 int main() {
-  int byte_code[] = {
-    1, 1,
-    1, 2,
-    2,
-    3
-  };
-  int *stack = (int*)malloc(sizeof(int)*16);
+  int byte_code[] = {1, 1, 1, 2, 2, 3};
+  int *stack = (int *)malloc(sizeof(int) * 16);
   scanf("%d%d", &byte_code[1], &byte_code[3]);
-  int result = interpreter(stack, (int*)byte_code);
+  int result = interpreter(stack, (int *)byte_code);
 
   printf("%d\n", result);
   return 0;

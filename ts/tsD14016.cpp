@@ -9,15 +9,15 @@ int hh(int h) {
   } else if (h == 3) {
     return 4;
   }
-  return hh(h-1)+hh(h-2)+hh(h-3);
+  return hh(h - 1) + hh(h - 2) + hh(h - 3);
 }
 
 int main() {
   int h;
-  scanf("%d",&h);
+  scanf("%d", &h);
   if (h < 4 || h > 20) {
     printf("0\n");
   } else {
-    printf("%d\n",hh(h));
+    printf("%d\n", hh(h));
   }
 }

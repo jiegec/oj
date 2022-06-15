@@ -4,10 +4,10 @@
 int main() {
   char buffer[1024];
   int len, i;
-  while(scanf("%s", buffer) != EOF) {
+  while (scanf("%s", buffer) != EOF) {
     len = strlen(buffer);
-    for (i = 0;i < len;i++) {
-      if (buffer[i] != buffer[len-i-1]) {
+    for (i = 0; i < len; i++) {
+      if (buffer[i] != buffer[len - i - 1]) {
         printf("n\n");
         break;
       }

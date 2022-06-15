@@ -1,15 +1,15 @@
 // https://codeforces.com/contest/1692/problem/B
-#include <stdio.h>
 #include <algorithm>
+#include <stdio.h>
 
 int main() {
   int t;
   scanf("%d", &t);
-  while(t--) {
+  while (t--) {
     int nums[100];
     int n;
     scanf("%d", &n);
-    for (int i = 0;i < n;i++) {
+    for (int i = 0; i < n; i++) {
       scanf("%d", &nums[i]);
     }
 
@@ -19,10 +19,10 @@ int main() {
 
     int ans = count;
     if ((n - count) % 2) {
-      ans --;
+      ans--;
     }
 
     printf("%d\n", ans);
   }
-	return 0;
+  return 0;
 }
