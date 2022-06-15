@@ -1,4 +1,4 @@
-// https://codeforces.com/contest1690/problem/F
+// https://codeforces.com/contest/1690/problem/F
 #include <stdio.h>
 #include <vector>
 

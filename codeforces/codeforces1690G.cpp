@@ -1,4 +1,4 @@
-// https://codeforces.com/contest1690/problem/G
+// https://codeforces.com/contest/1690/problem/G
 #include <set>
 #include <stdio.h>
 #include <vector>

@@ -1,4 +1,4 @@
-// https://codeforces.com/contest1690/problem/E
+// https://codeforces.com/contest/1690/problem/E
 #include <stdio.h>
 #include <vector>
 #include <algorithm>

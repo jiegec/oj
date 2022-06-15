@@ -14,7 +14,7 @@ oj = {'rqnoj': 'http://www.rqnoj.cn/problem/',
       'uva': 'https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=',
       'ts': 'http://oj.tsinsen.com/',
       'loj': 'https://loj.ac/problem/',
-      'codeforces': 'https://codeforces.com/contest'}
+      'codeforces': 'https://codeforces.com/contest/'}
 for k, v in oj.items():
   with open('%s/CMakeLists.txt' % k, 'w') as f:
     f.write('cmake_minimum_required(VERSION 3.3)\nproject(%s)\n\n' % k)
