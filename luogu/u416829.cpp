@@ -15,77 +15,160 @@ struct Node {
   // data + reverse(reversed[0]) + reverse(reversed[1]) + ...
   std::list<Entry> data;
   std::deque<Node *> reversed;
+  // count of numbers in whole
+  uint64_t count;
+  // sum of numbers in whole
+  uint64_t sum;
 
-  bool top(struct Entry **entry) {
-  try_again:
+  Node() { count = sum = 0; }
+
+  void validate() const {
+    uint64_t temp_count = 0;
+    uint64_t temp_sum = 0;
+    for (auto entry : data) {
+      temp_count += entry.count;
+      temp_sum += entry.count * entry.value;
+    }
+    for (auto node : reversed) {
+      temp_count += node->count;
+      temp_sum += node->sum;
+      node->validate();
+    }
+    assert(temp_count == count);
+    assert(temp_sum == sum);
+  }
+
+  void push(struct Entry &entry) {
     if (reversed.empty()) {
-      // no reversed, get data.back
-      if (data.empty()) {
-        return false; // no data
-      }
-      *entry = &data.back();
-      return true;
+      data.push_back(entry);
+      count += entry.count;
+      sum += entry.count * entry.value;
     } else {
-      // some reversed
-      if (!reversed.back()->data.empty()) {
-        // last reversed has data, pop from front
-        assert(!reversed.back()->data.empty());
-        *entry = &reversed.back()->data.front();
-        return true;
-      } else if (reversed.back()->reversed.empty()) {
-        // last reversed has no data, and it has no reversed
-        // drop it
-        reversed.pop_back();
-        goto try_again;
-      } else {
-        // last reversed has no data, but it has reversed
-        // it is in normal order now, pop its last
-        bool good = reversed.back()->reversed.front()->top(entry);
-        if (good) {
-          return true;
-        } else {
-          // no data
-          reversed.back()->reversed.pop_front();
-        }
-        goto try_again;
-      }
+      reversed.back()->data.push_front(entry);
+      reversed.back()->count += entry.count;
+      reversed.back()->sum += entry.count * entry.value;
+      count += entry.count;
+      sum += entry.count * entry.value;
     }
   }
 
-  bool pop() {
-  try_again:
-    if (reversed.empty()) {
-      // no reversed, pop from data.back
-      if (data.empty()) {
-        return false; // cannot pop
-      }
-      data.pop_back();
-      return true;
-    } else {
-      // some reversed
-      if (!reversed.back()->data.empty()) {
-        // last reversed has data, pop from front
-        assert(!reversed.back()->data.empty());
-        reversed.back()->data.pop_front();
-        return true;
-      } else if (reversed.back()->reversed.empty()) {
-        // last reversed has no data, and it has no reversed
-        // drop it
-        reversed.pop_back();
-        goto try_again;
-      } else {
-        // last reversed has no data, but it has reversed
-        // it is in normal order now, pop its last
-        bool good = reversed.back()->reversed.front()->pop();
-        if (good) {
-          return true;
-        } else {
-          // no data
-          reversed.back()->reversed.pop_front();
+  // return pair of (count, sum) popped
+  std::pair<uint64_t, uint64_t> pop_inner(uint64_t count_to_pop) {
+    if (count_to_pop >= count) {
+      // pop everything
+      std::pair<uint64_t, uint64_t> res = std::make_pair(count, sum);
+      count = 0;
+      sum = 0;
+      data.clear();
+      reversed.clear();
+      return res;
+    }
+
+    // popped count & sum
+    uint64_t pop_sum = 0;
+    uint64_t pop_count = 0;
+    while (count_to_pop > 0) {
+      if (reversed.empty()) {
+        // no reversed, pop from data.back
+        while (count_to_pop > 0) {
+          assert(!data.empty());
+          if (count_to_pop > data.back().count) {
+            count_to_pop -= data.back().count;
+            pop_count += data.back().count;
+            pop_sum += data.back().count * data.back().value;
+            data.pop_back();
+          } else {
+            pop_count += count_to_pop;
+            pop_sum += count_to_pop * data.back().value;
+            data.back().count -= count_to_pop;
+            count_to_pop = 0;
+            if (data.back().count == 0) {
+              data.pop_back();
+            }
+            break;
+          }
         }
-        goto try_again;
+        assert(count_to_pop == 0);
+        break;
+      } else {
+        // some reversed
+        if (reversed.back()->count <= count_to_pop) {
+          // pop as a whole
+          count_to_pop -= reversed.back()->count;
+          pop_count += reversed.back()->count;
+          pop_sum += reversed.back()->sum;
+          reversed.pop_back();
+          continue;
+        }
+
+        if (!reversed.back()->data.empty()) {
+          // last reversed has data, pop from front
+          while (count_to_pop > 0 && !reversed.back()->data.empty()) {
+            if (count_to_pop > reversed.back()->data.front().count) {
+              uint64_t count = reversed.back()->data.front().count;
+              uint64_t sum = count * reversed.back()->data.front().value;
+              count_to_pop -= count;
+              pop_count += count;
+              pop_sum += sum;
+              reversed.back()->data.pop_front();
+              // maintain
+              reversed.back()->count -= count;
+              reversed.back()->sum -= sum;
+            } else {
+              uint64_t count = count_to_pop;
+              uint64_t sum = count * reversed.back()->data.front().value;
+
+              count_to_pop -= count;
+              pop_count += count;
+              pop_sum += sum;
+              reversed.back()->data.front().count -= count;
+              if (reversed.back()->data.front().count == 0) {
+                reversed.back()->data.pop_front();
+              }
+
+              // maintain
+              reversed.back()->count -= count;
+              reversed.back()->sum -= sum;
+
+              break;
+            }
+          }
+          continue;
+        } else if (reversed.back()->reversed.empty()) {
+          // last reversed has no data, and it has no reversed
+          // drop it
+          reversed.pop_back();
+          continue;
+        } else {
+          // last reversed has no data, but it has reversed
+          // it is in normal order now, pop its last
+          // recurse
+          std::pair<uint64_t, uint64_t> res =
+              reversed.back()->reversed.front()->pop_inner(count_to_pop);
+          // maintain
+          reversed.back()->count -= res.first;
+          reversed.back()->sum -= res.second;
+          count_to_pop -= res.first;
+          pop_count += res.first;
+          pop_sum += res.second;
+          if (reversed.back()->reversed.front()->count == 0) {
+            // no data
+            reversed.back()->reversed.pop_front();
+          }
+          continue;
+        }
       }
     }
+
+    count -= pop_count;
+    sum -= pop_sum;
+    return std::make_pair(pop_count, pop_sum);
+  }
+
+  uint64_t pop(uint64_t count) {
+    std::pair<uint64_t, uint64_t> res = pop_inner(count);
+    assert(res.first == count);
+    return res.second;
   }
 };
 
@@ -93,24 +176,14 @@ struct MyStack {
   Node *root;
   MyStack() { root = new Node; }
 
-  void push(struct Entry &entry) {
-    if (root->reversed.empty()) {
-      root->data.push_back(entry);
-    } else {
-      root->reversed.back()->data.push_front(entry);
-    }
-  }
+  void push(struct Entry &entry) { root->push(entry); }
 
-  void pop() { assert(root->pop()); }
-
-  struct Entry *top() {
-    struct Entry *ret;
-    assert(root->top(&ret));
-    return ret;
-  }
+  uint64_t pop(uint64_t count) { return root->pop(count); }
 
   void takeover(struct MyStack &stack) {
     root->reversed.push_back(stack.root);
+    root->sum += stack.root->sum;
+    root->count += stack.root->count;
     stack.root = new Node;
   }
 };
@@ -138,25 +211,8 @@ int main() {
     } else if (op == 2) {
       int x, c;
       scanf("%d%d", &x, &c);
-      uint64_t sum = 0;
-      while (c > 0) {
-        Entry *entry = stacks[x - 1].top();
-        if (entry->count >= c) {
-          // finish
-          entry->count -= c;
-          sums[x - 1] -= c * entry->value;
-          sum += c * entry->value;
-          if (entry->count == 0) {
-            stacks[x - 1].pop();
-          }
-          break;
-        } else {
-          sums[x - 1] -= entry->count * entry->value;
-          sum += entry->count * entry->value;
-          c -= entry->count;
-          stacks[x - 1].pop();
-        }
-      }
+      uint64_t sum = stacks[x - 1].pop(c);
+      sums[x - 1] -= sum;
       printf("%ld\n", sum);
     } else if (op == 3) {
       int x, y;
@@ -169,6 +225,8 @@ int main() {
       sums[y - 1] += sums[x - 1];
       sums[x - 1] = 0;
       printf("%ld\n", sums[y - 1]);
+    } else {
+      assert(false);
     }
   }
   return 0;
