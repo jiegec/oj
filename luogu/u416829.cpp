@@ -14,7 +14,7 @@ struct Entry {
 struct Node {
   // data + reverse(reversed[0]) + reverse(reversed[1]) + ...
   std::list<Entry> data;
-  std::deque<Node *> reversed;
+  std::list<Node *> reversed;
   // count of numbers in whole
   uint64_t count;
   // sum of numbers in whole
